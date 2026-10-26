@@ -1,0 +1,862 @@
+{
+ "hay_datos": true,
+ "ultima_ejecucion": {
+  "lote_id": "L20261026-011336-586b",
+  "estado": "COMPLETADO",
+  "inicio": "2026-10-26T01:13:36",
+  "fin": "2026-10-26T01:13:36",
+  "filas_entrada": 1220,
+  "filas_limpias": 1104,
+  "filas_cuarentena": 116,
+  "tasa_aceptacion": 0.9049,
+  "duracion_s": 0.391,
+  "etapa_fallida": null,
+  "error": null,
+  "tiene_bitacora": true,
+  "advertencias": []
+ },
+ "totales": {
+  "entrada": 1220,
+  "limpias": 1104,
+  "cuarentena": 116,
+  "tasa_aceptacion": 0.9049,
+  "cuadra": true
+ },
+ "salud": {
+  "nombre": "Salud de origen KOVA",
+  "es_indicador_compuesto": true,
+  "valor": 0.7205,
+  "formula": "registros que llegaron sin reparación de valor y sin rechazo ÷ registros de entrada",
+  "detalle": "Reparación de valor = imputación de faltantes (IMPUTADO_*) o recálculo de importes (MONTO_RECALCULADO_*). La conversión USD→MXN, la normalización de fechas y el capping estadístico NO cuentan como reparación (son normalizaciones o tratamientos que conservan el original). Es un indicador propio de KOVA; las métricas oficiales son la entrada, las limpias, la cuarentena y la tasa de aceptación.",
+  "conformes": 879,
+  "reparados": 225,
+  "rechazados": 116,
+  "entrada": 1220
+ },
+ "canales": [
+  {
+   "origen": "FISICA",
+   "limpias": 562,
+   "cuarentena": 58,
+   "importe_mxn": 2888516.14,
+   "entrada": 620,
+   "tasa_aceptacion": 0.9065
+  },
+  {
+   "origen": "ONLINE",
+   "limpias": 542,
+   "cuarentena": 58,
+   "importe_mxn": 1696695.51,
+   "entrada": 600,
+   "tasa_aceptacion": 0.9033
+  }
+ ],
+ "segmentos": [
+  {
+   "origen": "FISICA",
+   "segmento": "Alto",
+   "n": 262,
+   "importe_mxn": 2226334.5
+  },
+  {
+   "origen": "FISICA",
+   "segmento": "Bajo",
+   "n": 144,
+   "importe_mxn": 183731.39
+  },
+  {
+   "origen": "FISICA",
+   "segmento": "Medio",
+   "n": 156,
+   "importe_mxn": 478450.25
+  },
+  {
+   "origen": "ONLINE",
+   "segmento": "Alto",
+   "n": 110,
+   "importe_mxn": 786274.3
+  },
+  {
+   "origen": "ONLINE",
+   "segmento": "Bajo",
+   "n": 226,
+   "importe_mxn": 268015.87
+  },
+  {
+   "origen": "ONLINE",
+   "segmento": "Medio",
+   "n": 206,
+   "importe_mxn": 642405.34
+  }
+ ],
+ "motivos": {
+  "por_codigo": [
+   {
+    "codigo": "PRODUCTO_HUERFANO",
+    "registros": 62,
+    "descripcion": "El producto no existe en el catálogo maestro (R9)."
+   },
+   {
+    "codigo": "EMAIL_MALFORMADO",
+    "registros": 28,
+    "descripcion": "El correo no cumple el formato válido (R10.2). No se puede reparar sin inventar datos."
+   },
+   {
+    "codigo": "DUPLICADO_EXACTO",
+    "registros": 20,
+    "descripcion": "Repite exactamente una fila anterior del mismo archivo; la primera se conserva (R2.3)."
+   },
+   {
+    "codigo": "CANTIDAD_INVALIDA",
+    "registros": 11,
+    "descripcion": "La cantidad no es un entero mayor que 0 (R4)."
+   },
+   {
+    "codigo": "MONTO_INVALIDO",
+    "registros": 11,
+    "descripcion": "El monto en MXN no es mayor que 0."
+   }
+  ],
+  "combinaciones": [
+   {
+    "codigos": [
+     "PRODUCTO_HUERFANO"
+    ],
+    "registros": 57
+   },
+   {
+    "codigos": [
+     "EMAIL_MALFORMADO"
+    ],
+    "registros": 25
+   },
+   {
+    "codigos": [
+     "DUPLICADO_EXACTO"
+    ],
+    "registros": 19
+   },
+   {
+    "codigos": [
+     "CANTIDAD_INVALIDA",
+     "MONTO_INVALIDO"
+    ],
+    "registros": 10
+   },
+   {
+    "codigos": [
+     "EMAIL_MALFORMADO",
+     "PRODUCTO_HUERFANO"
+    ],
+    "registros": 3
+   },
+   {
+    "codigos": [
+     "CANTIDAD_INVALIDA",
+     "MONTO_INVALIDO",
+     "PRODUCTO_HUERFANO"
+    ],
+    "registros": 1
+   },
+   {
+    "codigos": [
+     "DUPLICADO_EXACTO",
+     "PRODUCTO_HUERFANO"
+    ],
+    "registros": 1
+   }
+  ],
+  "por_etapa": [
+   {
+    "etapa": "FASE_PREVIA",
+    "registros": 77
+   },
+   {
+    "etapa": "PYDANTIC",
+    "registros": 35
+   },
+   {
+    "etapa": "FASE_PREVIA;PYDANTIC",
+    "registros": 4
+   }
+  ],
+  "por_canal": [
+   {
+    "origen": "FISICA",
+    "registros": 58
+   },
+   {
+    "origen": "ONLINE",
+    "registros": 58
+   }
+  ],
+  "total_registros": 116,
+  "con_varios_motivos": 15
+ },
+ "por_dia": [
+  {
+   "fecha": "2026-09-01",
+   "origen": "FISICA",
+   "n": 7,
+   "importe_mxn": 38161.38
+  },
+  {
+   "fecha": "2026-09-01",
+   "origen": "ONLINE",
+   "n": 9,
+   "importe_mxn": 19385.46
+  },
+  {
+   "fecha": "2026-09-02",
+   "origen": "FISICA",
+   "n": 7,
+   "importe_mxn": 42844.5
+  },
+  {
+   "fecha": "2026-09-02",
+   "origen": "ONLINE",
+   "n": 13,
+   "importe_mxn": 46669.61
+  },
+  {
+   "fecha": "2026-09-03",
+   "origen": "FISICA",
+   "n": 20,
+   "importe_mxn": 104463.78
+  },
+  {
+   "fecha": "2026-09-03",
+   "origen": "ONLINE",
+   "n": 11,
+   "importe_mxn": 30634.92
+  },
+  {
+   "fecha": "2026-09-04",
+   "origen": "FISICA",
+   "n": 10,
+   "importe_mxn": 44013.35
+  },
+  {
+   "fecha": "2026-09-04",
+   "origen": "ONLINE",
+   "n": 12,
+   "importe_mxn": 33512.73
+  },
+  {
+   "fecha": "2026-09-05",
+   "origen": "FISICA",
+   "n": 18,
+   "importe_mxn": 87785.84
+  },
+  {
+   "fecha": "2026-09-05",
+   "origen": "ONLINE",
+   "n": 14,
+   "importe_mxn": 55271.13
+  },
+  {
+   "fecha": "2026-09-06",
+   "origen": "FISICA",
+   "n": 5,
+   "importe_mxn": 40295.68
+  },
+  {
+   "fecha": "2026-09-06",
+   "origen": "ONLINE",
+   "n": 12,
+   "importe_mxn": 40112.7
+  },
+  {
+   "fecha": "2026-09-07",
+   "origen": "FISICA",
+   "n": 15,
+   "importe_mxn": 95186.44
+  },
+  {
+   "fecha": "2026-09-07",
+   "origen": "ONLINE",
+   "n": 5,
+   "importe_mxn": 8873.83
+  },
+  {
+   "fecha": "2026-09-08",
+   "origen": "FISICA",
+   "n": 13,
+   "importe_mxn": 56715.26
+  },
+  {
+   "fecha": "2026-09-08",
+   "origen": "ONLINE",
+   "n": 13,
+   "importe_mxn": 46105.02
+  },
+  {
+   "fecha": "2026-09-09",
+   "origen": "FISICA",
+   "n": 16,
+   "importe_mxn": 81691.75
+  },
+  {
+   "fecha": "2026-09-09",
+   "origen": "ONLINE",
+   "n": 13,
+   "importe_mxn": 46511.71
+  },
+  {
+   "fecha": "2026-09-10",
+   "origen": "FISICA",
+   "n": 14,
+   "importe_mxn": 78415.81
+  },
+  {
+   "fecha": "2026-09-10",
+   "origen": "ONLINE",
+   "n": 13,
+   "importe_mxn": 28592.82
+  },
+  {
+   "fecha": "2026-09-11",
+   "origen": "FISICA",
+   "n": 10,
+   "importe_mxn": 36697.39
+  },
+  {
+   "fecha": "2026-09-11",
+   "origen": "ONLINE",
+   "n": 9,
+   "importe_mxn": 28588.55
+  },
+  {
+   "fecha": "2026-09-12",
+   "origen": "FISICA",
+   "n": 13,
+   "importe_mxn": 61508.38
+  },
+  {
+   "fecha": "2026-09-12",
+   "origen": "ONLINE",
+   "n": 16,
+   "importe_mxn": 49157.19
+  },
+  {
+   "fecha": "2026-09-13",
+   "origen": "FISICA",
+   "n": 8,
+   "importe_mxn": 43314.15
+  },
+  {
+   "fecha": "2026-09-13",
+   "origen": "ONLINE",
+   "n": 17,
+   "importe_mxn": 58763.23
+  },
+  {
+   "fecha": "2026-09-14",
+   "origen": "FISICA",
+   "n": 14,
+   "importe_mxn": 78669.59
+  },
+  {
+   "fecha": "2026-09-14",
+   "origen": "ONLINE",
+   "n": 7,
+   "importe_mxn": 24350.29
+  },
+  {
+   "fecha": "2026-09-15",
+   "origen": "FISICA",
+   "n": 10,
+   "importe_mxn": 58655.91
+  },
+  {
+   "fecha": "2026-09-15",
+   "origen": "ONLINE",
+   "n": 14,
+   "importe_mxn": 47266.19
+  },
+  {
+   "fecha": "2026-09-16",
+   "origen": "FISICA",
+   "n": 19,
+   "importe_mxn": 93737.35
+  },
+  {
+   "fecha": "2026-09-16",
+   "origen": "ONLINE",
+   "n": 15,
+   "importe_mxn": 47557.86
+  },
+  {
+   "fecha": "2026-09-17",
+   "origen": "FISICA",
+   "n": 10,
+   "importe_mxn": 35717.84
+  },
+  {
+   "fecha": "2026-09-17",
+   "origen": "ONLINE",
+   "n": 9,
+   "importe_mxn": 24979.52
+  },
+  {
+   "fecha": "2026-09-18",
+   "origen": "FISICA",
+   "n": 11,
+   "importe_mxn": 52502.73
+  },
+  {
+   "fecha": "2026-09-18",
+   "origen": "ONLINE",
+   "n": 12,
+   "importe_mxn": 30648.44
+  },
+  {
+   "fecha": "2026-09-19",
+   "origen": "FISICA",
+   "n": 13,
+   "importe_mxn": 59683.79
+  },
+  {
+   "fecha": "2026-09-19",
+   "origen": "ONLINE",
+   "n": 11,
+   "importe_mxn": 51361.58
+  },
+  {
+   "fecha": "2026-09-20",
+   "origen": "FISICA",
+   "n": 16,
+   "importe_mxn": 87426.21
+  },
+  {
+   "fecha": "2026-09-20",
+   "origen": "ONLINE",
+   "n": 20,
+   "importe_mxn": 60960.71
+  },
+  {
+   "fecha": "2026-09-21",
+   "origen": "FISICA",
+   "n": 7,
+   "importe_mxn": 45338.91
+  },
+  {
+   "fecha": "2026-09-21",
+   "origen": "ONLINE",
+   "n": 13,
+   "importe_mxn": 49886.42
+  },
+  {
+   "fecha": "2026-09-22",
+   "origen": "FISICA",
+   "n": 6,
+   "importe_mxn": 15090.26
+  },
+  {
+   "fecha": "2026-09-22",
+   "origen": "ONLINE",
+   "n": 12,
+   "importe_mxn": 27413.87
+  },
+  {
+   "fecha": "2026-09-23",
+   "origen": "FISICA",
+   "n": 4,
+   "importe_mxn": 14530.83
+  },
+  {
+   "fecha": "2026-09-23",
+   "origen": "ONLINE",
+   "n": 15,
+   "importe_mxn": 40893.22
+  },
+  {
+   "fecha": "2026-09-24",
+   "origen": "FISICA",
+   "n": 13,
+   "importe_mxn": 49180.77
+  },
+  {
+   "fecha": "2026-09-24",
+   "origen": "ONLINE",
+   "n": 11,
+   "importe_mxn": 31087.46
+  },
+  {
+   "fecha": "2026-09-25",
+   "origen": "FISICA",
+   "n": 14,
+   "importe_mxn": 95769.33
+  },
+  {
+   "fecha": "2026-09-25",
+   "origen": "ONLINE",
+   "n": 18,
+   "importe_mxn": 47989.46
+  },
+  {
+   "fecha": "2026-09-26",
+   "origen": "FISICA",
+   "n": 16,
+   "importe_mxn": 68496.46
+  },
+  {
+   "fecha": "2026-09-26",
+   "origen": "ONLINE",
+   "n": 11,
+   "importe_mxn": 24133.3
+  },
+  {
+   "fecha": "2026-09-27",
+   "origen": "FISICA",
+   "n": 11,
+   "importe_mxn": 74399.11
+  },
+  {
+   "fecha": "2026-09-27",
+   "origen": "ONLINE",
+   "n": 3,
+   "importe_mxn": 3160.05
+  },
+  {
+   "fecha": "2026-09-28",
+   "origen": "FISICA",
+   "n": 10,
+   "importe_mxn": 65599.71
+  },
+  {
+   "fecha": "2026-09-28",
+   "origen": "ONLINE",
+   "n": 14,
+   "importe_mxn": 37682.27
+  },
+  {
+   "fecha": "2026-09-29",
+   "origen": "FISICA",
+   "n": 21,
+   "importe_mxn": 119954.11
+  },
+  {
+   "fecha": "2026-09-29",
+   "origen": "ONLINE",
+   "n": 5,
+   "importe_mxn": 18733.99
+  },
+  {
+   "fecha": "2026-09-30",
+   "origen": "FISICA",
+   "n": 9,
+   "importe_mxn": 42888.42
+  },
+  {
+   "fecha": "2026-09-30",
+   "origen": "ONLINE",
+   "n": 11,
+   "importe_mxn": 38307.39
+  },
+  {
+   "fecha": "2026-10-01",
+   "origen": "FISICA",
+   "n": 14,
+   "importe_mxn": 82797.46
+  },
+  {
+   "fecha": "2026-10-01",
+   "origen": "ONLINE",
+   "n": 11,
+   "importe_mxn": 34780.78
+  },
+  {
+   "fecha": "2026-10-02",
+   "origen": "FISICA",
+   "n": 10,
+   "importe_mxn": 36376.32
+  },
+  {
+   "fecha": "2026-10-02",
+   "origen": "ONLINE",
+   "n": 13,
+   "importe_mxn": 37858.73
+  },
+  {
+   "fecha": "2026-10-03",
+   "origen": "FISICA",
+   "n": 14,
+   "importe_mxn": 72058.67
+  },
+  {
+   "fecha": "2026-10-03",
+   "origen": "ONLINE",
+   "n": 15,
+   "importe_mxn": 58330.92
+  },
+  {
+   "fecha": "2026-10-04",
+   "origen": "FISICA",
+   "n": 14,
+   "importe_mxn": 59262.19
+  },
+  {
+   "fecha": "2026-10-04",
+   "origen": "ONLINE",
+   "n": 7,
+   "importe_mxn": 23240.28
+  },
+  {
+   "fecha": "2026-10-05",
+   "origen": "FISICA",
+   "n": 12,
+   "importe_mxn": 51148.32
+  },
+  {
+   "fecha": "2026-10-05",
+   "origen": "ONLINE",
+   "n": 9,
+   "importe_mxn": 26812.45
+  },
+  {
+   "fecha": "2026-10-06",
+   "origen": "FISICA",
+   "n": 13,
+   "importe_mxn": 81074.27
+  },
+  {
+   "fecha": "2026-10-06",
+   "origen": "ONLINE",
+   "n": 6,
+   "importe_mxn": 9306.14
+  },
+  {
+   "fecha": "2026-10-07",
+   "origen": "FISICA",
+   "n": 10,
+   "importe_mxn": 38159.94
+  },
+  {
+   "fecha": "2026-10-07",
+   "origen": "ONLINE",
+   "n": 11,
+   "importe_mxn": 31669.12
+  },
+  {
+   "fecha": "2026-10-08",
+   "origen": "FISICA",
+   "n": 14,
+   "importe_mxn": 79422.74
+  },
+  {
+   "fecha": "2026-10-08",
+   "origen": "ONLINE",
+   "n": 12,
+   "importe_mxn": 54270.14
+  },
+  {
+   "fecha": "2026-10-09",
+   "origen": "FISICA",
+   "n": 10,
+   "importe_mxn": 72123.11
+  },
+  {
+   "fecha": "2026-10-09",
+   "origen": "ONLINE",
+   "n": 11,
+   "importe_mxn": 30334.41
+  },
+  {
+   "fecha": "2026-10-10",
+   "origen": "FISICA",
+   "n": 12,
+   "importe_mxn": 38594.13
+  },
+  {
+   "fecha": "2026-10-10",
+   "origen": "ONLINE",
+   "n": 15,
+   "importe_mxn": 35702.62
+  },
+  {
+   "fecha": "2026-10-11",
+   "origen": "FISICA",
+   "n": 18,
+   "importe_mxn": 92938.49
+  },
+  {
+   "fecha": "2026-10-11",
+   "origen": "ONLINE",
+   "n": 8,
+   "importe_mxn": 35015.1
+  },
+  {
+   "fecha": "2026-10-12",
+   "origen": "FISICA",
+   "n": 19,
+   "importe_mxn": 97050.94
+  },
+  {
+   "fecha": "2026-10-12",
+   "origen": "ONLINE",
+   "n": 15,
+   "importe_mxn": 36514.04
+  },
+  {
+   "fecha": "2026-10-13",
+   "origen": "FISICA",
+   "n": 12,
+   "importe_mxn": 53748.57
+  },
+  {
+   "fecha": "2026-10-13",
+   "origen": "ONLINE",
+   "n": 16,
+   "importe_mxn": 52153.65
+  },
+  {
+   "fecha": "2026-10-14",
+   "origen": "FISICA",
+   "n": 16,
+   "importe_mxn": 92993.79
+  },
+  {
+   "fecha": "2026-10-14",
+   "origen": "ONLINE",
+   "n": 16,
+   "importe_mxn": 65166.8
+  },
+  {
+   "fecha": "2026-10-15",
+   "origen": "FISICA",
+   "n": 14,
+   "importe_mxn": 72032.16
+  },
+  {
+   "fecha": "2026-10-15",
+   "origen": "ONLINE",
+   "n": 9,
+   "importe_mxn": 21938.4
+  },
+  {
+   "fecha": "2026-10-16",
+   "origen": "ONLINE",
+   "n": 10,
+   "importe_mxn": 45011.01
+  }
+ ],
+ "categorias": [
+  {
+   "categoria": "Hogar",
+   "n": 309,
+   "importe_mxn": 1291691.13
+  },
+  {
+   "categoria": "Juguetería",
+   "n": 220,
+   "importe_mxn": 855316.05
+  },
+  {
+   "categoria": "Alimentos",
+   "n": 249,
+   "importe_mxn": 762336.75
+  },
+  {
+   "categoria": "Electrónica",
+   "n": 160,
+   "importe_mxn": 685867.73
+  },
+  {
+   "categoria": "Ropa",
+   "n": 125,
+   "importe_mxn": 656347.08
+  },
+  {
+   "categoria": "Deportes",
+   "n": 41,
+   "importe_mxn": 333652.91
+  }
+ ],
+ "indicadores": {
+  "convertidas_usd": 174,
+  "outliers_cantidad": 13,
+  "outliers_monto": 80,
+  "fecha_min": "2026-09-01",
+  "fecha_max": "2026-10-16",
+  "ticket_medio_mxn": 10492.75,
+  "importe_total_mxn": 4585211.65
+ },
+ "anomalias": [
+  {
+   "id_error": 31,
+   "id_registro": "POS-2026-0493",
+   "origen": "FISICA",
+   "codigos_error": "CANTIDAD_INVALIDA;MONTO_INVALIDO;PRODUCTO_HUERFANO",
+   "num_motivos": 3,
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO",
+    "PRODUCTO_HUERFANO"
+   ]
+  },
+  {
+   "id_error": 2,
+   "id_registro": "POS-2026-0035",
+   "origen": "FISICA",
+   "codigos_error": "CANTIDAD_INVALIDA;MONTO_INVALIDO",
+   "num_motivos": 2,
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ]
+  },
+  {
+   "id_error": 9,
+   "id_registro": "POS-2026-0216",
+   "origen": "FISICA",
+   "codigos_error": "CANTIDAD_INVALIDA;MONTO_INVALIDO",
+   "num_motivos": 2,
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ]
+  },
+  {
+   "id_error": 16,
+   "id_registro": "POS-2026-0311",
+   "origen": "FISICA",
+   "codigos_error": "CANTIDAD_INVALIDA;MONTO_INVALIDO",
+   "num_motivos": 2,
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ]
+  },
+  {
+   "id_error": 17,
+   "id_registro": "POS-2026-0340",
+   "origen": "FISICA",
+   "codigos_error": "CANTIDAD_INVALIDA;MONTO_INVALIDO",
+   "num_motivos": 2,
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ]
+  }
+ ],
+ "actividad_reciente": [
+  {
+   "lote_id": "L20261026-011336-586b",
+   "estado": "COMPLETADO",
+   "inicio": "2026-10-26T01:13:36",
+   "fin": "2026-10-26T01:13:36",
+   "filas_entrada": 1220,
+   "filas_limpias": 1104,
+   "filas_cuarentena": 116,
+   "tasa_aceptacion": 0.9049,
+   "duracion_s": 0.391,
+   "etapa_fallida": null,
+   "error": null,
+   "tiene_bitacora": true,
+   "advertencias": []
+  }
+ ],
+ "advertencias": [],
+ "nota_historial": "Las tablas contienen únicamente la última carga completada (snapshot por ejecución). El historial disponible es la lista de ejecuciones."
+}

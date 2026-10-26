@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KOVA">
+  <rect width="64" height="64" rx="16" fill="#17352D"/>
+  <path d="M14 30V22a8 8 0 0 1 8-8h8v14a2 2 0 0 1-2 2H14z" fill="#B8E8CE"/>
+  <path d="M34 14h8a8 8 0 0 1 8 8v8H36a2 2 0 0 1-2-2V14z" fill="#FDFCFA"/>
+  <path d="M14 34h14a2 2 0 0 1 2 2v14h-8a8 8 0 0 1-8-8v-8z" fill="#FDFCFA" fill-opacity=".62"/>
+  <path d="M34 36a2 2 0 0 1 2-2h14v8a8 8 0 0 1-8 8h-8V36z" fill="#B8E8CE" fill-opacity=".62"/>
+  <circle cx="32" cy="32" r="4.4" fill="#D99B45" stroke="#17352D" stroke-width="2.6"/>
+</svg>

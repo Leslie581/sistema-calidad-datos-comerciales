@@ -1,0 +1,335 @@
+{
+ "total": 116,
+ "pagina": 1,
+ "tam": 20,
+ "paginas": 6,
+ "items": [
+  {
+   "id_error": 1,
+   "id_registro": "POS-2026-0017",
+   "origen": "FISICA",
+   "id_fila_origen": 17,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-976' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 2,
+   "id_registro": "POS-2026-0035",
+   "origen": "FISICA",
+   "id_fila_origen": 35,
+   "etapas": [
+    "PYDANTIC"
+   ],
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ],
+   "num_motivos": 2,
+   "motivo": "CANTIDAD_INVALIDA: cantidad=0.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=0.0; debe ser mayor que 0",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 3,
+   "id_registro": "POS-2026-0072",
+   "origen": "FISICA",
+   "id_fila_origen": 72,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-918' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 4,
+   "id_registro": "POS-2026-0109",
+   "origen": "FISICA",
+   "id_fila_origen": 109,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-950' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 5,
+   "id_registro": "POS-2026-0142",
+   "origen": "FISICA",
+   "id_fila_origen": 142,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-925' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 6,
+   "id_registro": "POS-2026-0143",
+   "origen": "FISICA",
+   "id_fila_origen": 143,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-982' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 7,
+   "id_registro": "POS-2026-0180",
+   "origen": "FISICA",
+   "id_fila_origen": 180,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-991' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 8,
+   "id_registro": "POS-2026-0213",
+   "origen": "FISICA",
+   "id_fila_origen": 213,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-970' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 9,
+   "id_registro": "POS-2026-0216",
+   "origen": "FISICA",
+   "id_fila_origen": 216,
+   "etapas": [
+    "PYDANTIC"
+   ],
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ],
+   "num_motivos": 2,
+   "motivo": "CANTIDAD_INVALIDA: cantidad=-1.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=-934.83; debe ser mayor que 0",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 10,
+   "id_registro": "POS-2026-0218",
+   "origen": "FISICA",
+   "id_fila_origen": 218,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-970' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 11,
+   "id_registro": "POS-2026-0231",
+   "origen": "FISICA",
+   "id_fila_origen": 231,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-952' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 12,
+   "id_registro": "POS-2026-0266",
+   "origen": "FISICA",
+   "id_fila_origen": 266,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-980' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 13,
+   "id_registro": "POS-2026-0286",
+   "origen": "FISICA",
+   "id_fila_origen": 286,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-946' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 14,
+   "id_registro": "POS-2026-0293",
+   "origen": "FISICA",
+   "id_fila_origen": 293,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-929' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 15,
+   "id_registro": "POS-2026-0302",
+   "origen": "FISICA",
+   "id_fila_origen": 302,
+   "etapas": [
+    "FASE_PREVIA"
+   ],
+   "codigos": [
+    "PRODUCTO_HUERFANO"
+   ],
+   "num_motivos": 1,
+   "motivo": "PRODUCTO_HUERFANO: 'PROD-959' no existe en el catálogo maestro (R9)",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 16,
+   "id_registro": "POS-2026-0311",
+   "origen": "FISICA",
+   "id_fila_origen": 311,
+   "etapas": [
+    "PYDANTIC"
+   ],
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ],
+   "num_motivos": 2,
+   "motivo": "CANTIDAD_INVALIDA: cantidad=-1.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=-3632.45; debe ser mayor que 0",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 17,
+   "id_registro": "POS-2026-0340",
+   "origen": "FISICA",
+   "id_fila_origen": 340,
+   "etapas": [
+    "PYDANTIC"
+   ],
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ],
+   "num_motivos": 2,
+   "motivo": "CANTIDAD_INVALIDA: cantidad=0.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=0.0; debe ser mayor que 0",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 18,
+   "id_registro": "POS-2026-0341",
+   "origen": "FISICA",
+   "id_fila_origen": 341,
+   "etapas": [
+    "PYDANTIC"
+   ],
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ],
+   "num_motivos": 2,
+   "motivo": "CANTIDAD_INVALIDA: cantidad=0.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=0.0; debe ser mayor que 0",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 19,
+   "id_registro": "POS-2026-0355",
+   "origen": "FISICA",
+   "id_fila_origen": 355,
+   "etapas": [
+    "PYDANTIC"
+   ],
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ],
+   "num_motivos": 2,
+   "motivo": "CANTIDAD_INVALIDA: cantidad=0.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=0.0; debe ser mayor que 0",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  },
+  {
+   "id_error": 20,
+   "id_registro": "POS-2026-0371",
+   "origen": "FISICA",
+   "id_fila_origen": 371,
+   "etapas": [
+    "PYDANTIC"
+   ],
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO"
+   ],
+   "num_motivos": 2,
+   "motivo": "CANTIDAD_INVALIDA: cantidad=-1.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=-934.83; debe ser mayor que 0",
+   "fecha_cuarentena": "2026-10-26T01:13:36",
+   "lote_id": "L20261026-011336-586b"
+  }
+ ]
+}

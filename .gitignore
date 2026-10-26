@@ -25,3 +25,8 @@ venv/
 *.sqlite
 *.sqlite3
 salidas/**/*.db
+
+# Frontend (Node)
+node_modules/
+frontend/dist/
+frontend/coverage/

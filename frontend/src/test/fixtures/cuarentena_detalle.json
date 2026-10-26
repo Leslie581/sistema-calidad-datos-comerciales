@@ -1,0 +1,180 @@
+{
+ "registro": {
+  "id_error": 31,
+  "id_registro": "POS-2026-0493",
+  "origen": "FISICA",
+  "id_fila_origen": 493,
+  "etapas": [
+   "FASE_PREVIA",
+   "PYDANTIC"
+  ],
+  "codigos": [
+   "CANTIDAD_INVALIDA",
+   "MONTO_INVALIDO",
+   "PRODUCTO_HUERFANO"
+  ],
+  "num_motivos": 3,
+  "motivo": "PRODUCTO_HUERFANO: 'PROD-928' no existe en el catálogo maestro (R9) | CANTIDAD_INVALIDA: cantidad=-1.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=-500.0; debe ser mayor que 0",
+  "fecha_cuarentena": "2026-10-26T01:13:36",
+  "lote_id": "L20261026-011336-586b"
+ },
+ "detalle": [
+  {
+   "campo": "en_catalogo",
+   "codigo": "PRODUCTO_HUERFANO",
+   "mensaje": "PRODUCTO_HUERFANO: 'PROD-928' no existe en el catálogo maestro (R9)",
+   "etapa": "FASE_PREVIA",
+   "entrada": null,
+   "descripcion": "El producto no existe en el catálogo maestro (R9)."
+  },
+  {
+   "campo": "cantidad",
+   "codigo": "CANTIDAD_INVALIDA",
+   "mensaje": "CANTIDAD_INVALIDA: cantidad=-1.0; debe ser un entero mayor que 0 (R4)",
+   "etapa": "PYDANTIC",
+   "entrada": "-1.0",
+   "descripcion": "La cantidad no es un entero mayor que 0 (R4)."
+  },
+  {
+   "campo": "monto_total_mxn",
+   "codigo": "MONTO_INVALIDO",
+   "mensaje": "MONTO_INVALIDO: monto_total_mxn=-500.0; debe ser mayor que 0",
+   "etapa": "PYDANTIC",
+   "entrada": "-500.0",
+   "descripcion": "El monto en MXN no es mayor que 0."
+  }
+ ],
+ "registro_original": {
+  "id_ticket": "POS-2026-0493",
+  "fecha_venta": "2026-10-09",
+  "sucursal": "Colima Centro",
+  "id_producto": "PROD-928",
+  "cantidad": "-1",
+  "precio_unitario": "500.0",
+  "monto_total_mxn": "-500.0",
+  "id_cliente": "CTE-120",
+  "metodo_pago": "Vales"
+ },
+ "trazabilidad": [
+  {
+   "clave": "original",
+   "titulo": "Dato original",
+   "estado": "ok",
+   "descripcion": "Registro tal como llegó (fila 493 de FISICA).",
+   "campos": [
+    {
+     "campo": "id_ticket",
+     "antes": "POS-2026-0493",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "fecha_venta",
+     "antes": "2026-10-09",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "sucursal",
+     "antes": "Colima Centro",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "id_producto",
+     "antes": "PROD-928",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "cantidad",
+     "antes": "-1",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "precio_unitario",
+     "antes": "500.0",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "monto_total_mxn",
+     "antes": "-500.0",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "id_cliente",
+     "antes": "CTE-120",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "metodo_pago",
+     "antes": "Vales",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    }
+   ],
+   "codigos": []
+  },
+  {
+   "clave": "deteccion",
+   "titulo": "Detección",
+   "estado": "rechazado",
+   "descripcion": "3 motivo(s) detectado(s). La transacción se cuenta una sola vez.",
+   "campos": [
+    {
+     "campo": "en_catalogo",
+     "antes": null,
+     "despues": "PRODUCTO_HUERFANO: 'PROD-928' no existe en el catálogo maestro (R9)",
+     "cambio": false,
+     "nota": "FASE_PREVIA"
+    },
+    {
+     "campo": "cantidad",
+     "antes": "-1.0",
+     "despues": "CANTIDAD_INVALIDA: cantidad=-1.0; debe ser un entero mayor que 0 (R4)",
+     "cambio": false,
+     "nota": "PYDANTIC"
+    },
+    {
+     "campo": "monto_total_mxn",
+     "antes": "-500.0",
+     "despues": "MONTO_INVALIDO: monto_total_mxn=-500.0; debe ser mayor que 0",
+     "cambio": false,
+     "nota": "PYDANTIC"
+    }
+   ],
+   "codigos": [
+    "CANTIDAD_INVALIDA",
+    "MONTO_INVALIDO",
+    "PRODUCTO_HUERFANO"
+   ]
+  },
+  {
+   "clave": "resultado",
+   "titulo": "Resultado",
+   "estado": "rechazado",
+   "descripcion": "Aislado en cuarentena_errores (lote L20261026-011336-586b). Esta sección es de solo consulta.",
+   "campos": [],
+   "codigos": []
+  }
+ ],
+ "hay_limpia_con_mismo_id": false,
+ "glosario": {
+  "CANTIDAD_INVALIDA": "La cantidad no es un entero mayor que 0 (R4).",
+  "MONTO_INVALIDO": "El monto en MXN no es mayor que 0.",
+  "PRODUCTO_HUERFANO": "El producto no existe en el catálogo maestro (R9)."
+ }
+}

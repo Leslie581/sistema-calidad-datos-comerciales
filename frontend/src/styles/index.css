@@ -1,0 +1,134 @@
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque/index.css";
+@import "@fontsource-variable/dm-sans/index.css";
+
+/* ============================================================================
+   KOVA · sistema de diseño ("Modern Organic Tech")
+   Los colores de marca son los de la dirección de arte; para TEXTO sobre fondos claros se usan variantes
+   más oscuras (-texto) porque salvia, ámbar y coral de marca no alcanzan contraste AA sobre crema.
+   ============================================================================ */
+@theme {
+  /* marca */
+  --color-bosque: #17352d;
+  --color-petroleo: #215548;
+  --color-menta: #b8e8ce;
+  --color-crema: #f7f6f0;
+  --color-blanco: #fdfcfa;
+  --color-grafito: #202a26;
+  --color-salvia: #8a9d94;
+  --color-ambar: #d99b45;
+  --color-coral: #cb6f61;
+  /* derivados (texto/estados accesibles sobre claro) */
+  --color-suave: #526860;           /* texto secundario · 5.5:1 sobre crema, 5.8:1 sobre blanco */
+  --color-ambar-texto: #85570f;     /* 6.1:1 sobre blanco */
+  --color-coral-texto: #a2443a;     /* 6.0:1 sobre blanco */
+  --color-menta-texto: #1f6b4f;     /* 6.3:1 sobre blanco */
+  --color-borde: #dcdfd3;
+  --color-borde-fuerte: #c3cabd;
+  --color-superficie: #fdfcfa;
+  --color-superficie-2: #f0efe6;
+  --color-bosque-2: #1f4338;
+
+  --font-display: "Bricolage Grotesque Variable", "DM Sans Variable", system-ui, sans-serif;
+  --font-sans: "DM Sans Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-kova: 1.25rem;
+  --radius-kova-lg: 1.75rem;
+  --shadow-suave: 0 1px 2px rgb(23 53 45 / 0.05), 0 8px 24px -12px rgb(23 53 45 / 0.14);
+  --shadow-elevada: 0 2px 4px rgb(23 53 45 / 0.06), 0 24px 48px -20px rgb(23 53 45 / 0.28);
+  --ease-kova: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html { color-scheme: light; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--color-crema);
+    color: var(--color-grafito);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.08; }
+  :focus-visible { outline: 3px solid var(--color-ambar); outline-offset: 2px; border-radius: 6px; }
+  /* los hijos de una rejilla pueden encogerse: evita desbordes horizontales en móvil */
+  .grid > *, .flex > .min-w-0 { min-width: 0; }
+  ::selection { background: var(--color-menta); color: var(--color-bosque); }
+  button, a, [role="button"] { -webkit-tap-highlight-color: transparent; }
+}
+
+/* cifras tabulares para KPIs, montos y tablas */
+.num { font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum" 1, "lnum" 1; }
+.titular { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em; }
+.etiqueta {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-suave);
+}
+
+/* ---------------------------------------------------------------- superficies */
+.panel {
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radius-kova);
+  box-shadow: var(--shadow-suave);
+}
+.panel-bosque {
+  background: radial-gradient(120% 140% at 10% 0%, var(--color-petroleo) 0%, var(--color-bosque) 62%);
+  color: var(--color-blanco);
+  border-radius: var(--radius-kova-lg);
+  box-shadow: var(--shadow-elevada);
+}
+.panel-aviso {
+  background: linear-gradient(180deg, #fdf6ea, var(--color-superficie));
+  border: 1px solid #ecd6b0;
+  border-radius: var(--radius-kova);
+}
+
+/* ---------------------------------------------------------------- tablas */
+.tabla { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.9rem; }
+.tabla th {
+  position: sticky; top: 0; z-index: 1; text-align: left; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--color-suave); background: var(--color-superficie-2);
+  padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--color-borde); white-space: nowrap;
+}
+.tabla td { padding: 0.72rem 0.9rem; border-bottom: 1px solid #ebece3; vertical-align: middle; }
+.tabla tbody tr { transition: background-color 0.15s; }
+.tabla tbody tr:hover { background: #f4f6ee; }
+.tabla tbody tr[data-activa="true"] { background: #e9f4ec; }
+.tabla .der { text-align: right; }
+
+/* ---------------------------------------------------------------- entrada escalonada y transiciones */
+@keyframes kova-subir { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes kova-aparecer { from { opacity: 0; } to { opacity: 1; } }
+@keyframes kova-deslizar { from { transform: translateX(100%); } to { transform: none; } }
+@keyframes kova-pulso { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+@keyframes kova-flujo { to { stroke-dashoffset: -28; } }
+@keyframes kova-brillo { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes kova-trazo { from { stroke-dashoffset: var(--largo, 400); } to { stroke-dashoffset: 0; } }
+
+.entra { animation: kova-subir 0.55s var(--ease-kova) both; animation-delay: calc(var(--i, 0) * 60ms); }
+.entra-suave { animation: kova-aparecer 0.4s ease both; }
+.drawer-entra { animation: kova-deslizar 0.38s var(--ease-kova) both; }
+.pulso { animation: kova-pulso 1.4s ease-in-out infinite; }
+.flujo-animado { stroke-dasharray: 6 8; animation: kova-flujo 1.6s linear infinite; }
+.skeleton {
+  background: linear-gradient(90deg, #ecede3 25%, #f7f7f0 50%, #ecede3 75%);
+  background-size: 200% 100%; animation: kova-brillo 1.6s linear infinite; border-radius: 0.75rem;
+}
+.trazo-anima { stroke-dasharray: var(--largo, 400); animation: kova-trazo 1.4s var(--ease-kova) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important; scroll-behavior: auto !important;
+  }
+  .flujo-animado { stroke-dasharray: none; }
+}
+
+/* ---------------------------------------------------------------- utilidades de composición */
+.fondo-grano {
+  background-image: radial-gradient(rgb(23 53 45 / 0.07) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+.scroll-fino { scrollbar-width: thin; scrollbar-color: var(--color-borde-fuerte) transparent; }
+.lectura { max-width: 68ch; }

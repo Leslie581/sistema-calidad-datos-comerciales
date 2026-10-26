@@ -1,0 +1,639 @@
+{
+ "lote_id": "L20261026-011336-586b",
+ "nota_mcar": "«MCAR» significa que los faltantes no dependen de las otras variables observadas. Con las pruebas χ² de independencia realizadas (α = 0.05) no se encontró evidencia de dependencia (p > 0.05), por lo que los faltantes son COMPATIBLES con MCAR. Eso no demuestra MCAR de forma absoluta: un p-valor alto no prueba la hipótesis nula, y la prueba solo evalúa las variables comparadas. Algunas tablas tienen frecuencias esperadas menores que 5, donde la aproximación χ² pierde precisión.",
+ "graficas": [
+  {
+   "id": "boxplot_cantidad_fisica.png",
+   "titulo": "Cantidad por ticket · tienda física",
+   "descripcion": "Antes y después del capping (escala logarítmica).",
+   "url": "/api/reportes/etapa_leslie/graficas/boxplot_cantidad_fisica.png",
+   "fuente": "etapa_leslie"
+  },
+  {
+   "id": "boxplot_importe_mxn.png",
+   "titulo": "Importe por transacción en MXN",
+   "descripcion": "Total crudo frente a monto_total_mxn_cap en la base estadística.",
+   "url": "/api/reportes/etapa_leslie/graficas/boxplot_importe_mxn.png",
+   "fuente": "etapa_leslie"
+  }
+ ],
+ "distincion": {
+  "originales": "Valores tal como llegaron (cantidad_origen, monto_total_origen, precio_unitario_original, fecha_cruda, registro_original).",
+  "corregidos": "Faltantes imputados e importes recalculados (códigos IMPUTADO_* y MONTO_RECALCULADO_*).",
+  "tratados": "Valores atípicos recortados con IQR en columnas aparte (cantidad_cap, monto_total_mxn_cap)."
+ },
+ "fuentes": {
+  "bitacora": "bitacora_L20261026-011336-586b.json",
+  "reportes_leslie_disponibles": true,
+  "nota": "El perfil inicial, el MCAR/MAR y la tabla antes/después provienen de los reportes de la etapa de Leslie (salidas/etapa_leslie); los conteos de limpieza e IQR, de la bitácora de la última ejecución."
+ },
+ "limpieza": {
+  "filas": 1220,
+  "duplicados_exactos": 20,
+  "ids_en_conflicto": 0,
+  "imputacion_mediana": {
+   "medianas_por_canal": {
+    "FISICA": 2.0,
+    "ONLINE": 1.0
+   },
+   "imputados": 0,
+   "faltantes_no_imputables": 0,
+   "no_numericos_no_imputados": 0
+  },
+  "reconstruccion_montos": {
+   "recalculados_nulo": 32,
+   "recalculados_inconsistente": 12,
+   "factores_inconsistencia": {
+    "80.0": 12
+   },
+   "nulos_no_recalculables": 0
+  },
+  "imputacion_categoricas": {
+   "FISICA.id_cliente→ANONIMO": 127,
+   "ONLINE.email_cliente→SIN_CORREO": 20,
+   "ONLINE.direccion_envio→SIN_DIRECCION": 77
+  },
+  "conteo_correcciones": {
+   "IMPUTADO_DIRECCION_ENVIO": 77,
+   "IMPUTADO_EMAIL_CLIENTE": 20,
+   "IMPUTADO_ID_CLIENTE": 127,
+   "MONTO_RECALCULADO_INCONSISTENTE": 12,
+   "MONTO_RECALCULADO_NULO": 32
+  }
+ },
+ "iqr": {
+  "base_estadistica": {
+   "total": 1129,
+   "por_canal": {
+    "ONLINE": 567,
+    "FISICA": 562
+   }
+  },
+  "cantidad": {
+   "FISICA": {
+    "n": 562,
+    "Q1": 1.0,
+    "Q3": 4.0,
+    "IQR": 3.0,
+    "LI": -3.5,
+    "LS": 8.5,
+    "outliers_inferiores": 0,
+    "outliers_superiores": 13,
+    "min": 1.0,
+    "max": 500.0,
+    "media": 9.09608540925267,
+    "mediana": 2.0,
+    "asimetria": 9.004781589829914,
+    "factor": 1.5,
+    "tope_entero": 8,
+    "piso_entero": 1,
+    "recortados": 13
+   },
+   "ONLINE": {
+    "n": 567,
+    "Q1": 1.0,
+    "Q3": 2.0,
+    "IQR": 1.0,
+    "LI": -0.5,
+    "LS": 3.5,
+    "outliers_inferiores": 0,
+    "outliers_superiores": 0,
+    "min": 1.0,
+    "max": 3.0,
+    "media": 1.5767195767195767,
+    "mediana": 1.0,
+    "asimetria": 0.8977741356110349,
+    "factor": 1.5,
+    "tope_entero": 3,
+    "piso_entero": 1,
+    "recortados": 0
+   }
+  },
+  "monto_mxn": {
+   "n": 1129,
+   "Q1": 1563.78,
+   "Q3": 5751.34,
+   "IQR": 4187.56,
+   "LI": -4717.56,
+   "LS": 12032.68,
+   "outliers_inferiores": 0,
+   "outliers_superiores": 80,
+   "min": 332.67,
+   "max": 33744.88,
+   "media": 4424.940035429584,
+   "mediana": 3127.42,
+   "asimetria": 2.1688246993600657,
+   "factor": 1.5,
+   "piso_aplicado": 0.0,
+   "techo_aplicado": 12032.68,
+   "recortados": 82
+  }
+ },
+ "transformacion": {
+  "minmax": {
+   "columna": "monto_total_mxn_cap",
+   "n_base": 1129,
+   "min": 332.67,
+   "max": 12032.68,
+   "constante": false,
+   "fuera_de_base_recortados": 11
+  },
+  "segmentos": {
+   "columna": "monto_total_mxn_cap",
+   "n_base": 1129,
+   "corte_bajo_medio": 2069.07,
+   "corte_medio_alto": 4183.67,
+   "conteo_base": {
+    "Bajo": 380,
+    "Medio": 374,
+    "Alto": 375
+   }
+  }
+ },
+ "perfil_antes": {
+  "catalogo": {
+   "fuente": "catalogo",
+   "filas": 50,
+   "columnas": 6,
+   "tipos": {
+    "id_producto": "texto",
+    "nombre_producto": "texto",
+    "categoria": "texto",
+    "precio_base_mxn": "decimal",
+    "stock_minimo": "entero",
+    "proveedor": "texto"
+   },
+   "dtypes_pandas": {
+    "id_producto": "str",
+    "nombre_producto": "str",
+    "categoria": "str",
+    "precio_base_mxn": "float64",
+    "stock_minimo": "int64",
+    "proveedor": "str"
+   },
+   "nulos": {
+    "id_producto": 0,
+    "nombre_producto": 0,
+    "categoria": 0,
+    "precio_base_mxn": 0,
+    "stock_minimo": 0,
+    "proveedor": 0
+   },
+   "pct_nulos": {
+    "id_producto": 0.0,
+    "nombre_producto": 0.0,
+    "categoria": 0.0,
+    "precio_base_mxn": 0.0,
+    "stock_minimo": 0.0,
+    "proveedor": 0.0
+   },
+   "completitud_pct": {
+    "id_producto": 100.0,
+    "nombre_producto": 100.0,
+    "categoria": 100.0,
+    "precio_base_mxn": 100.0,
+    "stock_minimo": 100.0,
+    "proveedor": 100.0
+   },
+   "completitud_global_pct": 100.0,
+   "duplicados_exactos": 0,
+   "valores_distintos": {
+    "id_producto": 50,
+    "nombre_producto": 50,
+    "categoria": 6,
+    "precio_base_mxn": 50,
+    "stock_minimo": 29,
+    "proveedor": 4
+   }
+  },
+  "fisica": {
+   "fuente": "fisica",
+   "filas": 620,
+   "columnas": 9,
+   "tipos": {
+    "id_ticket": "texto",
+    "fecha_venta": "texto",
+    "sucursal": "texto",
+    "id_producto": "texto",
+    "cantidad": "entero",
+    "precio_unitario": "decimal",
+    "monto_total_mxn": "decimal",
+    "id_cliente": "texto",
+    "metodo_pago": "texto"
+   },
+   "dtypes_pandas": {
+    "id_ticket": "object",
+    "fecha_venta": "object",
+    "sucursal": "object",
+    "id_producto": "object",
+    "cantidad": "object",
+    "precio_unitario": "object",
+    "monto_total_mxn": "object",
+    "id_cliente": "object",
+    "metodo_pago": "object"
+   },
+   "nulos": {
+    "id_ticket": 0,
+    "fecha_venta": 0,
+    "sucursal": 0,
+    "id_producto": 0,
+    "cantidad": 0,
+    "precio_unitario": 0,
+    "monto_total_mxn": 32,
+    "id_cliente": 127,
+    "metodo_pago": 0
+   },
+   "pct_nulos": {
+    "id_ticket": 0.0,
+    "fecha_venta": 0.0,
+    "sucursal": 0.0,
+    "id_producto": 0.0,
+    "cantidad": 0.0,
+    "precio_unitario": 0.0,
+    "monto_total_mxn": 5.16,
+    "id_cliente": 20.48,
+    "metodo_pago": 0.0
+   },
+   "completitud_pct": {
+    "id_ticket": 100.0,
+    "fecha_venta": 100.0,
+    "sucursal": 100.0,
+    "id_producto": 100.0,
+    "cantidad": 100.0,
+    "precio_unitario": 100.0,
+    "monto_total_mxn": 94.84,
+    "id_cliente": 79.52,
+    "metodo_pago": 100.0
+   },
+   "completitud_global_pct": 97.15,
+   "duplicados_exactos": 20,
+   "valores_distintos": {
+    "id_ticket": 600,
+    "fecha_venta": 135,
+    "sucursal": 4,
+    "id_producto": 72,
+    "cantidad": 9,
+    "precio_unitario": 51,
+    "monto_total_mxn": 240,
+    "id_cliente": 183,
+    "metodo_pago": 6
+   }
+  },
+  "online": {
+   "fuente": "online",
+   "filas": 600,
+   "columnas": 11,
+   "tipos": {
+    "order_id": "texto",
+    "order_timestamp": "mixto(int, str)",
+    "product_id": "texto",
+    "units": "entero",
+    "currency": "texto",
+    "unit_price": "decimal",
+    "total_amount": "decimal",
+    "customer_email": "texto",
+    "shipping_address": "texto",
+    "order_status": "texto",
+    "payment_gateway": "texto"
+   },
+   "dtypes_pandas": {
+    "order_id": "object",
+    "order_timestamp": "object",
+    "product_id": "object",
+    "units": "object",
+    "currency": "object",
+    "unit_price": "object",
+    "total_amount": "object",
+    "customer_email": "object",
+    "shipping_address": "object",
+    "order_status": "object",
+    "payment_gateway": "object"
+   },
+   "nulos": {
+    "order_id": 0,
+    "order_timestamp": 0,
+    "product_id": 0,
+    "units": 0,
+    "currency": 0,
+    "unit_price": 0,
+    "total_amount": 0,
+    "customer_email": 20,
+    "shipping_address": 77,
+    "order_status": 0,
+    "payment_gateway": 0
+   },
+   "pct_nulos": {
+    "order_id": 0.0,
+    "order_timestamp": 0.0,
+    "product_id": 0.0,
+    "units": 0.0,
+    "currency": 0.0,
+    "unit_price": 0.0,
+    "total_amount": 0.0,
+    "customer_email": 3.33,
+    "shipping_address": 12.83,
+    "order_status": 0.0,
+    "payment_gateway": 0.0
+   },
+   "completitud_pct": {
+    "order_id": 100.0,
+    "order_timestamp": 100.0,
+    "product_id": 100.0,
+    "units": 100.0,
+    "currency": 100.0,
+    "unit_price": 100.0,
+    "total_amount": 100.0,
+    "customer_email": 96.67,
+    "shipping_address": 87.17,
+    "order_status": 100.0,
+    "payment_gateway": 100.0
+   },
+   "completitud_global_pct": 98.53,
+   "duplicados_exactos": 0,
+   "valores_distintos": {
+    "order_id": 600,
+    "order_timestamp": 598,
+    "product_id": 80,
+    "units": 3,
+    "currency": 2,
+    "unit_price": 102,
+    "total_amount": 237,
+    "customer_email": 546,
+    "shipping_address": 522,
+    "order_status": 6,
+    "payment_gateway": 4
+   }
+  }
+ },
+ "faltantes": [
+  {
+   "columna": "id_cliente",
+   "faltantes": 127,
+   "pct_faltantes": 20.48,
+   "pruebas": [
+    {
+     "vs": "punto_venta",
+     "pct_faltante_por_grupo": {
+      "Colima Centro": 21.1,
+      "Manzanillo Puerto": 18.1,
+      "Tecomán": 23.1,
+      "Villa de Álvarez": 19.7
+     },
+     "chi2": 1.3625,
+     "gl": 3,
+     "p_valor": 0.7143,
+     "esperados_menores_5": 0
+    },
+    {
+     "vs": "metodo_pago",
+     "pct_faltante_por_grupo": {
+      "EFECTIVO": 16.6,
+      "TARJETA CRÉDITO": 23.4,
+      "TARJETA DÉBITO": 20.5,
+      "TRANSFERENCIA": 21.8,
+      "VALES": 23.0
+     },
+     "chi2": 2.9197,
+     "gl": 4,
+     "p_valor": 0.5713,
+     "esperados_menores_5": 0
+    }
+   ],
+   "clasificacion": "MCAR",
+   "origen": "FISICA"
+  },
+  {
+   "columna": "monto_total",
+   "faltantes": 32,
+   "pct_faltantes": 5.16,
+   "pruebas": [
+    {
+     "vs": "punto_venta",
+     "pct_faltante_por_grupo": {
+      "Colima Centro": 6.1,
+      "Manzanillo Puerto": 4.8,
+      "Tecomán": 3.1,
+      "Villa de Álvarez": 6.8
+     },
+     "chi2": 2.4816,
+     "gl": 3,
+     "p_valor": 0.4786,
+     "esperados_menores_5": 0
+    },
+    {
+     "vs": "metodo_pago",
+     "pct_faltante_por_grupo": {
+      "EFECTIVO": 6.2,
+      "TARJETA CRÉDITO": 2.8,
+      "TARJETA DÉBITO": 3.6,
+      "TRANSFERENCIA": 4.8,
+      "VALES": 7.1
+     },
+     "chi2": 2.9366,
+     "gl": 4,
+     "p_valor": 0.5685,
+     "esperados_menores_5": 1
+    }
+   ],
+   "clasificacion": "MCAR",
+   "origen": "FISICA"
+  },
+  {
+   "columna": "email_cliente",
+   "faltantes": 20,
+   "pct_faltantes": 3.33,
+   "pruebas": [
+    {
+     "vs": "metodo_pago",
+     "pct_faltante_por_grupo": {
+      "MERCADOPAGO": 2.2,
+      "OXXO PAY": 3.0,
+      "PAYPAL": 4.0,
+      "STRIPE": 4.1
+     },
+     "chi2": 1.0935,
+     "gl": 3,
+     "p_valor": 0.7786,
+     "esperados_menores_5": 3
+    },
+    {
+     "vs": "moneda",
+     "pct_faltante_por_grupo": {
+      "MXN": 2.7,
+      "USD": 4.7
+     },
+     "chi2": 1.0125,
+     "gl": 1,
+     "p_valor": 0.3143,
+     "esperados_menores_5": 0
+    }
+   ],
+   "clasificacion": "MCAR",
+   "origen": "ONLINE"
+  },
+  {
+   "columna": "direccion_envio",
+   "faltantes": 77,
+   "pct_faltantes": 12.83,
+   "pruebas": [
+    {
+     "vs": "estado_pedido",
+     "pct_faltante_por_grupo": {
+      "CANCELADO": 13.4,
+      "COMPLETADO": 13.0,
+      "DEVUELTO": 8.1,
+      "PAGADO": 11.8,
+      "PENDIENTE": 18.8
+     },
+     "chi2": 5.072,
+     "gl": 4,
+     "p_valor": 0.28,
+     "esperados_menores_5": 0
+    },
+    {
+     "vs": "metodo_pago",
+     "pct_faltante_por_grupo": {
+      "MERCADOPAGO": 13.9,
+      "OXXO PAY": 9.6,
+      "PAYPAL": 14.1,
+      "STRIPE": 14.3
+     },
+     "chi2": 2.1994,
+     "gl": 3,
+     "p_valor": 0.5321,
+     "esperados_menores_5": 0
+    }
+   ],
+   "clasificacion": "MCAR",
+   "origen": "ONLINE"
+  }
+ ],
+ "antes_despues": [
+  {
+   "metrica": "Filas",
+   "base": "todas",
+   "antes": "1220.0",
+   "despues": "1220.0",
+   "como_se_logro": "No se elimina ninguna fila (R1.3)"
+  },
+  {
+   "metrica": "Duplicados exactos sin identificar",
+   "base": "todas",
+   "antes": "20.0",
+   "despues": "0.0",
+   "como_se_logro": "20 marcados con es_duplicado → cuarentena en F6"
+  },
+  {
+   "metrica": "Montos nulos",
+   "base": "todas",
+   "antes": "32.0",
+   "despues": "0.0",
+   "como_se_logro": "Recalculados cantidad × precio (R6.2)"
+  },
+  {
+   "metrica": "Montos ≠ cantidad × precio",
+   "base": "cantidad > 0",
+   "antes": "12.0",
+   "despues": "0.0",
+   "como_se_logro": "Recalculados; original en monto_total_origen (R6.3)"
+  },
+  {
+   "metrica": "id_cliente faltante (física)",
+   "base": "física",
+   "antes": "127.0",
+   "despues": "0.0",
+   "como_se_logro": "Etiqueta ANONIMO (R3.8)"
+  },
+  {
+   "metrica": "Correo faltante (online)",
+   "base": "online",
+   "antes": "20.0",
+   "despues": "0.0",
+   "como_se_logro": "Etiqueta SIN_CORREO (R3.8)"
+  },
+  {
+   "metrica": "Dirección faltante (online)",
+   "base": "online",
+   "antes": "77.0",
+   "despues": "0.0",
+   "como_se_logro": "Etiqueta SIN_DIRECCION (R3.8)"
+  },
+  {
+   "metrica": "Cantidades ≤ 0",
+   "base": "todas",
+   "antes": "11.0",
+   "despues": "11.0",
+   "como_se_logro": "Se conservan marcadas: son imposibles, no atípicas; cuarentena en F6 (R4)"
+  },
+  {
+   "metrica": "Monedas en la columna de análisis",
+   "base": "todas",
+   "antes": "2.0",
+   "despues": "1.0",
+   "como_se_logro": "monto_total_mxn y precio_unitario_mxn en MXN (R7)"
+  },
+  {
+   "metrica": "Cantidad máxima (física)",
+   "base": "física",
+   "antes": "500.0",
+   "despues": "8.0",
+   "como_se_logro": "cantidad_cap; original en cantidad (R5.3)"
+  },
+  {
+   "metrica": "Cantidad máxima (online)",
+   "base": "online",
+   "antes": "3.0",
+   "despues": "3.0",
+   "como_se_logro": "Sin outliers en online"
+  },
+  {
+   "metrica": "Importe MXN · media",
+   "base": "base estadística (antes: total crudo × tc, sin nulos)",
+   "antes": "12470.2386",
+   "despues": "4122.1068",
+   "como_se_logro": "monto_total_mxn_cap (R5.4)"
+  },
+  {
+   "metrica": "Importe MXN · n con valor",
+   "base": "ídem",
+   "antes": "1101.0",
+   "despues": "1129.0",
+   "como_se_logro": "Los nulos recalculados ya cuentan después"
+  },
+  {
+   "metrica": "Importe MXN · mediana",
+   "base": "ídem",
+   "antes": "3149.64",
+   "despues": "3127.42",
+   "como_se_logro": ""
+  },
+  {
+   "metrica": "Importe MXN · máximo",
+   "base": "ídem",
+   "antes": "2109055.0",
+   "despues": "12032.68",
+   "como_se_logro": "Tope = LS"
+  },
+  {
+   "metrica": "Importe MXN · asimetría",
+   "base": "ídem",
+   "antes": "17.0407",
+   "despues": "1.1623",
+   "como_se_logro": ""
+  },
+  {
+   "metrica": "Importe MXN · desviación estándar",
+   "base": "ídem",
+   "antes": "89774.8313",
+   "despues": "3346.5711",
+   "como_se_logro": ""
+  }
+ ],
+ "conteo_correcciones": {
+  "IMPUTADO_DIRECCION_ENVIO": 77,
+  "IMPUTADO_EMAIL_CLIENTE": 20,
+  "IMPUTADO_ID_CLIENTE": 127,
+  "MONTO_RECALCULADO_INCONSISTENTE": 12,
+  "MONTO_RECALCULADO_NULO": 32
+ }
+}

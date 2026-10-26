@@ -1,0 +1,305 @@
+{
+ "total": 50,
+ "pagina": 1,
+ "tam": 24,
+ "paginas": 3,
+ "items": [
+  {
+   "id_producto": "PROD-001",
+   "nombre_producto": "Artículo Juguetería Ref-001",
+   "categoria": "Juguetería",
+   "precio_base_mxn": 545.42,
+   "stock_minimo": 22,
+   "proveedor": "Proveedor-Centro",
+   "ventas": 24,
+   "unidades": 35,
+   "importe": 19089.7
+  },
+  {
+   "id_producto": "PROD-002",
+   "nombre_producto": "Artículo Hogar Ref-002",
+   "categoria": "Hogar",
+   "precio_base_mxn": 670.94,
+   "stock_minimo": 11,
+   "proveedor": "Proveedor-Norte",
+   "ventas": 15,
+   "unidades": 35,
+   "importe": 23483.2
+  },
+  {
+   "id_producto": "PROD-003",
+   "nombre_producto": "Artículo Alimentos Ref-003",
+   "categoria": "Alimentos",
+   "precio_base_mxn": 1927.55,
+   "stock_minimo": 6,
+   "proveedor": "Proveedor-Norte",
+   "ventas": 23,
+   "unidades": 52,
+   "importe": 100232.78
+  },
+  {
+   "id_producto": "PROD-004",
+   "nombre_producto": "Artículo Hogar Ref-004",
+   "categoria": "Hogar",
+   "precio_base_mxn": 1085.34,
+   "stock_minimo": 43,
+   "proveedor": "Proveedor-Norte",
+   "ventas": 13,
+   "unidades": 22,
+   "importe": 23877.57
+  },
+  {
+   "id_producto": "PROD-005",
+   "nombre_producto": "Artículo Alimentos Ref-005",
+   "categoria": "Alimentos",
+   "precio_base_mxn": 934.83,
+   "stock_minimo": 46,
+   "proveedor": "Proveedor-Bajío",
+   "ventas": 27,
+   "unidades": 557,
+   "importe": 60763.95
+  },
+  {
+   "id_producto": "PROD-006",
+   "nombre_producto": "Artículo Hogar Ref-006",
+   "categoria": "Hogar",
+   "precio_base_mxn": 2048.98,
+   "stock_minimo": 22,
+   "proveedor": "Proveedor-Norte",
+   "ventas": 23,
+   "unidades": 54,
+   "importe": 110645.64
+  },
+  {
+   "id_producto": "PROD-007",
+   "nombre_producto": "Artículo Hogar Ref-007",
+   "categoria": "Hogar",
+   "precio_base_mxn": 3156.72,
+   "stock_minimo": 26,
+   "proveedor": "Proveedor-Pacífico",
+   "ventas": 19,
+   "unidades": 36,
+   "importe": 109890.64
+  },
+  {
+   "id_producto": "PROD-008",
+   "nombre_producto": "Artículo Hogar Ref-008",
+   "categoria": "Hogar",
+   "precio_base_mxn": 1008.15,
+   "stock_minimo": 26,
+   "proveedor": "Proveedor-Norte",
+   "ventas": 28,
+   "unidades": 56,
+   "importe": 56456.4
+  },
+  {
+   "id_producto": "PROD-009",
+   "nombre_producto": "Artículo Electrónica Ref-009",
+   "categoria": "Electrónica",
+   "precio_base_mxn": 1740.68,
+   "stock_minimo": 27,
+   "proveedor": "Proveedor-Pacífico",
+   "ventas": 31,
+   "unidades": 75,
+   "importe": 130551.63
+  },
+  {
+   "id_producto": "PROD-010",
+   "nombre_producto": "Artículo Alimentos Ref-010",
+   "categoria": "Alimentos",
+   "precio_base_mxn": 1227.12,
+   "stock_minimo": 7,
+   "proveedor": "Proveedor-Bajío",
+   "ventas": 23,
+   "unidades": 38,
+   "importe": 46630.62
+  },
+  {
+   "id_producto": "PROD-011",
+   "nombre_producto": "Artículo Alimentos Ref-011",
+   "categoria": "Alimentos",
+   "precio_base_mxn": 605.48,
+   "stock_minimo": 29,
+   "proveedor": "Proveedor-Norte",
+   "ventas": 21,
+   "unidades": 40,
+   "importe": 24219.2
+  },
+  {
+   "id_producto": "PROD-012",
+   "nombre_producto": "Artículo Alimentos Ref-012",
+   "categoria": "Alimentos",
+   "precio_base_mxn": 1354.64,
+   "stock_minimo": 45,
+   "proveedor": "Proveedor-Pacífico",
+   "ventas": 21,
+   "unidades": 48,
+   "importe": 65022.87
+  },
+  {
+   "id_producto": "PROD-013",
+   "nombre_producto": "Artículo Alimentos Ref-013",
+   "categoria": "Alimentos",
+   "precio_base_mxn": 905.68,
+   "stock_minimo": 9,
+   "proveedor": "Proveedor-Norte",
+   "ventas": 17,
+   "unidades": 34,
+   "importe": 30793.42
+  },
+  {
+   "id_producto": "PROD-014",
+   "nombre_producto": "Artículo Juguetería Ref-014",
+   "categoria": "Juguetería",
+   "precio_base_mxn": 1064.15,
+   "stock_minimo": 23,
+   "proveedor": "Proveedor-Norte",
+   "ventas": 19,
+   "unidades": 39,
+   "importe": 41501.79
+  },
+  {
+   "id_producto": "PROD-015",
+   "nombre_producto": "Artículo Hogar Ref-015",
+   "categoria": "Hogar",
+   "precio_base_mxn": 3905.85,
+   "stock_minimo": 29,
+   "proveedor": "Proveedor-Pacífico",
+   "ventas": 20,
+   "unidades": 148,
+   "importe": 174063.31
+  },
+  {
+   "id_producto": "PROD-016",
+   "nombre_producto": "Artículo Deportes Ref-016",
+   "categoria": "Deportes",
+   "precio_base_mxn": 2878.8,
+   "stock_minimo": 28,
+   "proveedor": "Proveedor-Centro",
+   "ventas": 15,
+   "unidades": 134,
+   "importe": 108067.99
+  },
+  {
+   "id_producto": "PROD-017",
+   "nombre_producto": "Artículo Ropa Ref-017",
+   "categoria": "Ropa",
+   "precio_base_mxn": 1630.95,
+   "stock_minimo": 47,
+   "proveedor": "Proveedor-Pacífico",
+   "ventas": 16,
+   "unidades": 534,
+   "importe": 67485.1
+  },
+  {
+   "id_producto": "PROD-018",
+   "nombre_producto": "Artículo Juguetería Ref-018",
+   "categoria": "Juguetería",
+   "precio_base_mxn": 4218.11,
+   "stock_minimo": 46,
+   "proveedor": "Proveedor-Norte",
+   "ventas": 15,
+   "unidades": 535,
+   "importe": 130627.79
+  },
+  {
+   "id_producto": "PROD-019",
+   "nombre_producto": "Artículo Alimentos Ref-019",
+   "categoria": "Alimentos",
+   "precio_base_mxn": 2875.65,
+   "stock_minimo": 39,
+   "proveedor": "Proveedor-Centro",
+   "ventas": 25,
+   "unidades": 547,
+   "importe": 142497.27
+  },
+  {
+   "id_producto": "PROD-020",
+   "nombre_producto": "Artículo Hogar Ref-020",
+   "categoria": "Hogar",
+   "precio_base_mxn": 2107.06,
+   "stock_minimo": 22,
+   "proveedor": "Proveedor-Centro",
+   "ventas": 20,
+   "unidades": 135,
+   "importe": 87886.6
+  },
+  {
+   "id_producto": "PROD-021",
+   "nombre_producto": "Artículo Juguetería Ref-021",
+   "categoria": "Juguetería",
+   "precio_base_mxn": 1493.06,
+   "stock_minimo": 8,
+   "proveedor": "Proveedor-Centro",
+   "ventas": 18,
+   "unidades": 44,
+   "importe": 65695.12
+  },
+  {
+   "id_producto": "PROD-022",
+   "nombre_producto": "Artículo Electrónica Ref-022",
+   "categoria": "Electrónica",
+   "precio_base_mxn": 3632.45,
+   "stock_minimo": 30,
+   "proveedor": "Proveedor-Pacífico",
+   "ventas": 18,
+   "unidades": 36,
+   "importe": 119644.42
+  },
+  {
+   "id_producto": "PROD-023",
+   "nombre_producto": "Artículo Electrónica Ref-023",
+   "categoria": "Electrónica",
+   "precio_base_mxn": 988.87,
+   "stock_minimo": 41,
+   "proveedor": "Proveedor-Pacífico",
+   "ventas": 17,
+   "unidades": 131,
+   "importe": 39554.78
+  },
+  {
+   "id_producto": "PROD-024",
+   "nombre_producto": "Artículo Hogar Ref-024",
+   "categoria": "Hogar",
+   "precio_base_mxn": 2966.7,
+   "stock_minimo": 30,
+   "proveedor": "Proveedor-Bajío",
+   "ventas": 20,
+   "unidades": 46,
+   "importe": 130866.59
+  }
+ ],
+ "por_categoria": [
+  {
+   "categoria": "Hogar",
+   "productos": 14,
+   "precio_medio": 2058.35
+  },
+  {
+   "categoria": "Alimentos",
+   "productos": 12,
+   "precio_medio": 1620.92
+  },
+  {
+   "categoria": "Juguetería",
+   "productos": 10,
+   "precio_medio": 1930.13
+  },
+  {
+   "categoria": "Electrónica",
+   "productos": 7,
+   "precio_medio": 2081.43
+  },
+  {
+   "categoria": "Ropa",
+   "productos": 5,
+   "precio_medio": 2491.71
+  },
+  {
+   "categoria": "Deportes",
+   "productos": 2,
+   "precio_medio": 3466.04
+  }
+ ],
+ "huerfanos": 62
+}
