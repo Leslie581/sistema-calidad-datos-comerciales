@@ -1,0 +1,294 @@
+{
+ "transaccion": {
+  "id_transaccion": "WEB-00508",
+  "origen": "ONLINE",
+  "id_fila_origen": 508,
+  "fecha_cruda": "2026-10-03T13:09:00",
+  "fecha_venta": "2026-10-03",
+  "punto_venta": "TIENDA_ONLINE",
+  "id_producto": "PROD-037",
+  "nombre_producto": "Artículo Ropa Ref-037",
+  "categoria": "Ropa",
+  "cantidad_origen": 3.0,
+  "cantidad": 3,
+  "cantidad_cap": 3,
+  "moneda_original": "MXN",
+  "moneda": "MXN",
+  "tipo_cambio_aplicado": 1.0,
+  "precio_unitario_original": 3443.17,
+  "precio_unitario_mxn": 3443.17,
+  "monto_total_origen": 826360.8,
+  "monto_total_mxn": 10329.51,
+  "monto_cantidad_cap_mxn": 10329.51,
+  "monto_total_mxn_cap": 10329.51,
+  "monto_minmax": 0.85443,
+  "segmento_importe": "Alto",
+  "id_cliente": null,
+  "email_cliente": "usuario_1867@gmail.com",
+  "direccion_envio": "Calle 19 No. 728, Colima",
+  "metodo_pago": "STRIPE",
+  "estado_pedido": "PAGADO",
+  "es_outlier_cantidad": 0,
+  "es_outlier_monto": 0,
+  "alertas": [],
+  "correcciones": [
+   "MONTO_RECALCULADO_INCONSISTENTE",
+   "FECHA_DESDE_ISO_DATETIME"
+  ],
+  "lote_id": "L20261026-011336-586b",
+  "fecha_carga": "2026-10-26T01:13:36"
+ },
+ "registro_original": {
+  "order_id": "WEB-00508",
+  "order_timestamp": "2026-10-03T13:09:00",
+  "product_id": "PROD-037",
+  "units": 3,
+  "currency": "MXN",
+  "unit_price": 3443.17,
+  "total_amount": 826360.8,
+  "customer_email": "usuario_1867@gmail.com",
+  "shipping_address": "Calle 19 No. 728, Colima",
+  "order_status": "PAGADO",
+  "payment_gateway": "Stripe"
+ },
+ "trazabilidad": [
+  {
+   "clave": "original",
+   "titulo": "Dato original",
+   "estado": "ok",
+   "descripcion": "Registro tal como llegó en el JSON online (fila 508).",
+   "campos": [
+    {
+     "campo": "order_id",
+     "antes": "WEB-00508",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "order_timestamp",
+     "antes": "2026-10-03T13:09:00",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "product_id",
+     "antes": "PROD-037",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "units",
+     "antes": 3,
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "currency",
+     "antes": "MXN",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "unit_price",
+     "antes": 3443.17,
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "total_amount",
+     "antes": 826360.8,
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "customer_email",
+     "antes": "usuario_1867@gmail.com",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "shipping_address",
+     "antes": "Calle 19 No. 728, Colima",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "order_status",
+     "antes": "PAGADO",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "payment_gateway",
+     "antes": "Stripe",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    }
+   ],
+   "codigos": []
+  },
+  {
+   "clave": "homologacion",
+   "titulo": "Homologación y normalización",
+   "estado": "ok",
+   "descripcion": "Esquema unificado, fechas ISO, texto normalizado y conversión de moneda.",
+   "campos": [
+    {
+     "campo": "fecha",
+     "antes": "2026-10-03T13:09:00",
+     "despues": "2026-10-03",
+     "cambio": true,
+     "nota": "formato detectado: ISO_DATETIME → ISO 8601 (YYYY-MM-DD)"
+    },
+    {
+     "campo": "producto",
+     "antes": "PROD-037",
+     "despues": "PROD-037",
+     "cambio": false,
+     "nota": "columna de origen: product_id"
+    },
+    {
+     "campo": "moneda",
+     "antes": "MXN",
+     "despues": "MXN",
+     "cambio": false,
+     "nota": "columna de origen: currency"
+    },
+    {
+     "campo": "correo",
+     "antes": "usuario_1867@gmail.com",
+     "despues": "usuario_1867@gmail.com",
+     "cambio": false,
+     "nota": "columna de origen: customer_email"
+    },
+    {
+     "campo": "dirección",
+     "antes": "Calle 19 No. 728, Colima",
+     "despues": "Calle 19 No. 728, Colima",
+     "cambio": false,
+     "nota": "columna de origen: shipping_address"
+    },
+    {
+     "campo": "método de pago",
+     "antes": "Stripe",
+     "despues": "STRIPE",
+     "cambio": true,
+     "nota": "columna de origen: payment_gateway"
+    },
+    {
+     "campo": "estado del pedido",
+     "antes": "PAGADO",
+     "despues": "PAGADO",
+     "cambio": false,
+     "nota": "columna de origen: order_status"
+    },
+    {
+     "campo": "precio unitario",
+     "antes": 3443.17,
+     "despues": 3443.17,
+     "cambio": false,
+     "nota": "ya estaba en MXN"
+    }
+   ],
+   "codigos": [
+    "FECHA_DESDE_ISO_DATETIME"
+   ]
+  },
+  {
+   "clave": "correcciones",
+   "titulo": "Correcciones",
+   "estado": "corregido",
+   "descripcion": "Faltantes imputados e importes recalculados. El valor original se conserva en la base.",
+   "campos": [
+    {
+     "campo": "monto total (origen → MXN)",
+     "antes": 826360.8,
+     "despues": 10329.51,
+     "cambio": true,
+     "nota": "recalculado como cantidad × precio"
+    }
+   ],
+   "codigos": [
+    "MONTO_RECALCULADO_INCONSISTENTE"
+   ]
+  },
+  {
+   "clave": "capping",
+   "titulo": "Tratamiento estadístico (IQR)",
+   "estado": "sin_cambios",
+   "descripcion": "Ningún valor de este registro superó los límites del IQR.",
+   "campos": [
+    {
+     "campo": "cantidad → cantidad con capping",
+     "antes": 3,
+     "despues": 3,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "importe MXN → importe con capping",
+     "antes": 10329.51,
+     "despues": 10329.51,
+     "cambio": false,
+     "nota": null
+    }
+   ],
+   "codigos": []
+  },
+  {
+   "clave": "transformacion",
+   "titulo": "Transformación",
+   "estado": "ok",
+   "descripcion": "Escalamiento Min-Max a [0, 1] y segmento por terciles, calculados sobre la base estadística.",
+   "campos": [
+    {
+     "campo": "monto_minmax",
+     "antes": null,
+     "despues": 0.85443,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "segmento_importe",
+     "antes": null,
+     "despues": "Alto",
+     "cambio": false,
+     "nota": null
+    }
+   ],
+   "codigos": []
+  },
+  {
+   "clave": "validacion",
+   "titulo": "Validación Pydantic",
+   "estado": "aceptado",
+   "descripcion": "Cumplió todas las reglas del modelo: se prepara para la tabla final.",
+   "campos": [],
+   "codigos": []
+  },
+  {
+   "clave": "resultado",
+   "titulo": "Resultado",
+   "estado": "aceptado",
+   "descripcion": "Cargada en transacciones_limpias (lote L20261026-011336-586b).",
+   "campos": [],
+   "codigos": []
+  }
+ ],
+ "glosario": {
+  "MONTO_RECALCULADO_INCONSISTENTE": "Monto distinto de cantidad × precio → recalculado; el original se conserva (R6.3).",
+  "FECHA_DESDE_ISO_DATETIME": "Formato de fecha de origen."
+ },
+ "cuarentena_relacionada": []
+}

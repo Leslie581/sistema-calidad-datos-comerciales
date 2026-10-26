@@ -18,8 +18,8 @@ TecNM · Instituto Tecnológico de Colima · Prof. Armando Román Gallardo Hered
 | Avance 01 (reglas, diagrama, diagnóstico) | ✅ entregado | `docs/avance01/`, `diagnostico/` |
 | **Etapa 1 · Leslie** (F1 perfil, F2 limpieza, F3 IQR/capping) | ✅ ejecutada y probada | `salidas/etapa_leslie/`, `docs/RESUMEN_AVANCE_LESLIE.md` |
 | **Etapa 2 · Yerik** (extracción, homologación, fechas ISO, USD→MXN, catálogo, Min-Max, terciles) | ✅ ejecutada y probada | `salidas/etapa_yerik/`, `docs/RESUMEN_AVANCE_YERIK.md` |
-| **Etapa 3 · Nono** (Pydantic, cuarentena, SQLite, pipeline, estrés) | ✅ ejecutada y probada · pendiente de commit | `salidas/etapa_nono/`, `docs/RESUMEN_AVANCE_NONO.md` |
-| Interfaz web | ⬜ fuera de alcance por ahora | — |
+| **Etapa 3 · Nono** (Pydantic, cuarentena, SQLite, pipeline, estrés) | ✅ ejecutada y probada | `salidas/etapa_nono/`, `docs/RESUMEN_AVANCE_NONO.md` |
+| **Etapa 4 · KOVA** (API FastAPI + interfaz React) | ✅ implementada y probada · pendiente de commit | `docs/RESUMEN_AVANCE_FRONTEND.md`, `evidencias/GUIA_CAPTURAS_FRONTEND.md` |
 
 ## Instalación y ejecución
 
@@ -31,13 +31,27 @@ python -m venv .venv
 pip install -r requirements.txt
 
 python -m src.pipeline                 # ETL completo → salidas\etapa_nono\calidad_comercial.db (SQLite) y evidencias
-python -m pytest                       # 357 pruebas (Leslie 78 · Yerik 74 · Nono 205)
+python -m pytest                       # 442 pruebas (etapas 1-3: 357 · API y frontend: 85)
 python datos\estres\generar_estres.py  # 48 escenarios con datos corruptos → salidas\etapa_nono\estres\
 python scripts\ejecutar_etapa_leslie.py   # regenera salidas\etapa_leslie\
 python scripts\ejecutar_etapa_yerik.py    # regenera salidas\etapa_yerik\
 ```
 
-Linux/macOS: `source .venv/bin/activate` y las mismas órdenes con `/` en las rutas.
+### KOVA · plataforma web (etapa 4)
+
+Requiere Node.js 20+ (probado con 24). Una sola vez: `cd frontend; npm install; cd ..`.
+
+```powershell
+# Terminal 1 · API (FastAPI, solo lectura sobre SQLite)
+.venv\Scripts\Activate.ps1
+python -m uvicorn src.api.main:app --host 127.0.0.1 --port 8000
+
+# Terminal 2 · interfaz (React + Vite)
+cd frontend
+npm run dev                            # abre http://127.0.0.1:5173
+```
+
+Con una sola terminal: `cd frontend; npm run build` y abrir http://127.0.0.1:8000 (FastAPI sirve `frontend\dist`). Desde el **Centro ETL** se puede ejecutar el pipeline real (con confirmación y sin ejecuciones simultáneas). Pruebas del frontend: `cd frontend; npm run lint; npm test; npm run build`. Detalle completo: `docs/RESUMEN_AVANCE_FRONTEND.md`; capturas: `evidencias/GUIA_CAPTURAS_FRONTEND.md`.
 
 **Resultado del pipeline con los datasets oficiales:** 1,220 registros de entrada (620 físicos + 600 online) → **1,104** en `transacciones_limpias` + **116** en `cuarentena_errores`. Opciones de `python -m src.pipeline`: `--bd RUTA`, `--salida CARPETA`, `--no-reemplazar`, `--catalogo/--fisica/--online RUTA` (archivos alternos para pruebas). Código de salida 0 = completado, 1 = fallido controlado (sin traceback). La base `.db` y los logs `.log` están en `.gitignore`: se regeneran con el comando anterior. Ábrala con DB Browser for SQLite; consultas de ejemplo en `salidas\etapa_nono\07_consultas_verificacion.txt`.
 
@@ -58,6 +72,8 @@ src/calidad/             perfilado · limpieza · outliers · reporte           
 src/validacion/          esquemas.py (Pydantic) · cuarentena.py (segregación)                             [Nono]
 src/persistencia/        esquema.sql · carga.py (SQLite transaccional)                                    [Nono]
 src/pipeline.py          orquestador: python -m src.pipeline                                              [Nono]
+src/api/                 API FastAPI de KOVA (solo lectura + ejecución protegida del pipeline)            [Etapa 4]
+frontend/                KOVA: React + TypeScript + Vite + Tailwind                                       [Etapa 4]
 src/reporte_final.py     evidencias, tablas y gráficos de la ejecución                                    [Nono]
 tests/                   pruebas unitarias, de estrés y contra los datasets oficiales
 scripts/                 ejecutar_etapa_leslie.py · ejecutar_etapa_yerik.py

@@ -1,0 +1,379 @@
+{
+ "grupos": [
+  {
+   "carpeta": "etapa_leslie",
+   "archivos": [
+    {
+     "ruta": "00_ejecucion.json",
+     "nombre": "00_ejecucion.json",
+     "tipo": "json",
+     "bytes": 335,
+     "modificado": 1792991332.5745518,
+     "url": "/api/reportes/etapa_leslie/00_ejecucion.json"
+    },
+    {
+     "ruta": "01_perfil_antes.json",
+     "nombre": "01_perfil_antes.json",
+     "tipo": "json",
+     "bytes": 5471,
+     "modificado": 1792992289.195169,
+     "url": "/api/reportes/etapa_leslie/01_perfil_antes.json"
+    },
+    {
+     "ruta": "01_perfil_antes_catalogo.csv",
+     "nombre": "01_perfil_antes_catalogo.csv",
+     "tipo": "csv",
+     "bytes": 326,
+     "modificado": 1792992289.199226,
+     "url": "/api/reportes/etapa_leslie/01_perfil_antes_catalogo.csv"
+    },
+    {
+     "ruta": "01_perfil_antes_fisica.csv",
+     "nombre": "01_perfil_antes_fisica.csv",
+     "tipo": "csv",
+     "bytes": 466,
+     "modificado": 1792992289.204345,
+     "url": "/api/reportes/etapa_leslie/01_perfil_antes_fisica.csv"
+    },
+    {
+     "ruta": "01_perfil_antes_online.csv",
+     "nombre": "01_perfil_antes_online.csv",
+     "tipo": "csv",
+     "bytes": 565,
+     "modificado": 1792992289.2073429,
+     "url": "/api/reportes/etapa_leslie/01_perfil_antes_online.csv"
+    },
+    {
+     "ruta": "02_faltantes_mcar_mar.csv",
+     "nombre": "02_faltantes_mcar_mar.csv",
+     "tipo": "csv",
+     "bytes": 589,
+     "modificado": 1792991331.1907697,
+     "url": "/api/reportes/etapa_leslie/02_faltantes_mcar_mar.csv"
+    },
+    {
+     "ruta": "02_faltantes_mcar_mar.json",
+     "nombre": "02_faltantes_mcar_mar.json",
+     "tipo": "json",
+     "bytes": 3315,
+     "modificado": 1792991331.1887624,
+     "url": "/api/reportes/etapa_leslie/02_faltantes_mcar_mar.json"
+    },
+    {
+     "ruta": "03_bitacora_limpieza.json",
+     "nombre": "03_bitacora_limpieza.json",
+     "tipo": "json",
+     "bytes": 870,
+     "modificado": 1792991331.2233298,
+     "url": "/api/reportes/etapa_leslie/03_bitacora_limpieza.json"
+    },
+    {
+     "ruta": "04_integracion_minima.json",
+     "nombre": "04_integracion_minima.json",
+     "tipo": "json",
+     "bytes": 150,
+     "modificado": 1792991331.251578,
+     "url": "/api/reportes/etapa_leslie/04_integracion_minima.json"
+    },
+    {
+     "ruta": "05_limites_iqr.json",
+     "nombre": "05_limites_iqr.json",
+     "tipo": "json",
+     "bytes": 1457,
+     "modificado": 1792991331.27954,
+     "url": "/api/reportes/etapa_leslie/05_limites_iqr.json"
+    },
+    {
+     "ruta": "06_antes_despues.csv",
+     "nombre": "06_antes_despues.csv",
+     "tipo": "csv",
+     "bytes": 1399,
+     "modificado": 1792991331.292606,
+     "url": "/api/reportes/etapa_leslie/06_antes_despues.csv"
+    },
+    {
+     "ruta": "06_perfil_despues.json",
+     "nombre": "06_perfil_despues.json",
+     "tipo": "json",
+     "bytes": 2025,
+     "modificado": 1792991331.3394198,
+     "url": "/api/reportes/etapa_leslie/06_perfil_despues.json"
+    },
+    {
+     "ruta": "07_comparacion_referencia.csv",
+     "nombre": "07_comparacion_referencia.csv",
+     "tipo": "csv",
+     "bytes": 2901,
+     "modificado": 1792991331.3499558,
+     "url": "/api/reportes/etapa_leslie/07_comparacion_referencia.csv"
+    },
+    {
+     "ruta": "08_ejemplos_trazabilidad.csv",
+     "nombre": "08_ejemplos_trazabilidad.csv",
+     "tipo": "csv",
+     "bytes": 2539,
+     "modificado": 1792991331.359573,
+     "url": "/api/reportes/etapa_leslie/08_ejemplos_trazabilidad.csv"
+    },
+    {
+     "ruta": "09_salida_etapa_leslie.csv",
+     "nombre": "09_salida_etapa_leslie.csv",
+     "tipo": "csv",
+     "bytes": 734632,
+     "modificado": 1792991331.398759,
+     "url": "/api/reportes/etapa_leslie/09_salida_etapa_leslie.csv"
+    },
+    {
+     "ruta": "consola_ejecucion.txt",
+     "nombre": "consola_ejecucion.txt",
+     "tipo": "txt",
+     "bytes": 8300,
+     "modificado": 1792992289.233718,
+     "url": "/api/reportes/etapa_leslie/consola_ejecucion.txt"
+    },
+    {
+     "ruta": "graficas/boxplot_cantidad_fisica.png",
+     "nombre": "boxplot_cantidad_fisica.png",
+     "tipo": "png",
+     "bytes": 40711,
+     "modificado": 1792991332.2726612,
+     "url": "/api/reportes/etapa_leslie/graficas/boxplot_cantidad_fisica.png"
+    },
+    {
+     "ruta": "graficas/boxplot_importe_mxn.png",
+     "nombre": "boxplot_importe_mxn.png",
+     "tipo": "png",
+     "bytes": 47810,
+     "modificado": 1792991332.5729413,
+     "url": "/api/reportes/etapa_leslie/graficas/boxplot_importe_mxn.png"
+    },
+    {
+     "ruta": "pytest_pandas2.txt",
+     "nombre": "pytest_pandas2.txt",
+     "tipo": "txt",
+     "bytes": 6820,
+     "modificado": 1792980927.7342272,
+     "url": "/api/reportes/etapa_leslie/pytest_pandas2.txt"
+    },
+    {
+     "ruta": "pytest_pandas3.txt",
+     "nombre": "pytest_pandas3.txt",
+     "tipo": "txt",
+     "bytes": 6785,
+     "modificado": 1792980927.664356,
+     "url": "/api/reportes/etapa_leslie/pytest_pandas3.txt"
+    },
+    {
+     "ruta": "salida_consola.txt",
+     "nombre": "salida_consola.txt",
+     "tipo": "txt",
+     "bytes": 23713,
+     "modificado": 1792980927.7232125,
+     "url": "/api/reportes/etapa_leslie/salida_consola.txt"
+    }
+   ]
+  },
+  {
+   "carpeta": "etapa_yerik",
+   "archivos": [
+    {
+     "ruta": "00_ejecucion.json",
+     "nombre": "00_ejecucion.json",
+     "tipo": "json",
+     "bytes": 361,
+     "modificado": 1792992493.7598393,
+     "url": "/api/reportes/etapa_yerik/00_ejecucion.json"
+    },
+    {
+     "ruta": "01_homologacion.json",
+     "nombre": "01_homologacion.json",
+     "tipo": "json",
+     "bytes": 658,
+     "modificado": 1792992492.580237,
+     "url": "/api/reportes/etapa_yerik/01_homologacion.json"
+    },
+    {
+     "ruta": "01_homologacion_muestra.csv",
+     "nombre": "01_homologacion_muestra.csv",
+     "tipo": "csv",
+     "bytes": 8076,
+     "modificado": 1792992492.5842452,
+     "url": "/api/reportes/etapa_yerik/01_homologacion_muestra.csv"
+    },
+    {
+     "ruta": "02_fechas_muestra.csv",
+     "nombre": "02_fechas_muestra.csv",
+     "tipo": "csv",
+     "bytes": 312,
+     "modificado": 1792992492.7338357,
+     "url": "/api/reportes/etapa_yerik/02_fechas_muestra.csv"
+    },
+    {
+     "ruta": "02_formatos_fecha.csv",
+     "nombre": "02_formatos_fecha.csv",
+     "tipo": "csv",
+     "bytes": 268,
+     "modificado": 1792992492.609285,
+     "url": "/api/reportes/etapa_yerik/02_formatos_fecha.csv"
+    },
+    {
+     "ruta": "03_mixed_vs_explicito.json",
+     "nombre": "03_mixed_vs_explicito.json",
+     "tipo": "json",
+     "bytes": 468,
+     "modificado": 1792992492.781486,
+     "url": "/api/reportes/etapa_yerik/03_mixed_vs_explicito.json"
+    },
+    {
+     "ruta": "04_resumen_usd.json",
+     "nombre": "04_resumen_usd.json",
+     "tipo": "json",
+     "bytes": 131,
+     "modificado": 1792992492.789521,
+     "url": "/api/reportes/etapa_yerik/04_resumen_usd.json"
+    },
+    {
+     "ruta": "04_usd_vs_catalogo.csv",
+     "nombre": "04_usd_vs_catalogo.csv",
+     "tipo": "csv",
+     "bytes": 13121,
+     "modificado": 1792992492.7864943,
+     "url": "/api/reportes/etapa_yerik/04_usd_vs_catalogo.csv"
+    },
+    {
+     "ruta": "05_huerfanos.csv",
+     "nombre": "05_huerfanos.csv",
+     "tipo": "csv",
+     "bytes": 3115,
+     "modificado": 1792992492.8015344,
+     "url": "/api/reportes/etapa_yerik/05_huerfanos.csv"
+    },
+    {
+     "ruta": "05_resumen_huerfanos.json",
+     "nombre": "05_resumen_huerfanos.json",
+     "tipo": "json",
+     "bytes": 149,
+     "modificado": 1792992492.8020582,
+     "url": "/api/reportes/etapa_yerik/05_resumen_huerfanos.json"
+    },
+    {
+     "ruta": "06_ejemplos_transformacion.csv",
+     "nombre": "06_ejemplos_transformacion.csv",
+     "tipo": "csv",
+     "bytes": 791,
+     "modificado": 1792992492.865671,
+     "url": "/api/reportes/etapa_yerik/06_ejemplos_transformacion.csv"
+    },
+    {
+     "ruta": "06_parametros_transformacion.json",
+     "nombre": "06_parametros_transformacion.json",
+     "tipo": "json",
+     "bytes": 428,
+     "modificado": 1792992492.8601484,
+     "url": "/api/reportes/etapa_yerik/06_parametros_transformacion.json"
+    },
+    {
+     "ruta": "06_segmentos_conteo.csv",
+     "nombre": "06_segmentos_conteo.csv",
+     "tipo": "csv",
+     "bytes": 75,
+     "modificado": 1792992492.877205,
+     "url": "/api/reportes/etapa_yerik/06_segmentos_conteo.csv"
+    },
+    {
+     "ruta": "07_comparacion_referencia.csv",
+     "nombre": "07_comparacion_referencia.csv",
+     "tipo": "csv",
+     "bytes": 1257,
+     "modificado": 1792992492.8842137,
+     "url": "/api/reportes/etapa_yerik/07_comparacion_referencia.csv"
+    },
+    {
+     "ruta": "10_columnas_entrega.json",
+     "nombre": "10_columnas_entrega.json",
+     "tipo": "json",
+     "bytes": 981,
+     "modificado": 1792992492.9442804,
+     "url": "/api/reportes/etapa_yerik/10_columnas_entrega.json"
+    },
+    {
+     "ruta": "10_salida_etapa_yerik.csv",
+     "nombre": "10_salida_etapa_yerik.csv",
+     "tipo": "csv",
+     "bytes": 806104,
+     "modificado": 1792992492.9432788,
+     "url": "/api/reportes/etapa_yerik/10_salida_etapa_yerik.csv"
+    },
+    {
+     "ruta": "graficas/fechas_mixed_vs_explicito.png",
+     "nombre": "fechas_mixed_vs_explicito.png",
+     "tipo": "png",
+     "bytes": 51125,
+     "modificado": 1792992493.4231553,
+     "url": "/api/reportes/etapa_yerik/graficas/fechas_mixed_vs_explicito.png"
+    },
+    {
+     "ruta": "graficas/hist_monto_minmax.png",
+     "nombre": "hist_monto_minmax.png",
+     "tipo": "png",
+     "bytes": 43095,
+     "modificado": 1792992493.1934235,
+     "url": "/api/reportes/etapa_yerik/graficas/hist_monto_minmax.png"
+    },
+    {
+     "ruta": "graficas/segmentos_importe.png",
+     "nombre": "segmentos_importe.png",
+     "tipo": "png",
+     "bytes": 26903,
+     "modificado": 1792992493.757833,
+     "url": "/api/reportes/etapa_yerik/graficas/segmentos_importe.png"
+    },
+    {
+     "ruta": "graficas/usd_vs_catalogo.png",
+     "nombre": "usd_vs_catalogo.png",
+     "tipo": "png",
+     "bytes": 50898,
+     "modificado": 1792992493.5929754,
+     "url": "/api/reportes/etapa_yerik/graficas/usd_vs_catalogo.png"
+    },
+    {
+     "ruta": "pytest_completo.txt",
+     "nombre": "pytest_completo.txt",
+     "tipo": "txt",
+     "bytes": 13296,
+     "modificado": 1792984809.5788586,
+     "url": "/api/reportes/etapa_yerik/pytest_completo.txt"
+    },
+    {
+     "ruta": "pytest_integracion.txt",
+     "nombre": "pytest_integracion.txt",
+     "tipo": "txt",
+     "bytes": 6832,
+     "modificado": 1792984809.5798564,
+     "url": "/api/reportes/etapa_yerik/pytest_integracion.txt"
+    },
+    {
+     "ruta": "salida_consola.txt",
+     "nombre": "salida_consola.txt",
+     "tipo": "txt",
+     "bytes": 11161,
+     "modificado": 1792984809.5808644,
+     "url": "/api/reportes/etapa_yerik/salida_consola.txt"
+    }
+   ]
+  },
+  {
+   "carpeta": "etapa_nono",
+   "archivos": [
+    {
+     "ruta": "bitacoras/bitacora_L20261026-011336-586b.json",
+     "nombre": "bitacora_L20261026-011336-586b.json",
+     "tipo": "json",
+     "bytes": 14725,
+     "modificado": 1792998816.4556026,
+     "url": "/api/reportes/etapa_nono/bitacoras/bitacora_L20261026-011336-586b.json"
+    }
+   ]
+  }
+ ]
+}

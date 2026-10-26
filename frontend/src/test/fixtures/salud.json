@@ -1,0 +1,6 @@
+{
+ "api": "ok",
+ "base_datos": "disponible",
+ "ruta_bd_relativa": "kova.db",
+ "version": "1.0.0"
+}

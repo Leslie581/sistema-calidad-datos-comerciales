@@ -1,0 +1,165 @@
+{
+ "ejecutor": {
+  "estado": "INACTIVO",
+  "iniciado_en": null,
+  "lote_en_curso": null,
+  "ultimo_resultado": null
+ },
+ "ultima": {
+  "lote_id": "L20261026-011336-586b",
+  "estado": "COMPLETADO",
+  "inicio": "2026-10-26T01:13:36",
+  "fin": "2026-10-26T01:13:36",
+  "filas_entrada": 1220,
+  "filas_limpias": 1104,
+  "filas_cuarentena": 116,
+  "tasa_aceptacion": 0.9049,
+  "duracion_s": 0.391,
+  "etapa_fallida": null,
+  "error": null,
+  "tiene_bitacora": true,
+  "advertencias": []
+ },
+ "fases": [
+  {
+   "numero": 1,
+   "clave": "diagnostico",
+   "nombre": "Diagnóstico inicial",
+   "responsable": "Leslie",
+   "estado": "COMPLETADA",
+   "duracion_s": 0.068,
+   "metricas": {
+    "filas_fuentes": {
+     "catalogo": 50,
+     "fisica": 620,
+     "online": 600
+    },
+    "integridad_originales": {
+     "catalogo_productos.csv": true,
+     "ventas_tienda_fisica.csv": true,
+     "ventas_online.json": true
+    }
+   },
+   "etapas_internas": [
+    "1. Extracción",
+    "2. Perfilado inicial y MCAR/MAR (informativo)"
+   ],
+   "verificada": true
+  },
+  {
+   "numero": 2,
+   "clave": "faltantes",
+   "nombre": "Manejo de faltantes",
+   "responsable": "Leslie",
+   "estado": "COMPLETADA",
+   "duracion_s": 0.028,
+   "metricas": {
+    "duplicados_marcados": 20,
+    "montos_recalculados": 44,
+    "etiquetas": {
+     "FISICA.id_cliente→ANONIMO": 127,
+     "ONLINE.email_cliente→SIN_CORREO": 20,
+     "ONLINE.direccion_envio→SIN_DIRECCION": 77
+    }
+   },
+   "etapas_internas": [
+    "3. Homologación",
+    "4. Limpieza e imputación"
+   ],
+   "verificada": true
+  },
+  {
+   "numero": 3,
+   "clave": "outliers",
+   "nombre": "Outliers (IQR y capping)",
+   "responsable": "Leslie",
+   "estado": "COMPLETADA",
+   "duracion_s": 0.016,
+   "metricas": {
+    "base_estadistica": 1129,
+    "limite_superior_monto": 12032.68,
+    "montos_recortados": 82
+   },
+   "nota": "Se ejecuta después de la integración: el IQR necesita el importe en MXN.",
+   "etapas_internas": [
+    "6. IQR y capping"
+   ],
+   "verificada": true
+  },
+  {
+   "numero": 4,
+   "clave": "integracion",
+   "nombre": "Integración",
+   "responsable": "Yerik",
+   "estado": "COMPLETADA",
+   "duracion_s": 0.022,
+   "metricas": {
+    "filas": 1220
+   },
+   "etapas_internas": [
+    "5. Integración (fechas, USD→MXN, catálogo)"
+   ],
+   "verificada": true
+  },
+  {
+   "numero": 5,
+   "clave": "transformacion",
+   "nombre": "Transformación",
+   "responsable": "Yerik",
+   "estado": "COMPLETADA",
+   "duracion_s": 0.005,
+   "metricas": {
+    "min": 332.67,
+    "max": 12032.68,
+    "cortes": [
+     2069.07,
+     4183.67
+    ]
+   },
+   "etapas_internas": [
+    "7. Min-Max y discretización"
+   ],
+   "verificada": true
+  },
+  {
+   "numero": 6,
+   "clave": "validacion",
+   "nombre": "Pydantic y cuarentena",
+   "responsable": "Nono",
+   "estado": "COMPLETADA",
+   "duracion_s": 0.058,
+   "metricas": {
+    "validos": 1104,
+    "cuarentena": 116,
+    "errores_inesperados": 0
+   },
+   "etapas_internas": [
+    "8. Validación Pydantic y cuarentena"
+   ],
+   "verificada": true
+  },
+  {
+   "numero": 7,
+   "clave": "carga",
+   "nombre": "Carga transaccional",
+   "responsable": "Nono",
+   "estado": "COMPLETADA",
+   "duracion_s": 0.119,
+   "metricas": {
+    "estado": "COMMIT",
+    "limpias": 1104,
+    "cuarentena": 116
+   },
+   "etapas_internas": [
+    "9. Carga transaccional SQLite"
+   ],
+   "verificada": true
+  }
+ ],
+ "nota_progreso": "El pipeline no emite progreso por fase mientras corre: se muestra «en ejecución» y, al terminar, el resultado real y la duración medida de cada fase.",
+ "ruta_bd_existe": true,
+ "fuentes": {
+  "oficiales": true,
+  "verificacion_sha256": true
+ }
+}
