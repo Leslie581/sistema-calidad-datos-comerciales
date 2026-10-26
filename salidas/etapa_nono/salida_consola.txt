@@ -1,0 +1,22 @@
+2026-10-25 23:56:25,105 INFO    src.pipeline: ▶ 1. Extracción
+2026-10-25 23:56:25,120 INFO    src.pipeline: ▶ 2. Perfilado inicial y MCAR/MAR (informativo)
+2026-10-25 23:56:25,153 INFO    src.pipeline: ▶ 3. Homologación
+2026-10-25 23:56:25,190 INFO    src.pipeline: ▶ 4. Limpieza e imputación
+2026-10-25 23:56:25,203 INFO    src.pipeline: ▶ 5. Integración (fechas, USD→MXN, catálogo)
+2026-10-25 23:56:25,220 INFO    src.pipeline: ▶ 6. IQR y capping
+2026-10-25 23:56:25,231 INFO    src.pipeline: ▶ 7. Min-Max y discretización
+2026-10-25 23:56:25,235 INFO    src.pipeline: ▶ 8. Validación Pydantic y cuarentena
+2026-10-25 23:56:25,282 INFO    src.pipeline: Válidos=1104 · cuarentena=116 (de 1220)
+2026-10-25 23:56:25,282 INFO    src.pipeline: ▶ 9. Carga transaccional SQLite
+2026-10-25 23:56:25,627 INFO    src.pipeline: ▶ 10. Reporte final y evidencias
+
+======================================================================
+Lote: L20261025-235625-9084   Estado: COMPLETADO   Duración: 0.254 s
+Entrada: 1220  →  limpias: 1104  +  cuarentena: 116
+   PRODUCTO_HUERFANO              62
+   EMAIL_MALFORMADO               28
+   DUPLICADO_EXACTO               20
+   CANTIDAD_INVALIDA              11
+   MONTO_INVALIDO                 11
+Base de datos: C:\Users\Leslie Valadez\Documents\Proyectos\sistema-calidad-datos-comerciales\salidas\etapa_nono\calidad_comercial.db
+Evidencias:    C:\Users\Leslie Valadez\Documents\Proyectos\sistema-calidad-datos-comerciales\salidas\etapa_nono

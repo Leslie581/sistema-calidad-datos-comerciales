@@ -1,0 +1,28 @@
+{
+  "filas": 1104,
+  "fechas_iso_validas": 1104,
+  "rango_fechas": [
+    "2026-09-01",
+    "2026-10-16"
+  ],
+  "moneda_mxn": 1104,
+  "moneda_original": {
+    "MXN": 930,
+    "USD": 174
+  },
+  "monto_incoherente_con_cantidad_x_precio": 0,
+  "monto_minmax_min": 0.0,
+  "monto_minmax_max": 1.0,
+  "minmax_difiere_del_recalculo_(>1e-6)": 0,
+  "segmento_difiere_del_recalculo": 0,
+  "segmentos": {
+    "Alto": 372,
+    "Bajo": 370,
+    "Medio": 362
+  },
+  "cantidad_cap_mayor_que_cantidad": 0,
+  "con_valor_original_distinto_del_tratado": {
+    "cantidad": 13,
+    "monto": 86
+  }
+}

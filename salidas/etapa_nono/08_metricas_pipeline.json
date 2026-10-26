@@ -1,0 +1,66 @@
+{
+  "lote_id": "L20261025-235625-9084",
+  "duracion_total_s": 0.254,
+  "duracion_etapas_s": {
+    "1. Extracción": 0.015,
+    "2. Perfilado inicial y MCAR/MAR (informativo)": 0.032,
+    "3. Homologación": 0.01,
+    "4. Limpieza e imputación": 0.013,
+    "5. Integración (fechas, USD→MXN, catálogo)": 0.017,
+    "6. IQR y capping": 0.011,
+    "7. Min-Max y discretización": 0.003,
+    "8. Validación Pydantic y cuarentena": 0.047,
+    "9. Carga transaccional SQLite": 0.041
+  },
+  "filas_entrada": 1220,
+  "filas_por_origen": {
+    "FISICA": 620,
+    "ONLINE": 600
+  },
+  "entorno": {
+    "python": "3.13.15",
+    "pandas": "3.1.0",
+    "pydantic": "2.14.1",
+    "sqlite": "3.50.4",
+    "so": "Windows-11-10.0.26200-SP0"
+  },
+  "huellas_entrada": {
+    "catalogo_productos.csv": "677fa7071d7cbe0ae3862c753a068ba9b80fe399b38fc7e23a45dd2e256868d1",
+    "ventas_tienda_fisica.csv": "2e41ead654b4d044cca664842bca1ae85df2c1a84f5c0aad8b55706bbebf4df4",
+    "ventas_online.json": "a2f150d331aba7bee98df30df501be1966d831488942b5f2c5eb1134c5dbdd7b"
+  },
+  "integridad_originales": {
+    "catalogo_productos.csv": true,
+    "ventas_tienda_fisica.csv": true,
+    "ventas_online.json": true
+  },
+  "limpieza": {
+    "IMPUTADO_DIRECCION_ENVIO": 77,
+    "IMPUTADO_EMAIL_CLIENTE": 20,
+    "IMPUTADO_ID_CLIENTE": 127,
+    "MONTO_RECALCULADO_INCONSISTENTE": 12,
+    "MONTO_RECALCULADO_NULO": 32
+  },
+  "transformacion": {
+    "minmax": {
+      "columna": "monto_total_mxn_cap",
+      "n_base": 1129,
+      "min": 332.67,
+      "max": 12032.68,
+      "constante": false,
+      "fuera_de_base_recortados": 11
+    },
+    "segmentos": {
+      "columna": "monto_total_mxn_cap",
+      "n_base": 1129,
+      "corte_bajo_medio": 2069.07,
+      "corte_medio_alto": 4183.67,
+      "conteo_base": {
+        "Bajo": 380,
+        "Medio": 374,
+        "Alto": 375
+      }
+    }
+  },
+  "advertencias": []
+}

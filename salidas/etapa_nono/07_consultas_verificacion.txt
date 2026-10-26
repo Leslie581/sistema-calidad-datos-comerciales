@@ -1,0 +1,47 @@
+-- 1_conservacion
+SELECT (SELECT COUNT(*) FROM transacciones_limpias) AS limpias, (SELECT COUNT(*) FROM cuarentena_errores) AS cuarentena, (SELECT filas_entrada FROM ejecuciones WHERE estado='COMPLETADO' ORDER BY fin DESC LIMIT 1) AS entrada;
+
+ limpias  cuarentena  entrada
+    1104         116     1220
+
+-- 2_cuarentena_por_motivo
+SELECT codigos_error, COUNT(*) AS n FROM cuarentena_errores GROUP BY codigos_error ORDER BY n DESC, codigos_error;
+
+                                     codigos_error  n
+                                 PRODUCTO_HUERFANO 57
+                                  EMAIL_MALFORMADO 25
+                                  DUPLICADO_EXACTO 19
+                  CANTIDAD_INVALIDA;MONTO_INVALIDO 10
+                EMAIL_MALFORMADO;PRODUCTO_HUERFANO  3
+CANTIDAD_INVALIDA;MONTO_INVALIDO;PRODUCTO_HUERFANO  1
+                DUPLICADO_EXACTO;PRODUCTO_HUERFANO  1
+
+-- 3_integridad_referencial
+SELECT COUNT(*) AS huerfanas_en_limpias FROM transacciones_limpias t LEFT JOIN catalogo_productos c USING (id_producto) WHERE c.id_producto IS NULL;
+
+ huerfanas_en_limpias
+                    0
+
+-- 4_ventas_por_canal_y_segmento
+SELECT origen, segmento_importe, COUNT(*) AS n, ROUND(SUM(monto_total_mxn_cap), 2) AS monto_cap_mxn FROM transacciones_limpias GROUP BY origen, segmento_importe ORDER BY origen, segmento_importe;
+
+origen segmento_importe   n  monto_cap_mxn
+FISICA             Alto 262     2226334.50
+FISICA             Bajo 144      183731.39
+FISICA            Medio 156      478450.25
+ONLINE             Alto 110      786274.30
+ONLINE             Bajo 226      268015.87
+ONLINE            Medio 206      642405.34
+
+-- 5_trazabilidad_web_00508
+SELECT id_transaccion, monto_total_origen, monto_total_mxn, monto_total_mxn_cap, correcciones FROM transacciones_limpias WHERE id_transaccion = 'WEB-00508';
+
+id_transaccion  monto_total_origen  monto_total_mxn  monto_total_mxn_cap                                                    correcciones
+     WEB-00508            826360.8         10329.51             10329.51 ["MONTO_RECALCULADO_INCONSISTENTE", "FECHA_DESDE_ISO_DATETIME"]
+
+-- 6_historial_ejecuciones
+SELECT lote_id, estado, filas_entrada, filas_limpias, filas_cuarentena FROM ejecuciones ORDER BY inicio;
+
+              lote_id     estado  filas_entrada  filas_limpias  filas_cuarentena
+L20261025-235625-9084 COMPLETADO           1220           1104               116
+

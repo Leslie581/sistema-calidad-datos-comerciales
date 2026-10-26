@@ -1,0 +1,420 @@
+{
+  "conteos": {
+    "ejecuciones": 1,
+    "catalogo_productos": 50,
+    "transacciones_limpias": 1104,
+    "cuarentena_errores": 116
+  },
+  "integrity_check": "ok",
+  "foreign_key_check": [],
+  "tablas": {
+    "ejecuciones": [
+      {
+        "columna": "lote_id",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": true
+      },
+      {
+        "columna": "inicio",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "fin",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "estado",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "filas_entrada",
+        "tipo": "INTEGER",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "filas_limpias",
+        "tipo": "INTEGER",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "filas_cuarentena",
+        "tipo": "INTEGER",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "huellas_entrada",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "entorno",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "etapa_fallida",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "error",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      }
+    ],
+    "catalogo_productos": [
+      {
+        "columna": "id_producto",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": true
+      },
+      {
+        "columna": "nombre_producto",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "categoria",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "precio_base_mxn",
+        "tipo": "REAL",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "stock_minimo",
+        "tipo": "INTEGER",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "proveedor",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      }
+    ],
+    "transacciones_limpias": [
+      {
+        "columna": "id_transaccion",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": true
+      },
+      {
+        "columna": "origen",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "id_fila_origen",
+        "tipo": "INTEGER",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "fecha_cruda",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "fecha_venta",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "punto_venta",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "id_producto",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "nombre_producto",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "categoria",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "cantidad_origen",
+        "tipo": "REAL",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "cantidad",
+        "tipo": "INTEGER",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "cantidad_cap",
+        "tipo": "INTEGER",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "moneda_original",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "moneda",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "tipo_cambio_aplicado",
+        "tipo": "REAL",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "precio_unitario_original",
+        "tipo": "REAL",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "precio_unitario_mxn",
+        "tipo": "REAL",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "monto_total_origen",
+        "tipo": "REAL",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "monto_total_mxn",
+        "tipo": "REAL",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "monto_cantidad_cap_mxn",
+        "tipo": "REAL",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "monto_total_mxn_cap",
+        "tipo": "REAL",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "monto_minmax",
+        "tipo": "REAL",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "segmento_importe",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "id_cliente",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "email_cliente",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "direccion_envio",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "metodo_pago",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "estado_pedido",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "es_outlier_cantidad",
+        "tipo": "INTEGER",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "es_outlier_monto",
+        "tipo": "INTEGER",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "alertas",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "correcciones",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "registro_original",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "lote_id",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "fecha_carga",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      }
+    ],
+    "cuarentena_errores": [
+      {
+        "columna": "id_error",
+        "tipo": "INTEGER",
+        "no_nulo": false,
+        "pk": true
+      },
+      {
+        "columna": "lote_id",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "id_registro",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "origen",
+        "tipo": "TEXT",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "id_fila_origen",
+        "tipo": "INTEGER",
+        "no_nulo": false,
+        "pk": false
+      },
+      {
+        "columna": "etapa_deteccion",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "codigos_error",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "num_motivos",
+        "tipo": "INTEGER",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "motivo_rechazo_cuarentena",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "detalle_error",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "registro_original",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      },
+      {
+        "columna": "fecha_cuarentena",
+        "tipo": "TEXT",
+        "no_nulo": true,
+        "pk": false
+      }
+    ]
+  },
+  "indices": [
+    "ix_cuarentena_codigos",
+    "ix_cuarentena_lote",
+    "ix_limpias_fecha",
+    "ix_limpias_origen_segmento",
+    "ix_limpias_producto"
+  ],
+  "sqlite_version": "3.50.4",
+  "ruta_bd": "C:\\Users\\Leslie Valadez\\Documents\\Proyectos\\sistema-calidad-datos-comerciales\\salidas\\etapa_nono\\calidad_comercial.db",
+  "carga": {
+    "lote_id": "L20261025-235625-9084",
+    "estado": "COMMIT",
+    "catalogo": 50,
+    "limpias": 1104,
+    "cuarentena": 116
+  }
+}
