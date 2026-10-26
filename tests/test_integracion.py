@@ -100,6 +100,21 @@ def test_normalizar_fechas_alertas_y_correcciones():
     assert df["correcciones"].map(len).sum() == 0                          # la entrada no se modifica
 
 
+def test_normalizar_fechas_no_altera_fecha_cruda_ni_su_faltante():
+    """`fecha_cruda` sale idéntica a la entrada (con pandas 3 el helper la crea como `str` con NaN; con pandas 2,
+    como object con None) y `fecha_venta` usa None en ambos casos."""
+    df = df_minimo([{"fecha_cruda": "26/09/2026"}, {"fecha_cruda": None}])
+    out = normalizar_fechas(df)
+    assert out["fecha_cruda"].equals(df["fecha_cruda"])
+    assert out["fecha_venta"].tolist() == ["2026-09-26", None]
+
+
+def test_homologacion_real_representa_faltantes_con_none(df_homologado):
+    """Camino real: la homologación fuerza object/None, sin importar la versión de pandas."""
+    assert df_homologado["fecha_cruda"].dtype == object
+    assert df_homologado["fecha_cruda"].map(lambda v: v is None or isinstance(v, str)).all()
+
+
 def test_todas_las_fechas_reales_se_interpretan(df_integrado):
     assert df_integrado["fecha_venta"].isna().sum() == 0
     assert df_integrado["fecha_venta"].str.fullmatch(r"\d{4}-\d{2}-\d{2}").all()
