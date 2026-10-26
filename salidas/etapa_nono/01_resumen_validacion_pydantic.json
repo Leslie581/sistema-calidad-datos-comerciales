@@ -1,0 +1,188 @@
+{
+  "modelo": "TransaccionLimpia (Pydantic 2, strict=True, extra='ignore')",
+  "validadores": [
+    {
+      "validador": "v_duplicado",
+      "campos": [
+        "es_duplicado"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_conflicto",
+      "campos": [
+        "es_id_conflicto"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_id",
+      "campos": [
+        "id_transaccion"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_fila",
+      "campos": [
+        "id_fila_origen"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_original",
+      "campos": [
+        "registro_original"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_fecha",
+      "campos": [
+        "fecha_venta"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_obligatorio_texto",
+      "campos": [
+        "punto_venta",
+        "metodo_pago"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_catalogo",
+      "campos": [
+        "en_catalogo"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_datos_catalogo",
+      "campos": [
+        "nombre_producto",
+        "categoria"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_cantidad",
+      "campos": [
+        "cantidad",
+        "cantidad_cap"
+      ],
+      "modo": "before",
+      "regla": ""
+    },
+    {
+      "validador": "v_moneda",
+      "campos": [
+        "moneda_original"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_tipo_cambio",
+      "campos": [
+        "tipo_cambio_aplicado"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_precio",
+      "campos": [
+        "precio_unitario_mxn"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_monto",
+      "campos": [
+        "monto_total_mxn"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_monto_cap",
+      "campos": [
+        "monto_total_mxn_cap"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_minmax",
+      "campos": [
+        "monto_minmax"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_cliente",
+      "campos": [
+        "id_cliente"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_email",
+      "campos": [
+        "email_cliente"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_direccion",
+      "campos": [
+        "direccion_envio"
+      ],
+      "modo": "after",
+      "regla": ""
+    },
+    {
+      "validador": "v_estado",
+      "campos": [
+        "estado_pedido"
+      ],
+      "modo": "after",
+      "regla": ""
+    }
+  ],
+  "validos": 1104,
+  "rechazados": 116,
+  "registros_por_codigo": {
+    "PRODUCTO_HUERFANO": 62,
+    "EMAIL_MALFORMADO": 28,
+    "DUPLICADO_EXACTO": 20,
+    "CANTIDAD_INVALIDA": 11,
+    "MONTO_INVALIDO": 11
+  },
+  "registros_por_etapa": {
+    "FASE_PREVIA": 81,
+    "PYDANTIC": 39
+  },
+  "errores_inesperados": 0,
+  "reglas_propuestas_pendientes_de_aprobacion": [
+    "ID_ORIGEN_INCONSISTENTE",
+    "CAMPO_OBLIGATORIO_FALTANTE",
+    "ESTADO_INVALIDO",
+    "TIPO_CAMBIO_INCONSISTENTE"
+  ]
+}

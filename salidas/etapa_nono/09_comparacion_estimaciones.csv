@@ -1,0 +1,13 @@
+metrica,estimado_diagnostico,obtenido,coincide,nota
+Transacciones limpias (total),1104,1104,True,
+Cuarentena (total),116,116,True,
+Limpias física,562,562,True,
+Limpias online,542,542,True,
+Cuarentena física (únicos),58,58,True,
+Cuarentena online (únicos),58,58,True,
+DUPLICADO_EXACTO,20,20,True,
+CANTIDAD_INVALIDA,11,11,True,
+PRODUCTO_HUERFANO,62,62,True,
+EMAIL_MALFORMADO,28,28,True,
+Registros con más de un motivo,16,15,False,"La referencia suma 5 (por códigos de regla) + 11 (cantidad inválida + monto) = 16, pero POS-2026-0493 está en ambos grupos (huérfano y cantidad -1): se cuenta una sola vez → 5 + 11 − 1 = 15 (R13: una transacción se cuenta una vez)."
+MONTO_INVALIDO (la referencia lo cuenta junto con CANTIDAD_INVALIDA),11,11,True,

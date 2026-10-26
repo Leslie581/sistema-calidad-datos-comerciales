@@ -1,0 +1,49 @@
+id,escenario,canal,fila,esperado,obtenido,ok,motivo
+E01,cantidad = 'dos' (texto),FISICA,81,CUARENTENA ⊇ CANTIDAD_INVALIDA,CUARENTENA CANTIDAD_INVALIDA,True,CANTIDAD_INVALIDA: la cantidad original no es numérica (alerta de homologación)
+E02,cantidad = 2.5 (no entera),FISICA,82,CUARENTENA ⊇ CANTIDAD_INVALIDA,CUARENTENA CANTIDAD_INVALIDA,True,CANTIDAD_INVALIDA: cantidad=2.5; debe ser un entero mayor que 0 (R4)
+E03,cantidad y monto vacíos (imputación + recálculo),FISICA,83,VALIDO,VALIDO,True,
+E04,precio_unitario = -10,FISICA,84,CUARENTENA ⊇ PRECIO_INVALIDO,CUARENTENA MONTO_INVALIDO;PRECIO_INVALIDO,True,PRECIO_INVALIDO: -10.0 debe ser mayor que 0 | MONTO_INVALIDO: monto_total_mxn=-10.0; debe ser mayor que 0
+E05,precio_unitario = 'abc' (texto),FISICA,85,CUARENTENA ⊇ PRECIO_INVALIDO,CUARENTENA PRECIO_INVALIDO,True,PRECIO_INVALIDO: el precio original no es numérico (alerta de homologación)
+E06,fecha imposible 31/02/2026,FISICA,86,CUARENTENA ⊇ FECHA_INVALIDA,CUARENTENA FECHA_INVALIDA,True,FECHA_INVALIDA: fecha_cruda='31/02/2026' no se pudo interpretar (alerta de fechas)
+E07,fecha futura 2027-01-01,FISICA,87,CUARENTENA ⊇ FECHA_INVALIDA,CUARENTENA FECHA_INVALIDA,True,FECHA_INVALIDA: 2027-01-01 es posterior a la fecha de ejecución (2026-10-25) (R8.5)
+E08,cantidad = 0,FISICA,88,CUARENTENA ⊇ CANTIDAD_INVALIDA;MONTO_INVALIDO,CUARENTENA CANTIDAD_INVALIDA;MONTO_INVALIDO,True,CANTIDAD_INVALIDA: cantidad=0.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=0.0; debe ser mayor que 0
+E09,cantidad negativa -3,FISICA,89,CUARENTENA ⊇ CANTIDAD_INVALIDA;MONTO_INVALIDO,CUARENTENA CANTIDAD_INVALIDA;MONTO_INVALIDO,True,CANTIDAD_INVALIDA: cantidad=-3.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=-3506.37; debe ser mayor que 0
+E10,producto inexistente PROD-999,FISICA,90,CUARENTENA ⊇ PRODUCTO_HUERFANO,CUARENTENA PRODUCTO_HUERFANO,True,PRODUCTO_HUERFANO: 'PROD-999' no existe en el catálogo maestro (R9)
+E11,ID con formato inválido 'POS-1',FISICA,91,CUARENTENA ⊇ ID_FORMATO_INVALIDO,CUARENTENA ID_FORMATO_INVALIDO,True,ID_FORMATO_INVALIDO: 'POS-1' no cumple POS-AAAA-NNNN ni WEB-NNNNN (R2.2)
+E12,inyección SQL en el ID,FISICA,92,CUARENTENA ⊇ ID_FORMATO_INVALIDO,CUARENTENA ID_FORMATO_INVALIDO,True,"ID_FORMATO_INVALIDO: ""'; DROP TABLE transacciones_limpias;--"" no cumple POS-AAAA-NNNN ni WEB-NNNNN (R2.2)"
+E13,total ×80 (importe inconsistente reparable),FISICA,93,VALIDO,VALIDO,True,
+E14,fecha con formato desconocido 'ayer',FISICA,94,CUARENTENA ⊇ FECHA_INVALIDA,CUARENTENA FECHA_INVALIDA,True,FECHA_INVALIDA: fecha_cruda='ayer' no se pudo interpretar (alerta de fechas)
+E15,método de pago en minúsculas (homologable),FISICA,95,VALIDO,VALIDO,True,
+E16,plantilla sin cambios con otro ID (control),FISICA,96,VALIDO,VALIDO,True,
+E17,fila duplicada exacta (2.ª aparición),FISICA,97,CUARENTENA ⊇ DUPLICADO_EXACTO,CUARENTENA DUPLICADO_EXACTO,True,DUPLICADO_EXACTO: repite exactamente una fila anterior del mismo archivo (R2.3)
+E20,order_timestamp = 'ayer',ONLINE,81,CUARENTENA ⊇ FECHA_INVALIDA,CUARENTENA FECHA_INVALIDA,True,FECHA_INVALIDA: fecha_cruda='ayer' no se pudo interpretar (alerta de fechas)
+E21,currency = 'EUR',ONLINE,82,CUARENTENA ⊇ MONEDA_NO_SOPORTADA,CUARENTENA MONEDA_NO_SOPORTADA;MONTO_INVALIDO;PRECIO_FALTANTE;TIPO_INVALIDO,True,MONEDA_NO_SOPORTADA: 'EUR' no es MXN ni USD (alerta de conversión) (R7.5) | PRECIO_FALTANTE: no hay precio unitario en MXN | MONTO_INVALIDO: monto_total_mxn=None; debe ser mayor que 0 | TIPO_INVALIDO: monto_total_mxn_cap → Input should be a valid number
+E22,product_id = null,ONLINE,83,CUARENTENA ⊇ PRODUCTO_HUERFANO,CUARENTENA PRODUCTO_HUERFANO,True,PRODUCTO_HUERFANO: None no existe en el catálogo maestro (R9)
+E23,customer_email = 'a@b',ONLINE,84,CUARENTENA ⊇ EMAIL_MALFORMADO,CUARENTENA EMAIL_MALFORMADO,True,EMAIL_MALFORMADO: 'a@b' no es una dirección de correo válida (R10.2)
+E24,order_id = 'WEB-1',ONLINE,85,CUARENTENA ⊇ ID_FORMATO_INVALIDO,CUARENTENA ID_FORMATO_INVALIDO,True,ID_FORMATO_INVALIDO: 'WEB-1' no cumple POS-AAAA-NNNN ni WEB-NNNNN (R2.2)
+E25,inyección SQL en order_id,ONLINE,86,CUARENTENA ⊇ ID_FORMATO_INVALIDO,CUARENTENA ID_FORMATO_INVALIDO,True,"ID_FORMATO_INVALIDO: ""'; DROP TABLE transacciones_limpias;--"" no cumple POS-AAAA-NNNN ni WEB-NNNNN (R2.2)"
+E26,mismo order_id con dos contenidos (1/2),ONLINE,87,CUARENTENA ⊇ ID_REPETIDO_CONFLICTO,CUARENTENA ID_REPETIDO_CONFLICTO,True,ID_REPETIDO_CONFLICTO: el identificador aparece con contenido distinto (R2.4)
+E27,mismo order_id con dos contenidos (2/2),ONLINE,88,CUARENTENA ⊇ ID_REPETIDO_CONFLICTO,CUARENTENA ID_REPETIDO_CONFLICTO,True,ID_REPETIDO_CONFLICTO: el identificador aparece con contenido distinto (R2.4)
+E28,registro sin el campo 'units',ONLINE,89,VALIDO,VALIDO,True,
+E29,campo extra {'hacker': true},ONLINE,90,VALIDO,VALIDO,True,
+E30,total_amount = 1e308,ONLINE,91,VALIDO,VALIDO,True,
+E31,dirección con emoji y acentos,ONLINE,92,VALIDO,VALIDO,True,
+E32,registro sin order_id (campo ausente),ONLINE,93,CUARENTENA ⊇ TIPO_INVALIDO,CUARENTENA TIPO_INVALIDO,True,TIPO_INVALIDO: id_transaccion → Input should be a valid string
+E33,"tipos incorrectos: units lista, unit_price objeto",ONLINE,94,CUARENTENA ⊇ CANTIDAD_INVALIDA;PRECIO_INVALIDO,CUARENTENA CANTIDAD_INVALIDA;PRECIO_INVALIDO,True,CANTIDAD_INVALIDA: la cantidad original no es numérica (alerta de homologación) | PRECIO_INVALIDO: el precio original no es numérico (alerta de homologación)
+E34,order_status fuera del catálogo 'ENVIADO' [propuesta],ONLINE,95,CUARENTENA ⊇ ESTADO_INVALIDO,CUARENTENA ESTADO_INVALIDO,True,"ESTADO_INVALIDO: 'ENVIADO' no está entre COMPLETADO, PAGADO, PENDIENTE, CANCELADO, DEVUELTO (R11)"
+E35,correo vacío '' (faltante ≠ malformado),ONLINE,96,VALIDO,VALIDO,True,
+E36,correo con doble arroba,ONLINE,97,CUARENTENA ⊇ EMAIL_MALFORMADO,CUARENTENA EMAIL_MALFORMADO,True,EMAIL_MALFORMADO: 'usuario@@gmail..com' no es una dirección de correo válida (R10.2)
+E37,units = 0,ONLINE,98,CUARENTENA ⊇ CANTIDAD_INVALIDA,CUARENTENA CANTIDAD_INVALIDA;MONTO_INVALIDO,True,CANTIDAD_INVALIDA: cantidad=0.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=0.0; debe ser mayor que 0
+E38,order_status vacío (obligatorio online),ONLINE,99,CUARENTENA ⊇ ESTADO_INVALIDO,CUARENTENA ESTADO_INVALIDO,True,"ESTADO_INVALIDO: None no está entre COMPLETADO, PAGADO, PENDIENTE, CANCELADO, DEVUELTO (R11)"
+E39,unit_price = null,ONLINE,100,CUARENTENA ⊇ PRECIO_FALTANTE,CUARENTENA PRECIO_FALTANTE,True,PRECIO_FALTANTE: no hay precio unitario en MXN
+E40,"timestamp epoch inválido (13 dígitos, ms)",ONLINE,101,CUARENTENA ⊇ FECHA_INVALIDA,CUARENTENA FECHA_INVALIDA,True,FECHA_INVALIDA: fecha_cruda='1789105020000' no se pudo interpretar (alerta de fechas)
+G01,JSON online vacío [],GLOBAL,,COMPLETADO y conserva el conteo,"COMPLETADO {'conserva_conteo': True, 'cuarentena_sin_motivo_vacio': True, 'fechas_iso_en_limpias': True, 'tabla_limpias_existe': True, 'limpias': 77, 'cuarentena': 3}",True,
+G02,JSON truncado (archivo corrupto),GLOBAL,,FALLIDO controlado; BD anterior intacta,"FALLIDO ErrorExtraccion; BD (151, 9)→(151, 9); historial ['COMPLETADO', 'FALLIDO']",True,ventas_online.json no es un JSON válido: Unterminated string starting at: line 1 column 15 (char 14)
+G03,CSV de ventas inexistente,GLOBAL,,FALLIDO ErrorExtraccion,FALLIDO ErrorExtraccion,True,No existe el archivo C:\Users\LESLIE~1\AppData\Local\Temp\tmp5zlausxe\globales\g03\ventas_tienda_fisica.csv
+G04,CSV con columnas faltantes,GLOBAL,,FALLIDO ErrorExtraccion,FALLIDO ErrorExtraccion,True,"ventas_tienda_fisica.csv: faltan columnas ['fecha_venta', 'sucursal', 'id_producto', 'precio_unitario', 'monto_total_mxn', 'id_cliente', 'metodo_pago']"
+G05,JSON que no es lista de objetos,GLOBAL,,FALLIDO ErrorExtraccion,FALLIDO ErrorExtraccion,True,ventas_online.json: se esperaba una lista de objetos
+G06,Falla de persistencia a mitad de la carga,GLOBAL,,ErrorCarga + rollback; 0 filas parciales,"FALLIDO ErrorCarga; BD (151, 9)→(151, 9); catálogo 50",True,Carga revertida (rollback) del lote L20261025-235628-53c5: OperationalError: disco lleno (simulado)
+G07,"Volumen: 12,200 registros (reales ×10, barajados)",GLOBAL,,COMPLETADO y conserva el conteo,COMPLETADO en 1.41 s; limpias=1104 cuarentena=11096,True,
+G08,Archivo original con huella SHA-256 distinta,GLOBAL,,FALLIDO ErrorIntegridad,FALLIDO ErrorIntegridad,True,"Archivos originales modificados: ['ventas_tienda_fisica.csv', 'ventas_online.json']"
+G09,Ejecución repetida sobre los mismos datos,GLOBAL,,mismas filas; 2 ejecuciones en el historial,"BD (151, 9)→(151, 9); ejecuciones=2",True,
+G10,Excepción imprevista en una etapa (IQR),GLOBAL,,FALLIDO imprevisto con traceback registrado,FALLIDO RuntimeError en «6. IQR y capping»; traceback=True,True,fallo simulado en IQR

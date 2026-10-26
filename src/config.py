@@ -15,6 +15,8 @@ RAIZ = Path(__file__).resolve().parent.parent
 RUTA_CRUDOS = RAIZ / "datos" / "crudos"
 RUTA_SALIDAS = RAIZ / "salidas"
 RUTA_DIAGNOSTICO = RAIZ / "diagnostico" / "resultados_diagnostico.json"
+RUTA_SALIDAS_NONO = RUTA_SALIDAS / "etapa_nono"
+RUTA_BD = RUTA_SALIDAS_NONO / "calidad_comercial.db"   # SQLite entregable (ignorada por Git: se regenera con el pipeline)
 
 RUTAS_FUENTES = {
     "catalogo": RUTA_CRUDOS / "catalogo_productos.csv",
@@ -45,6 +47,9 @@ ETIQUETAS_CONTROLADAS = {
     (ORIGEN_ONLINE, "email_cliente"): "SIN_CORREO",
     (ORIGEN_ONLINE, "direccion_envio"): "SIN_DIRECCION",
 }
+
+# [EQUIPO] R11: estados comerciales válidos del canal online tras strip().upper(). CANCELADO y DEVUELTO NO son errores.
+ESTADOS_PEDIDO_VALIDOS = ("COMPLETADO", "PAGADO", "PENDIENTE", "CANCELADO", "DEVUELTO")
 
 SEMILLA = 2026  # para cualquier muestreo reproducible (no se usa en la etapa de Leslie)
 

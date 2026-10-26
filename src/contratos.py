@@ -73,6 +73,29 @@ ALERTA_MONEDA_NO_SOPORTADA = "MONEDA_NO_SOPORTADA"
 ALERTA_FECHA_NO_INTERPRETABLE = "FECHA_NO_INTERPRETABLE"
 ALERTA_PRECIO_DIFIERE_CATALOGO = "PRECIO_DIFIERE_CATALOGO"   # informativa: no rechaza (guía Yerik §5)
 
+# Rechazos (cuarentena): códigos que Nono escribe en `codigos_error` (REGLAS_DE_NEGOCIO.md §13).
+# [EQUIPO] = catálogo documentado · [PROPUESTA] = regla añadida en la etapa 3, pendiente de aprobación del equipo.
+RECH_DUPLICADO = "DUPLICADO_EXACTO"                      # R2.3
+RECH_ID_CONFLICTO = "ID_REPETIDO_CONFLICTO"              # R2.4
+RECH_ID_FORMATO = "ID_FORMATO_INVALIDO"                  # R2.2
+RECH_CANTIDAD = "CANTIDAD_INVALIDA"                      # R4
+RECH_PRECIO_FALTANTE = "PRECIO_FALTANTE"                 # R3.6
+RECH_PRECIO_INVALIDO = "PRECIO_INVALIDO"                 # R3.6
+RECH_MONTO_INVALIDO = "MONTO_INVALIDO"                   # R6
+RECH_MONTO_INCONSISTENTE = "MONTO_INCONSISTENTE"         # R6.3
+RECH_HUERFANO = "PRODUCTO_HUERFANO"                      # R9
+RECH_EMAIL = "EMAIL_MALFORMADO"                          # R10
+RECH_FECHA = "FECHA_INVALIDA"                            # R8.5
+RECH_MONEDA = "MONEDA_NO_SOPORTADA"                      # R7.5
+RECH_ESCALA = "ESCALA_FUERA_DE_RANGO"                    # R12 (guía de Nono)
+RECH_TIPO = "TIPO_INVALIDO"                              # error nativo de Pydantic (tipo, campo requerido, Literal…)
+RECH_INESPERADO = "ERROR_INESPERADO"                     # R13.4
+RECH_ID_ORIGEN = "ID_ORIGEN_INCONSISTENTE"               # [PROPUESTA] prefijo POS-/WEB- distinto del canal
+RECH_OBLIGATORIO = "CAMPO_OBLIGATORIO_FALTANTE"          # [PROPUESTA] campo requerido por canal ausente
+RECH_ESTADO = "ESTADO_INVALIDO"                          # [PROPUESTA] estado fuera de R11 (o presente en canal físico)
+RECH_TIPO_CAMBIO = "TIPO_CAMBIO_INCONSISTENTE"           # [PROPUESTA] tipo de cambio ≠ el de la moneda original
+CODIGOS_RECHAZO_PROPUESTOS = (RECH_ID_ORIGEN, RECH_OBLIGATORIO, RECH_ESTADO, RECH_TIPO_CAMBIO)
+
 # Correcciones: bitácora por fila de lo que se cambió (trazabilidad)
 CORR_MONTO_NULO = "MONTO_RECALCULADO_NULO"
 CORR_MONTO_INCONSISTENTE = "MONTO_RECALCULADO_INCONSISTENTE"

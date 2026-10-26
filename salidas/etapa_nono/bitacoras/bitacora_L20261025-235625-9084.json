@@ -1,0 +1,747 @@
+{
+  "lote_id": "L20261025-235625-9084",
+  "estado": "COMPLETADO",
+  "inicio": "2026-10-25T23:56:25",
+  "fecha_referencia": "2026-10-25",
+  "entorno": {
+    "python": "3.13.15",
+    "pandas": "3.1.0",
+    "pydantic": "2.14.1",
+    "sqlite": "3.50.4",
+    "so": "Windows-11-10.0.26200-SP0"
+  },
+  "advertencias": [],
+  "ruta_bd": "C:\\Users\\Leslie Valadez\\Documents\\Proyectos\\sistema-calidad-datos-comerciales\\salidas\\etapa_nono\\calidad_comercial.db",
+  "huellas_entrada": {
+    "catalogo_productos.csv": "677fa7071d7cbe0ae3862c753a068ba9b80fe399b38fc7e23a45dd2e256868d1",
+    "ventas_tienda_fisica.csv": "2e41ead654b4d044cca664842bca1ae85df2c1a84f5c0aad8b55706bbebf4df4",
+    "ventas_online.json": "a2f150d331aba7bee98df30df501be1966d831488942b5f2c5eb1134c5dbdd7b"
+  },
+  "integridad_originales": {
+    "catalogo_productos.csv": true,
+    "ventas_tienda_fisica.csv": true,
+    "ventas_online.json": true
+  },
+  "filas_fuentes": {
+    "catalogo": 50,
+    "fisica": 620,
+    "online": 600
+  },
+  "filas_entrada": 1220,
+  "filas_por_origen": {
+    "FISICA": 620,
+    "ONLINE": 600
+  },
+  "limpieza": {
+    "filas": 1220,
+    "duplicados_exactos": 20,
+    "ids_en_conflicto": 0,
+    "imputacion_mediana": {
+      "medianas_por_canal": {
+        "FISICA": 2.0,
+        "ONLINE": 1.0
+      },
+      "imputados": 0,
+      "faltantes_no_imputables": 0,
+      "no_numericos_no_imputados": 0
+    },
+    "reconstruccion_montos": {
+      "recalculados_nulo": 32,
+      "recalculados_inconsistente": 12,
+      "factores_inconsistencia": {
+        "80.0": 12
+      },
+      "nulos_no_recalculables": 0
+    },
+    "imputacion_categoricas": {
+      "FISICA.id_cliente→ANONIMO": 127,
+      "ONLINE.email_cliente→SIN_CORREO": 20,
+      "ONLINE.direccion_envio→SIN_DIRECCION": 77
+    },
+    "conteo_correcciones": {
+      "IMPUTADO_DIRECCION_ENVIO": 77,
+      "IMPUTADO_EMAIL_CLIENTE": 20,
+      "IMPUTADO_ID_CLIENTE": 127,
+      "MONTO_RECALCULADO_INCONSISTENTE": 12,
+      "MONTO_RECALCULADO_NULO": 32
+    }
+  },
+  "iqr": {
+    "base_estadistica": {
+      "total": 1129,
+      "por_canal": {
+        "ONLINE": 567,
+        "FISICA": 562
+      }
+    },
+    "cantidad": {
+      "FISICA": {
+        "n": 562,
+        "Q1": 1.0,
+        "Q3": 4.0,
+        "IQR": 3.0,
+        "LI": -3.5,
+        "LS": 8.5,
+        "outliers_inferiores": 0,
+        "outliers_superiores": 13,
+        "min": 1.0,
+        "max": 500.0,
+        "media": 9.09608540925267,
+        "mediana": 2.0,
+        "asimetria": 9.004781589829914,
+        "factor": 1.5,
+        "tope_entero": 8,
+        "piso_entero": 1,
+        "recortados": 13
+      },
+      "ONLINE": {
+        "n": 567,
+        "Q1": 1.0,
+        "Q3": 2.0,
+        "IQR": 1.0,
+        "LI": -0.5,
+        "LS": 3.5,
+        "outliers_inferiores": 0,
+        "outliers_superiores": 0,
+        "min": 1.0,
+        "max": 3.0,
+        "media": 1.5767195767195767,
+        "mediana": 1.0,
+        "asimetria": 0.8977741356110349,
+        "factor": 1.5,
+        "tope_entero": 3,
+        "piso_entero": 1,
+        "recortados": 0
+      }
+    },
+    "monto_mxn": {
+      "n": 1129,
+      "Q1": 1563.78,
+      "Q3": 5751.34,
+      "IQR": 4187.56,
+      "LI": -4717.56,
+      "LS": 12032.68,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 80,
+      "min": 332.67,
+      "max": 33744.88,
+      "media": 4424.940035429584,
+      "mediana": 3127.42,
+      "asimetria": 2.1688246993600657,
+      "factor": 1.5,
+      "piso_aplicado": 0.0,
+      "techo_aplicado": 12032.68,
+      "recortados": 82
+    }
+  },
+  "transformacion": {
+    "minmax": {
+      "columna": "monto_total_mxn_cap",
+      "n_base": 1129,
+      "min": 332.67,
+      "max": 12032.68,
+      "constante": false,
+      "fuera_de_base_recortados": 11
+    },
+    "segmentos": {
+      "columna": "monto_total_mxn_cap",
+      "n_base": 1129,
+      "corte_bajo_medio": 2069.07,
+      "corte_medio_alto": 4183.67,
+      "conteo_base": {
+        "Bajo": 380,
+        "Medio": 374,
+        "Alto": 375
+      }
+    }
+  },
+  "validacion": {
+    "validos": 1104,
+    "cuarentena": 116,
+    "por_codigo": {
+      "PRODUCTO_HUERFANO": 62,
+      "EMAIL_MALFORMADO": 28,
+      "DUPLICADO_EXACTO": 20,
+      "CANTIDAD_INVALIDA": 11,
+      "MONTO_INVALIDO": 11
+    },
+    "por_etapa": {
+      "FASE_PREVIA": 81,
+      "PYDANTIC": 39
+    },
+    "errores_inesperados": 0
+  },
+  "carga": {
+    "lote_id": "L20261025-235625-9084",
+    "estado": "COMMIT",
+    "catalogo": 50,
+    "limpias": 1104,
+    "cuarentena": 116
+  },
+  "sqlite": {
+    "conteos": {
+      "ejecuciones": 1,
+      "catalogo_productos": 50,
+      "transacciones_limpias": 1104,
+      "cuarentena_errores": 116
+    },
+    "integrity_check": "ok",
+    "foreign_key_check": [],
+    "tablas": {
+      "ejecuciones": [
+        {
+          "columna": "lote_id",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": true
+        },
+        {
+          "columna": "inicio",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "fin",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "estado",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "filas_entrada",
+          "tipo": "INTEGER",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "filas_limpias",
+          "tipo": "INTEGER",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "filas_cuarentena",
+          "tipo": "INTEGER",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "huellas_entrada",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "entorno",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "etapa_fallida",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "error",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        }
+      ],
+      "catalogo_productos": [
+        {
+          "columna": "id_producto",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": true
+        },
+        {
+          "columna": "nombre_producto",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "categoria",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "precio_base_mxn",
+          "tipo": "REAL",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "stock_minimo",
+          "tipo": "INTEGER",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "proveedor",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        }
+      ],
+      "transacciones_limpias": [
+        {
+          "columna": "id_transaccion",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": true
+        },
+        {
+          "columna": "origen",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "id_fila_origen",
+          "tipo": "INTEGER",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "fecha_cruda",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "fecha_venta",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "punto_venta",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "id_producto",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "nombre_producto",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "categoria",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "cantidad_origen",
+          "tipo": "REAL",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "cantidad",
+          "tipo": "INTEGER",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "cantidad_cap",
+          "tipo": "INTEGER",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "moneda_original",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "moneda",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "tipo_cambio_aplicado",
+          "tipo": "REAL",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "precio_unitario_original",
+          "tipo": "REAL",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "precio_unitario_mxn",
+          "tipo": "REAL",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "monto_total_origen",
+          "tipo": "REAL",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "monto_total_mxn",
+          "tipo": "REAL",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "monto_cantidad_cap_mxn",
+          "tipo": "REAL",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "monto_total_mxn_cap",
+          "tipo": "REAL",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "monto_minmax",
+          "tipo": "REAL",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "segmento_importe",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "id_cliente",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "email_cliente",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "direccion_envio",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "metodo_pago",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "estado_pedido",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "es_outlier_cantidad",
+          "tipo": "INTEGER",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "es_outlier_monto",
+          "tipo": "INTEGER",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "alertas",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "correcciones",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "registro_original",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "lote_id",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "fecha_carga",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        }
+      ],
+      "cuarentena_errores": [
+        {
+          "columna": "id_error",
+          "tipo": "INTEGER",
+          "no_nulo": false,
+          "pk": true
+        },
+        {
+          "columna": "lote_id",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "id_registro",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "origen",
+          "tipo": "TEXT",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "id_fila_origen",
+          "tipo": "INTEGER",
+          "no_nulo": false,
+          "pk": false
+        },
+        {
+          "columna": "etapa_deteccion",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "codigos_error",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "num_motivos",
+          "tipo": "INTEGER",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "motivo_rechazo_cuarentena",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "detalle_error",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "registro_original",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        },
+        {
+          "columna": "fecha_cuarentena",
+          "tipo": "TEXT",
+          "no_nulo": true,
+          "pk": false
+        }
+      ]
+    },
+    "indices": [
+      "ix_cuarentena_codigos",
+      "ix_cuarentena_lote",
+      "ix_limpias_fecha",
+      "ix_limpias_origen_segmento",
+      "ix_limpias_producto"
+    ],
+    "sqlite_version": "3.50.4"
+  },
+  "fin": "2026-10-25T23:56:25",
+  "duracion_s": 0.254,
+  "duracion_etapas_s": {
+    "1. Extracción": 0.015,
+    "2. Perfilado inicial y MCAR/MAR (informativo)": 0.032,
+    "3. Homologación": 0.01,
+    "4. Limpieza e imputación": 0.013,
+    "5. Integración (fechas, USD→MXN, catálogo)": 0.017,
+    "6. IQR y capping": 0.011,
+    "7. Min-Max y discretización": 0.003,
+    "8. Validación Pydantic y cuarentena": 0.047,
+    "9. Carga transaccional SQLite": 0.041,
+    "10. Reporte final y evidencias": 0.212
+  },
+  "reporte": {
+    "conteos": [
+      {
+        "origen": "FISICA",
+        "limpias": 562,
+        "cuarentena": 58,
+        "entrada": 620,
+        "cuadra": true
+      },
+      {
+        "origen": "ONLINE",
+        "limpias": 542,
+        "cuarentena": 58,
+        "entrada": 600,
+        "cuadra": true
+      },
+      {
+        "origen": "TOTAL",
+        "limpias": 1104,
+        "cuarentena": 116,
+        "entrada": 1220,
+        "cuadra": true
+      }
+    ],
+    "comparacion_estimaciones": [
+      {
+        "metrica": "Transacciones limpias (total)",
+        "estimado_diagnostico": 1104,
+        "obtenido": 1104,
+        "coincide": true,
+        "nota": ""
+      },
+      {
+        "metrica": "Cuarentena (total)",
+        "estimado_diagnostico": 116,
+        "obtenido": 116,
+        "coincide": true,
+        "nota": ""
+      },
+      {
+        "metrica": "Limpias física",
+        "estimado_diagnostico": 562,
+        "obtenido": 562,
+        "coincide": true,
+        "nota": ""
+      },
+      {
+        "metrica": "Limpias online",
+        "estimado_diagnostico": 542,
+        "obtenido": 542,
+        "coincide": true,
+        "nota": ""
+      },
+      {
+        "metrica": "Cuarentena física (únicos)",
+        "estimado_diagnostico": 58,
+        "obtenido": 58,
+        "coincide": true,
+        "nota": ""
+      },
+      {
+        "metrica": "Cuarentena online (únicos)",
+        "estimado_diagnostico": 58,
+        "obtenido": 58,
+        "coincide": true,
+        "nota": ""
+      },
+      {
+        "metrica": "DUPLICADO_EXACTO",
+        "estimado_diagnostico": 20,
+        "obtenido": 20,
+        "coincide": true,
+        "nota": ""
+      },
+      {
+        "metrica": "CANTIDAD_INVALIDA",
+        "estimado_diagnostico": 11,
+        "obtenido": 11,
+        "coincide": true,
+        "nota": ""
+      },
+      {
+        "metrica": "PRODUCTO_HUERFANO",
+        "estimado_diagnostico": 62,
+        "obtenido": 62,
+        "coincide": true,
+        "nota": ""
+      },
+      {
+        "metrica": "EMAIL_MALFORMADO",
+        "estimado_diagnostico": 28,
+        "obtenido": 28,
+        "coincide": true,
+        "nota": ""
+      },
+      {
+        "metrica": "Registros con más de un motivo",
+        "estimado_diagnostico": 16,
+        "obtenido": 15,
+        "coincide": false,
+        "nota": "La referencia suma 5 (por códigos de regla) + 11 (cantidad inválida + monto) = 16, pero POS-2026-0493 está en ambos grupos (huérfano y cantidad -1): se cuenta una sola vez → 5 + 11 − 1 = 15 (R13: una transacción se cuenta una vez)."
+      },
+      {
+        "metrica": "MONTO_INVALIDO (la referencia lo cuenta junto con CANTIDAD_INVALIDA)",
+        "estimado_diagnostico": 11,
+        "obtenido": 11,
+        "coincide": true,
+        "nota": ""
+      }
+    ],
+    "verificacion_validas": {
+      "filas": 1104,
+      "fechas_iso_validas": 1104,
+      "rango_fechas": [
+        "2026-09-01",
+        "2026-10-16"
+      ],
+      "moneda_mxn": 1104,
+      "moneda_original": {
+        "MXN": 930,
+        "USD": 174
+      },
+      "monto_incoherente_con_cantidad_x_precio": 0,
+      "monto_minmax_min": 0.0,
+      "monto_minmax_max": 1.0,
+      "minmax_difiere_del_recalculo_(>1e-6)": 0,
+      "segmento_difiere_del_recalculo": 0,
+      "segmentos": {
+        "Alto": 372,
+        "Bajo": 370,
+        "Medio": 362
+      },
+      "cantidad_cap_mayor_que_cantidad": 0,
+      "con_valor_original_distinto_del_tratado": {
+        "cantidad": 13,
+        "monto": 86
+      }
+    },
+    "carpeta": "C:\\Users\\Leslie Valadez\\Documents\\Proyectos\\sistema-calidad-datos-comerciales\\salidas\\etapa_nono"
+  }
+}

@@ -1,0 +1,7 @@
+2026-10-25 23:56:49,898 INFO    src.pipeline: ▶ 1. Extracción
+2026-10-25 23:56:49,908 ERROR   src.pipeline: FALLO GLOBAL en «1. Extracción» (ErrorExtraccion, previsto): ventas_online_truncado.json no es un JSON válido: Unterminated string starting at: line 1 column 15 (char 14)
+
+======================================================================
+Lote: L20261025-235649-14ba   Estado: FALLIDO   Duración: 0.051 s
+FALLIDO en «1. Extracción» (ErrorExtraccion): ventas_online_truncado.json no es un JSON válido: Unterminated string starting at: line 1 column 15 (char 14)
+Detalle en el log de C:/Users/LESLIE~1/AppData/Local/Temp/tmp.8bTB5XMMAj/s/logs/ y en la bitácora. La base de datos conserva la última carga válida.
