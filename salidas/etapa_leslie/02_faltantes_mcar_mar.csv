@@ -1,0 +1,9 @@
+origen,columna,faltantes,pct,vs,chi2,gl,p_valor,esperados<5,clasificacion
+FISICA,id_cliente,127,20.48,punto_venta,1.3625,3,0.7143,0,MCAR
+FISICA,id_cliente,127,20.48,metodo_pago,2.9197,4,0.5713,0,MCAR
+FISICA,monto_total,32,5.16,punto_venta,2.4816,3,0.4786,0,MCAR
+FISICA,monto_total,32,5.16,metodo_pago,2.9366,4,0.5685,1,MCAR
+ONLINE,email_cliente,20,3.33,metodo_pago,1.0935,3,0.7786,3,MCAR
+ONLINE,email_cliente,20,3.33,moneda,1.0125,1,0.3143,0,MCAR
+ONLINE,direccion_envio,77,12.83,estado_pedido,5.072,4,0.28,0,MCAR
+ONLINE,direccion_envio,77,12.83,metodo_pago,2.1994,3,0.5321,0,MCAR

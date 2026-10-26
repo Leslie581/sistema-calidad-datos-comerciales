@@ -1,0 +1,958 @@
+{
+  "archivos": {
+    "catalogo_productos.csv": {
+      "bytes": 3741,
+      "sha256": "677fa7071d7cbe0ae3862c753a068ba9b80fe399b38fc7e23a45dd2e256868d1"
+    },
+    "ventas_tienda_fisica.csv": {
+      "bytes": 52263,
+      "sha256": "2e41ead654b4d044cca664842bca1ae85df2c1a84f5c0aad8b55706bbebf4df4"
+    },
+    "ventas_online.json": {
+      "bytes": 220054,
+      "sha256": "a2f150d331aba7bee98df30df501be1966d831488942b5f2c5eb1134c5dbdd7b"
+    }
+  },
+  "catalogo": {
+    "filas": 50,
+    "columnas": 6,
+    "nombres_columnas": [
+      "id_producto",
+      "nombre_producto",
+      "categoria",
+      "precio_base_mxn",
+      "stock_minimo",
+      "proveedor"
+    ],
+    "dtypes_inferidos": {
+      "id_producto": "str",
+      "nombre_producto": "str",
+      "categoria": "str",
+      "precio_base_mxn": "float64",
+      "stock_minimo": "int64",
+      "proveedor": "str"
+    },
+    "nulos": {
+      "id_producto": 0,
+      "nombre_producto": 0,
+      "categoria": 0,
+      "precio_base_mxn": 0,
+      "stock_minimo": 0,
+      "proveedor": 0
+    },
+    "pct_nulos": {
+      "id_producto": 0.0,
+      "nombre_producto": 0.0,
+      "categoria": 0.0,
+      "precio_base_mxn": 0.0,
+      "stock_minimo": 0.0,
+      "proveedor": 0.0
+    },
+    "completitud_global_pct": 100.0,
+    "duplicados_exactos": 0,
+    "id_producto_duplicados": 0,
+    "rango_ids": [
+      "PROD-001",
+      "PROD-050"
+    ],
+    "productos_por_categoria": {
+      "Hogar": 14,
+      "Alimentos": 12,
+      "Juguetería": 10,
+      "Electrónica": 7,
+      "Ropa": 5,
+      "Deportes": 2
+    },
+    "productos_por_proveedor": {
+      "Proveedor-Norte": 16,
+      "Proveedor-Centro": 13,
+      "Proveedor-Pacífico": 12,
+      "Proveedor-Bajío": 9
+    },
+    "precio_base_mxn": {
+      "n": 50,
+      "Q1": 1053.4625,
+      "Q3": 2981.0925,
+      "IQR": 1927.63,
+      "limite_inferior": -1837.9825,
+      "limite_superior": 5872.5375,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 0,
+      "media": 2030.599,
+      "mediana": 1685.815,
+      "desv_std": 1189.2795,
+      "min": 332.7,
+      "max": 4218.11,
+      "asimetria": 0.4132
+    }
+  },
+  "tienda_fisica": {
+    "filas": 620,
+    "columnas": 9,
+    "nombres_columnas": [
+      "id_ticket",
+      "fecha_venta",
+      "sucursal",
+      "id_producto",
+      "cantidad",
+      "precio_unitario",
+      "monto_total_mxn",
+      "id_cliente",
+      "metodo_pago"
+    ],
+    "dtypes_inferidos": {
+      "id_ticket": "str",
+      "fecha_venta": "str",
+      "sucursal": "str",
+      "id_producto": "str",
+      "cantidad": "int64",
+      "precio_unitario": "float64",
+      "monto_total_mxn": "float64",
+      "id_cliente": "str",
+      "metodo_pago": "str"
+    },
+    "nulos": {
+      "id_ticket": 0,
+      "fecha_venta": 0,
+      "sucursal": 0,
+      "id_producto": 0,
+      "cantidad": 0,
+      "precio_unitario": 0,
+      "monto_total_mxn": 32,
+      "id_cliente": 127,
+      "metodo_pago": 0
+    },
+    "pct_nulos": {
+      "id_ticket": 0.0,
+      "fecha_venta": 0.0,
+      "sucursal": 0.0,
+      "id_producto": 0.0,
+      "cantidad": 0.0,
+      "precio_unitario": 0.0,
+      "monto_total_mxn": 5.16,
+      "id_cliente": 20.48,
+      "metodo_pago": 0.0
+    },
+    "completitud_global_pct": 97.15,
+    "duplicados_exactos": 20,
+    "duplicados_exactos_tickets": [
+      "POS-2026-0453",
+      "POS-2026-0266",
+      "POS-2026-0106",
+      "POS-2026-0036",
+      "POS-2026-0075",
+      "POS-2026-0073",
+      "POS-2026-0586",
+      "POS-2026-0257",
+      "POS-2026-0457",
+      "POS-2026-0020",
+      "POS-2026-0510",
+      "POS-2026-0153",
+      "POS-2026-0001",
+      "POS-2026-0039",
+      "POS-2026-0400",
+      "POS-2026-0273",
+      "POS-2026-0156",
+      "POS-2026-0338",
+      "POS-2026-0401",
+      "POS-2026-0589"
+    ],
+    "id_ticket_repetidos": 20,
+    "id_ticket_repetidos_con_contenido_distinto": 0,
+    "formatos_fecha": {
+      "DD/MM/YYYY": 208,
+      "ISO (YYYY-MM-DD)": 207,
+      "DD-MM-YYYY": 205
+    },
+    "evidencia_dia_primero": {
+      "DD/MM/YYYY_con_primer_campo_mayor_12": 105,
+      "DD-MM-YYYY_con_primer_campo_mayor_12": 92
+    },
+    "rango_fechas_parseo_explicito": [
+      "2026-09-01",
+      "2026-10-15"
+    ],
+    "fechas_no_parseables": 0,
+    "advertencia_parseo_mixed_dayfirst": {
+      "fechas_que_cambian": 104,
+      "rango_resultante_erroneo": [
+        "2026-01-09",
+        "2026-12-10"
+      ]
+    },
+    "sucursal": {
+      "Manzanillo Puerto": 166,
+      "Tecomán": 160,
+      "Colima Centro": 147,
+      "Villa de Álvarez": 147
+    },
+    "metodo_pago_crudo": {
+      "TRANSFERENCIA": 124,
+      "Vales": 113,
+      "Tarjeta Crédito": 107,
+      "Efectivo": 104,
+      "efectivo": 89,
+      "Tarjeta Débito": 83
+    },
+    "metodo_pago_homologado": {
+      "EFECTIVO": 193,
+      "TRANSFERENCIA": 124,
+      "VALES": 113,
+      "TARJETA CRÉDITO": 107,
+      "TARJETA DÉBITO": 83
+    },
+    "cantidad_distribucion": {
+      "-1": 6,
+      "0": 5,
+      "1": 172,
+      "2": 165,
+      "3": 92,
+      "4": 78,
+      "5": 89,
+      "99": 7,
+      "500": 6
+    },
+    "cantidad_menor_igual_0": 11,
+    "cantidad_menor_0": 6,
+    "cantidad_igual_0": 5,
+    "tickets_cantidad_invalida": [
+      "POS-2026-0035",
+      "POS-2026-0216",
+      "POS-2026-0311",
+      "POS-2026-0340",
+      "POS-2026-0341",
+      "POS-2026-0355",
+      "POS-2026-0371",
+      "POS-2026-0452",
+      "POS-2026-0493",
+      "POS-2026-0513",
+      "POS-2026-0572"
+    ],
+    "cantidad_99_o_mas": 13,
+    "tickets_cantidad_99_o_mas": [
+      {
+        "id_ticket": "POS-2026-0021",
+        "cantidad": 99,
+        "monto_total_mxn": 208598.94
+      },
+      {
+        "id_ticket": "POS-2026-0031",
+        "cantidad": 500,
+        "monto_total_mxn": 512990.0
+      },
+      {
+        "id_ticket": "POS-2026-0033",
+        "cantidad": 500,
+        "monto_total_mxn": 166350.0
+      },
+      {
+        "id_ticket": "POS-2026-0040",
+        "cantidad": 500,
+        "monto_total_mxn": 467415.0
+      },
+      {
+        "id_ticket": "POS-2026-0050",
+        "cantidad": 99,
+        "monto_total_mxn": 36226.08
+      },
+      {
+        "id_ticket": "POS-2026-0094",
+        "cantidad": 99,
+        "monto_total_mxn": null
+      },
+      {
+        "id_ticket": "POS-2026-0112",
+        "cantidad": 99,
+        "monto_total_mxn": 101572.02
+      },
+      {
+        "id_ticket": "POS-2026-0230",
+        "cantidad": 99,
+        "monto_total_mxn": 228600.9
+      },
+      {
+        "id_ticket": "POS-2026-0269",
+        "cantidad": 99,
+        "monto_total_mxn": 386679.15
+      },
+      {
+        "id_ticket": "POS-2026-0314",
+        "cantidad": 500,
+        "monto_total_mxn": 1437825.0
+      },
+      {
+        "id_ticket": "POS-2026-0331",
+        "cantidad": 500,
+        "monto_total_mxn": 2109055.0
+      },
+      {
+        "id_ticket": "POS-2026-0483",
+        "cantidad": 99,
+        "monto_total_mxn": 285001.2
+      },
+      {
+        "id_ticket": "POS-2026-0489",
+        "cantidad": 500,
+        "monto_total_mxn": 815475.0
+      }
+    ],
+    "monto_nulo": 32,
+    "monto_nulo_recalculable": 32,
+    "monto_inconsistente_vs_cantidad_x_precio": 0,
+    "monto_negativo": 6,
+    "precio_distinto_al_catalogo": 0,
+    "huerfanos": 29,
+    "huerfanos_ids": {
+      "PROD-970": 3,
+      "PROD-980": 3,
+      "PROD-991": 2,
+      "PROD-984": 2,
+      "PROD-997": 2,
+      "PROD-976": 1,
+      "PROD-918": 1,
+      "PROD-950": 1,
+      "PROD-925": 1,
+      "PROD-982": 1,
+      "PROD-952": 1,
+      "PROD-946": 1,
+      "PROD-929": 1,
+      "PROD-959": 1,
+      "PROD-920": 1,
+      "PROD-994": 1,
+      "PROD-905": 1,
+      "PROD-955": 1,
+      "PROD-928": 1,
+      "PROD-988": 1,
+      "PROD-973": 1,
+      "PROD-971": 1
+    },
+    "huerfanos_tickets": [
+      "POS-2026-0017",
+      "POS-2026-0072",
+      "POS-2026-0109",
+      "POS-2026-0142",
+      "POS-2026-0143",
+      "POS-2026-0180",
+      "POS-2026-0213",
+      "POS-2026-0218",
+      "POS-2026-0231",
+      "POS-2026-0266",
+      "POS-2026-0286",
+      "POS-2026-0293",
+      "POS-2026-0302",
+      "POS-2026-0373",
+      "POS-2026-0376",
+      "POS-2026-0382",
+      "POS-2026-0403",
+      "POS-2026-0426",
+      "POS-2026-0442",
+      "POS-2026-0469",
+      "POS-2026-0472",
+      "POS-2026-0473",
+      "POS-2026-0493",
+      "POS-2026-0501",
+      "POS-2026-0504",
+      "POS-2026-0548",
+      "POS-2026-0559",
+      "POS-2026-0575",
+      "POS-2026-0266"
+    ],
+    "id_cliente_nulo": 127,
+    "clientes_distintos": 183,
+    "faltantes_id_cliente_vs_sucursal": {
+      "pct_faltante_por_grupo": {
+        "Colima Centro": 21.1,
+        "Manzanillo Puerto": 18.1,
+        "Tecomán": 23.1,
+        "Villa de Álvarez": 19.7
+      },
+      "chi2": 1.3625,
+      "gl": 3,
+      "p_valor": 0.7143,
+      "conclusion": "sin dependencia (p>=0.05) -> compatible con MCAR"
+    },
+    "faltantes_id_cliente_vs_metodo_pago": {
+      "pct_faltante_por_grupo": {
+        "EFECTIVO": 16.6,
+        "TARJETA CRÉDITO": 23.4,
+        "TARJETA DÉBITO": 20.5,
+        "TRANSFERENCIA": 21.8,
+        "VALES": 23.0
+      },
+      "chi2": 2.9197,
+      "gl": 4,
+      "p_valor": 0.5713,
+      "conclusion": "sin dependencia (p>=0.05) -> compatible con MCAR"
+    },
+    "faltantes_monto_vs_sucursal": {
+      "pct_faltante_por_grupo": {
+        "Colima Centro": 6.1,
+        "Manzanillo Puerto": 4.8,
+        "Tecomán": 3.1,
+        "Villa de Álvarez": 6.8
+      },
+      "chi2": 2.4816,
+      "gl": 3,
+      "p_valor": 0.4786,
+      "conclusion": "sin dependencia (p>=0.05) -> compatible con MCAR"
+    },
+    "faltantes_monto_vs_metodo_pago": {
+      "pct_faltante_por_grupo": {
+        "EFECTIVO": 6.2,
+        "TARJETA CRÉDITO": 2.8,
+        "TARJETA DÉBITO": 3.6,
+        "TRANSFERENCIA": 4.8,
+        "VALES": 7.1
+      },
+      "chi2": 2.9366,
+      "gl": 4,
+      "p_valor": 0.5685,
+      "conclusion": "sin dependencia (p>=0.05) -> compatible con MCAR"
+    },
+    "iqr_cantidad_crudo": {
+      "n": 620,
+      "Q1": 1.0,
+      "Q3": 4.0,
+      "IQR": 3.0,
+      "limite_inferior": -3.5,
+      "limite_superior": 8.5,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 13,
+      "media": 8.4226,
+      "mediana": 2.0,
+      "desv_std": 49.7126,
+      "min": -1,
+      "max": 500,
+      "asimetria": 9.4691
+    },
+    "iqr_cantidad_sin_invalidas": {
+      "n": 609,
+      "Q1": 1.0,
+      "Q3": 4.0,
+      "IQR": 3.0,
+      "limite_inferior": -3.5,
+      "limite_superior": 8.5,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 13,
+      "media": 8.5846,
+      "mediana": 2.0,
+      "desv_std": 50.1455,
+      "min": 1,
+      "max": 500,
+      "asimetria": 9.3838
+    },
+    "iqr_monto_crudo": {
+      "n": 588,
+      "Q1": 1869.66,
+      "Q3": 7811.7,
+      "IQR": 5942.04,
+      "limite_inferior": -7043.4,
+      "limite_superior": 16724.76,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 37,
+      "media": 16586.7391,
+      "mediana": 3506.37,
+      "desv_std": 115975.7152,
+      "min": -3632.45,
+      "max": 2109055.0,
+      "asimetria": 14.0766
+    },
+    "iqr_precio_unitario": {
+      "n": 620,
+      "Q1": 1021.5225,
+      "Q3": 2971.4975,
+      "IQR": 1949.975,
+      "limite_inferior": -1903.44,
+      "limite_superior": 5896.46,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 0,
+      "media": 1992.5931,
+      "mediana": 1630.95,
+      "desv_std": 1207.8888,
+      "min": 332.7,
+      "max": 4218.11,
+      "asimetria": 0.4281
+    }
+  },
+  "tienda_online": {
+    "filas": 600,
+    "columnas": 11,
+    "nombres_columnas": [
+      "order_id",
+      "order_timestamp",
+      "product_id",
+      "units",
+      "currency",
+      "unit_price",
+      "total_amount",
+      "customer_email",
+      "shipping_address",
+      "order_status",
+      "payment_gateway"
+    ],
+    "dtypes_inferidos": {
+      "order_id": "str",
+      "order_timestamp": "object",
+      "product_id": "str",
+      "units": "int64",
+      "currency": "str",
+      "unit_price": "float64",
+      "total_amount": "float64",
+      "customer_email": "str",
+      "shipping_address": "str",
+      "order_status": "str",
+      "payment_gateway": "str"
+    },
+    "nulos": {
+      "order_id": 0,
+      "order_timestamp": 0,
+      "product_id": 0,
+      "units": 0,
+      "currency": 0,
+      "unit_price": 0,
+      "total_amount": 0,
+      "customer_email": 20,
+      "shipping_address": 77,
+      "order_status": 0,
+      "payment_gateway": 0
+    },
+    "pct_nulos": {
+      "order_id": 0.0,
+      "order_timestamp": 0.0,
+      "product_id": 0.0,
+      "units": 0.0,
+      "currency": 0.0,
+      "unit_price": 0.0,
+      "total_amount": 0.0,
+      "customer_email": 3.33,
+      "shipping_address": 12.83,
+      "order_status": 0.0,
+      "payment_gateway": 0.0
+    },
+    "completitud_global_pct": 98.53,
+    "duplicados_exactos": 0,
+    "tipos_python_en_json": {
+      "order_id": [
+        "str"
+      ],
+      "order_timestamp": [
+        "int",
+        "str"
+      ],
+      "product_id": [
+        "str"
+      ],
+      "units": [
+        "int"
+      ],
+      "currency": [
+        "str"
+      ],
+      "unit_price": [
+        "float"
+      ],
+      "total_amount": [
+        "float"
+      ],
+      "customer_email": [
+        "NoneType",
+        "str"
+      ],
+      "shipping_address": [
+        "NoneType",
+        "str"
+      ],
+      "order_status": [
+        "str"
+      ],
+      "payment_gateway": [
+        "str"
+      ]
+    },
+    "order_id_repetidos": 0,
+    "duplicados_sin_order_id": 0,
+    "email_vacio_cadena": 5,
+    "email_nulo_json": 15,
+    "formatos_fecha": {
+      "ISO con hora (YYYY-MM-DDTHH:MM:SS)": 392,
+      "Unix epoch (segundos)": 208
+    },
+    "epoch_rango_utc": [
+      "2026-09-01 13:19:00+00:00",
+      "2026-10-17 01:31:00+00:00"
+    ],
+    "epoch_fecha_distinta_utc_vs_mexico": 49,
+    "iso_rango": [
+      "2026-09-01 02:55:00",
+      "2026-10-16 04:23:00"
+    ],
+    "tipo_python_order_timestamp": {
+      "str": 392,
+      "int": 208
+    },
+    "currency": {
+      "MXN": 407,
+      "USD": 193
+    },
+    "order_status_crudo": {
+      "CANCELADO": 119,
+      "DEVUELTO": 111,
+      "completado": 98,
+      "COMPLETADO": 94,
+      "PAGADO": 93,
+      "PENDIENTE": 85
+    },
+    "order_status_homologado": {
+      "COMPLETADO": 192,
+      "CANCELADO": 119,
+      "DEVUELTO": 111,
+      "PAGADO": 93,
+      "PENDIENTE": 85
+    },
+    "payment_gateway": {
+      "OXXO Pay": 167,
+      "PayPal": 149,
+      "Stripe": 147,
+      "MercadoPago": 137
+    },
+    "units_distribucion": {
+      "1": 362,
+      "2": 127,
+      "3": 111
+    },
+    "units_menor_igual_0": 0,
+    "total_inconsistente_vs_units_x_price": 12,
+    "ratio_total_entre_units_x_price": {
+      "1.0": 588,
+      "80.0": 12
+    },
+    "registros_total_inflado": [
+      {
+        "order_id": "WEB-00001",
+        "product_id": "PROD-890",
+        "units": 1,
+        "currency": "MXN",
+        "unit_price": 600.0,
+        "total_amount": 48000.0,
+        "customer_email": "usuario_8898@gmail.com"
+      },
+      {
+        "order_id": "WEB-00004",
+        "product_id": "PROD-005",
+        "units": 2,
+        "currency": "MXN",
+        "unit_price": 934.83,
+        "total_amount": 149572.8,
+        "customer_email": "correo_invalido.com"
+      },
+      {
+        "order_id": "WEB-00087",
+        "product_id": "PROD-006",
+        "units": 1,
+        "currency": "MXN",
+        "unit_price": 2048.98,
+        "total_amount": 163918.4,
+        "customer_email": "usuario_1718@gmail.com"
+      },
+      {
+        "order_id": "WEB-00147",
+        "product_id": "PROD-048",
+        "units": 1,
+        "currency": "MXN",
+        "unit_price": 2514.95,
+        "total_amount": 201196.0,
+        "customer_email": "correo_invalido.com"
+      },
+      {
+        "order_id": "WEB-00190",
+        "product_id": "PROD-014",
+        "units": 1,
+        "currency": "MXN",
+        "unit_price": 1064.15,
+        "total_amount": 85132.0,
+        "customer_email": "usuario_2144@gmail.com"
+      },
+      {
+        "order_id": "WEB-00202",
+        "product_id": "PROD-008",
+        "units": 2,
+        "currency": "MXN",
+        "unit_price": 1008.15,
+        "total_amount": 161304.0,
+        "customer_email": "usuario_2013@gmail.com"
+      },
+      {
+        "order_id": "WEB-00208",
+        "product_id": "PROD-031",
+        "units": 1,
+        "currency": "MXN",
+        "unit_price": 1168.79,
+        "total_amount": 93503.2,
+        "customer_email": "usuario_2670@gmail.com"
+      },
+      {
+        "order_id": "WEB-00237",
+        "product_id": "PROD-018",
+        "units": 1,
+        "currency": "USD",
+        "unit_price": 216.31,
+        "total_amount": 17304.8,
+        "customer_email": "usuario_6269@gmail.com"
+      },
+      {
+        "order_id": "WEB-00246",
+        "product_id": "PROD-001",
+        "units": 1,
+        "currency": "USD",
+        "unit_price": 27.97,
+        "total_amount": 2237.6,
+        "customer_email": "usuario_2743@gmail.com"
+      },
+      {
+        "order_id": "WEB-00508",
+        "product_id": "PROD-037",
+        "units": 3,
+        "currency": "MXN",
+        "unit_price": 3443.17,
+        "total_amount": 826360.8,
+        "customer_email": "usuario_1867@gmail.com"
+      },
+      {
+        "order_id": "WEB-00523",
+        "product_id": "PROD-027",
+        "units": 2,
+        "currency": "USD",
+        "unit_price": 52.61,
+        "total_amount": 8417.6,
+        "customer_email": null
+      },
+      {
+        "order_id": "WEB-00529",
+        "product_id": "PROD-021",
+        "units": 1,
+        "currency": "USD",
+        "unit_price": 76.57,
+        "total_amount": 6125.6,
+        "customer_email": "usuario_1957@gmail.com"
+      }
+    ],
+    "registros_total_inflado_huerfanos": 1,
+    "precio_vs_catalogo": {
+      "registros_con_producto_en_catalogo": 567,
+      "MXN_coinciden": 387,
+      "USD_x_19.50_coinciden_tolerancia_0.50": 180,
+      "USD_diferencia_maxima_mxn": 0.095,
+      "no_coinciden": 0
+    },
+    "huerfanos": 33,
+    "huerfanos_ids": {
+      "PROD-890": 2,
+      "PROD-855": 2,
+      "PROD-895": 2,
+      "PROD-880": 1,
+      "PROD-894": 1,
+      "PROD-884": 1,
+      "PROD-841": 1,
+      "PROD-833": 1,
+      "PROD-864": 1,
+      "PROD-889": 1,
+      "PROD-873": 1,
+      "PROD-805": 1,
+      "PROD-836": 1,
+      "PROD-830": 1,
+      "PROD-897": 1,
+      "PROD-803": 1,
+      "PROD-808": 1,
+      "PROD-888": 1,
+      "PROD-835": 1,
+      "PROD-853": 1,
+      "PROD-848": 1,
+      "PROD-818": 1,
+      "PROD-824": 1,
+      "PROD-856": 1,
+      "PROD-816": 1,
+      "PROD-887": 1,
+      "PROD-811": 1,
+      "PROD-863": 1,
+      "PROD-834": 1,
+      "PROD-876": 1
+    },
+    "email_faltante_total": 20,
+    "email_malformado": 28,
+    "email_malformado_valores": {
+      "usuario@@gmail..com": 11,
+      "sin_arroba_dominio.org": 9,
+      "correo_invalido.com": 8
+    },
+    "shipping_address_nulo": 77,
+    "faltantes_shipping_vs_status": {
+      "pct_faltante_por_grupo": {
+        "CANCELADO": 13.4,
+        "COMPLETADO": 13.0,
+        "DEVUELTO": 8.1,
+        "PAGADO": 11.8,
+        "PENDIENTE": 18.8
+      },
+      "chi2": 5.072,
+      "gl": 4,
+      "p_valor": 0.28,
+      "conclusion": "sin dependencia (p>=0.05) -> compatible con MCAR"
+    },
+    "faltantes_shipping_vs_gateway": {
+      "pct_faltante_por_grupo": {
+        "MercadoPago": 13.9,
+        "OXXO Pay": 9.6,
+        "PayPal": 14.1,
+        "Stripe": 14.3
+      },
+      "chi2": 2.1994,
+      "gl": 3,
+      "p_valor": 0.5321,
+      "conclusion": "sin dependencia (p>=0.05) -> compatible con MCAR"
+    },
+    "faltantes_email_vs_gateway": {
+      "pct_faltante_por_grupo": {
+        "MercadoPago": 2.2,
+        "OXXO Pay": 3.0,
+        "PayPal": 4.0,
+        "Stripe": 4.1
+      },
+      "chi2": 1.0935,
+      "gl": 3,
+      "p_valor": 0.7786,
+      "conclusion": "sin dependencia (p>=0.05) -> compatible con MCAR"
+    },
+    "faltantes_email_vs_currency": {
+      "pct_faltante_por_grupo": {
+        "MXN": 2.7,
+        "USD": 4.7
+      },
+      "chi2": 1.0125,
+      "gl": 1,
+      "p_valor": 0.3143,
+      "conclusion": "sin dependencia (p>=0.05) -> compatible con MCAR"
+    },
+    "iqr_units": {
+      "n": 600,
+      "Q1": 1.0,
+      "Q3": 2.0,
+      "IQR": 1.0,
+      "limite_inferior": -0.5,
+      "limite_superior": 3.5,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 0,
+      "media": 1.5817,
+      "mediana": 1.0,
+      "desv_std": 0.7838,
+      "min": 1,
+      "max": 3,
+      "asimetria": 0.8862
+    },
+    "iqr_total_amount_crudo_mezcla_monedas": {
+      "n": 600,
+      "Q1": 214.55,
+      "Q3": 3192.45,
+      "IQR": 2977.9,
+      "limite_inferior": -4252.3,
+      "limite_superior": 7659.3,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 37,
+      "media": 4978.2955,
+      "mediana": 1228.72,
+      "desv_std": 36737.3245,
+      "min": 17.06,
+      "max": 826360.8,
+      "asimetria": 19.386
+    },
+    "iqr_total_crudo_convertido_mxn": {
+      "n": 600,
+      "Q1": 1200.0225,
+      "Q3": 3960.31,
+      "IQR": 2760.2875,
+      "limite_inferior": -2940.4087,
+      "limite_superior": 8100.7412,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 47,
+      "media": 6942.2743,
+      "mediana": 2514.95,
+      "desv_std": 39905.6401,
+      "min": 332.67,
+      "max": 826360.8,
+      "asimetria": 16.0936
+    }
+  },
+  "referencia_integrada": {
+    "filas_base_estadistica_sin_duplicados_invalidos_ni_huerfanos": 1129,
+    "base_por_origen": {
+      "ONLINE": 567,
+      "FISICA": 562
+    },
+    "iqr_cantidad_fisica": {
+      "n": 562,
+      "Q1": 1.0,
+      "Q3": 4.0,
+      "IQR": 3.0,
+      "limite_inferior": -3.5,
+      "limite_superior": 8.5,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 13,
+      "media": 9.0961,
+      "mediana": 2.0,
+      "desv_std": 52.1695,
+      "min": 1,
+      "max": 500,
+      "asimetria": 9.0048
+    },
+    "tope_entero_cantidad_fisica": 8,
+    "cantidades_fisica_a_recortar": 13,
+    "iqr_monto_unificado_mxn": {
+      "n": 1129,
+      "Q1": 1563.78,
+      "Q3": 5751.34,
+      "IQR": 4187.56,
+      "limite_inferior": -4717.56,
+      "limite_superior": 12032.68,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 80,
+      "media": 4424.9398,
+      "mediana": 3127.42,
+      "desv_std": 4284.6877,
+      "min": 332.67,
+      "max": 33744.88,
+      "asimetria": 2.1688
+    },
+    "montos_a_recortar": 80,
+    "monto_cap_min_max": [
+      332.67,
+      12032.68
+    ],
+    "terciles_monto_cap": {
+      "P33.3": 2069.07,
+      "P66.7": 4183.67
+    },
+    "segmentos_en_base": {
+      "Bajo": 380,
+      "Alto": 375,
+      "Medio": 374
+    },
+    "usd_diferencia_centavos_entre_metodos": 55
+  },
+  "cuarentena_esperada": {
+    "tienda_fisica_por_regla": {
+      "DUPLICADO_EXACTO": 20,
+      "CANTIDAD_INVALIDA": 11,
+      "PRODUCTO_HUERFANO": 29
+    },
+    "tienda_fisica_registros_unicos_en_cuarentena": 58,
+    "tienda_fisica_con_mas_de_un_motivo": 2,
+    "online_por_regla": {
+      "CANTIDAD_INVALIDA": 0,
+      "PRODUCTO_HUERFANO": 33,
+      "EMAIL_MALFORMADO": 28
+    },
+    "online_registros_unicos_en_cuarentena": 58,
+    "online_con_mas_de_un_motivo": 3,
+    "total_cuarentena_esperado": 116,
+    "total_transacciones_limpias_esperado": 1104
+  }
+}

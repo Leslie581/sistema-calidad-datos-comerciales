@@ -1,0 +1,18 @@
+metrica,base,antes,despues,como_se_logro
+Filas,todas,1220.0,1220.0,No se elimina ninguna fila (R1.3)
+Duplicados exactos sin identificar,todas,20.0,0.0,20 marcados con es_duplicado → cuarentena en F6
+Montos nulos,todas,32.0,0.0,Recalculados cantidad × precio (R6.2)
+Montos ≠ cantidad × precio,cantidad > 0,12.0,0.0,Recalculados; original en monto_total_origen (R6.3)
+id_cliente faltante (física),física,127.0,0.0,Etiqueta ANONIMO (R3.8)
+Correo faltante (online),online,20.0,0.0,Etiqueta SIN_CORREO (R3.8)
+Dirección faltante (online),online,77.0,0.0,Etiqueta SIN_DIRECCION (R3.8)
+Cantidades ≤ 0,todas,11.0,11.0,"Se conservan marcadas: son imposibles, no atípicas; cuarentena en F6 (R4)"
+Monedas en la columna de análisis,todas,2.0,1.0,monto_total_mxn y precio_unitario_mxn en MXN (R7)
+Cantidad máxima (física),física,500.0,8.0,cantidad_cap; original en cantidad (R5.3)
+Cantidad máxima (online),online,3.0,3.0,Sin outliers en online
+Importe MXN · media,"base estadística (antes: total crudo × tc, sin nulos)",12470.2386,4122.1065,monto_total_mxn_cap (R5.4)
+Importe MXN · n con valor,ídem,1101.0,1129.0,Los nulos recalculados ya cuentan después
+Importe MXN · mediana,ídem,3149.64,3127.42,
+Importe MXN · máximo,ídem,2109055.0,12032.68,Tope = LS
+Importe MXN · asimetría,ídem,17.0407,1.1623,
+Importe MXN · desviación estándar,ídem,89774.8313,3346.5712,

@@ -1,0 +1,12 @@
+columna,tipo_inferido,dtype_pandas,nulos,pct_nulos,completitud_pct,valores_distintos
+order_id,texto,object,0,0.0,100.0,600
+order_timestamp,"mixto(int, str)",object,0,0.0,100.0,598
+product_id,texto,object,0,0.0,100.0,80
+units,entero,object,0,0.0,100.0,3
+currency,texto,object,0,0.0,100.0,2
+unit_price,decimal,object,0,0.0,100.0,102
+total_amount,decimal,object,0,0.0,100.0,237
+customer_email,texto,object,20,3.33,96.67,546
+shipping_address,texto,object,77,12.83,87.17,522
+order_status,texto,object,0,0.0,100.0,6
+payment_gateway,texto,object,0,0.0,100.0,4

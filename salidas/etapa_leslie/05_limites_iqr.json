@@ -1,0 +1,68 @@
+{
+  "base_estadistica": {
+    "total": 1129,
+    "por_canal": {
+      "ONLINE": 567,
+      "FISICA": 562
+    }
+  },
+  "cantidad": {
+    "FISICA": {
+      "n": 562,
+      "Q1": 1.0,
+      "Q3": 4.0,
+      "IQR": 3.0,
+      "LI": -3.5,
+      "LS": 8.5,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 13,
+      "min": 1.0,
+      "max": 500.0,
+      "media": 9.09608540925267,
+      "mediana": 2.0,
+      "asimetria": 9.004781589829909,
+      "factor": 1.5,
+      "tope_entero": 8,
+      "piso_entero": 1,
+      "recortados": 13
+    },
+    "ONLINE": {
+      "n": 567,
+      "Q1": 1.0,
+      "Q3": 2.0,
+      "IQR": 1.0,
+      "LI": -0.5,
+      "LS": 3.5,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 0,
+      "min": 1.0,
+      "max": 3.0,
+      "media": 1.5767195767195767,
+      "mediana": 1.0,
+      "asimetria": 0.8977741356110356,
+      "factor": 1.5,
+      "tope_entero": 3,
+      "piso_entero": 1,
+      "recortados": 0
+    }
+  },
+  "monto_mxn": {
+    "n": 1129,
+    "Q1": 1563.78,
+    "Q3": 5751.34,
+    "IQR": 4187.56,
+    "LI": -4717.56,
+    "LS": 12032.68,
+    "outliers_inferiores": 0,
+    "outliers_superiores": 80,
+    "min": 332.67,
+    "max": 33744.88,
+    "media": 4424.93980513729,
+    "mediana": 3127.42,
+    "asimetria": 2.168824689140806,
+    "factor": 1.5,
+    "piso_aplicado": 0.0,
+    "techo_aplicado": 12032.68,
+    "recortados": 82
+  }
+}

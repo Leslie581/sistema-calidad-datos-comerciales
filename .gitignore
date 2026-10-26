@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Credenciales
+.env
+.env.*
+!.env.example
+
+# Editores
+.vscode/
+.idea/
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Bases de datos locales
+*.db
+*.sqlite
+*.sqlite3
+salidas/**/*.db

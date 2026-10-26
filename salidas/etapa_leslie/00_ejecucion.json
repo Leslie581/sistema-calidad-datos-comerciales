@@ -1,0 +1,14 @@
+{
+  "inicio": "2026-10-25T19:54:18",
+  "duracion_s": 1.14,
+  "python": "3.13.16",
+  "pandas": "3.0.5",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "integridad_originales": {
+    "catalogo_productos.csv": true,
+    "ventas_tienda_fisica.csv": true,
+    "ventas_online.json": true
+  },
+  "coincidencias_referencia": "39/41"
+}

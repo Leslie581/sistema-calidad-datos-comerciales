@@ -1,0 +1,143 @@
+[
+  {
+    "columna": "id_cliente",
+    "faltantes": 127,
+    "pct_faltantes": 20.48,
+    "pruebas": [
+      {
+        "vs": "punto_venta",
+        "pct_faltante_por_grupo": {
+          "Colima Centro": 21.1,
+          "Manzanillo Puerto": 18.1,
+          "Tecomán": 23.1,
+          "Villa de Álvarez": 19.7
+        },
+        "chi2": 1.3625,
+        "gl": 3,
+        "p_valor": 0.7143,
+        "esperados_menores_5": 0
+      },
+      {
+        "vs": "metodo_pago",
+        "pct_faltante_por_grupo": {
+          "EFECTIVO": 16.6,
+          "TARJETA CRÉDITO": 23.4,
+          "TARJETA DÉBITO": 20.5,
+          "TRANSFERENCIA": 21.8,
+          "VALES": 23.0
+        },
+        "chi2": 2.9197,
+        "gl": 4,
+        "p_valor": 0.5713,
+        "esperados_menores_5": 0
+      }
+    ],
+    "clasificacion": "MCAR",
+    "origen": "FISICA"
+  },
+  {
+    "columna": "monto_total",
+    "faltantes": 32,
+    "pct_faltantes": 5.16,
+    "pruebas": [
+      {
+        "vs": "punto_venta",
+        "pct_faltante_por_grupo": {
+          "Colima Centro": 6.1,
+          "Manzanillo Puerto": 4.8,
+          "Tecomán": 3.1,
+          "Villa de Álvarez": 6.8
+        },
+        "chi2": 2.4816,
+        "gl": 3,
+        "p_valor": 0.4786,
+        "esperados_menores_5": 0
+      },
+      {
+        "vs": "metodo_pago",
+        "pct_faltante_por_grupo": {
+          "EFECTIVO": 6.2,
+          "TARJETA CRÉDITO": 2.8,
+          "TARJETA DÉBITO": 3.6,
+          "TRANSFERENCIA": 4.8,
+          "VALES": 7.1
+        },
+        "chi2": 2.9366,
+        "gl": 4,
+        "p_valor": 0.5685,
+        "esperados_menores_5": 1
+      }
+    ],
+    "clasificacion": "MCAR",
+    "origen": "FISICA"
+  },
+  {
+    "columna": "email_cliente",
+    "faltantes": 20,
+    "pct_faltantes": 3.33,
+    "pruebas": [
+      {
+        "vs": "metodo_pago",
+        "pct_faltante_por_grupo": {
+          "MERCADOPAGO": 2.2,
+          "OXXO PAY": 3.0,
+          "PAYPAL": 4.0,
+          "STRIPE": 4.1
+        },
+        "chi2": 1.0935,
+        "gl": 3,
+        "p_valor": 0.7786,
+        "esperados_menores_5": 3
+      },
+      {
+        "vs": "moneda",
+        "pct_faltante_por_grupo": {
+          "MXN": 2.7,
+          "USD": 4.7
+        },
+        "chi2": 1.0125,
+        "gl": 1,
+        "p_valor": 0.3143,
+        "esperados_menores_5": 0
+      }
+    ],
+    "clasificacion": "MCAR",
+    "origen": "ONLINE"
+  },
+  {
+    "columna": "direccion_envio",
+    "faltantes": 77,
+    "pct_faltantes": 12.83,
+    "pruebas": [
+      {
+        "vs": "estado_pedido",
+        "pct_faltante_por_grupo": {
+          "CANCELADO": 13.4,
+          "COMPLETADO": 13.0,
+          "DEVUELTO": 8.1,
+          "PAGADO": 11.8,
+          "PENDIENTE": 18.8
+        },
+        "chi2": 5.072,
+        "gl": 4,
+        "p_valor": 0.28,
+        "esperados_menores_5": 0
+      },
+      {
+        "vs": "metodo_pago",
+        "pct_faltante_por_grupo": {
+          "MERCADOPAGO": 13.9,
+          "OXXO PAY": 9.6,
+          "PAYPAL": 14.1,
+          "STRIPE": 14.3
+        },
+        "chi2": 2.1994,
+        "gl": 3,
+        "p_valor": 0.5321,
+        "esperados_menores_5": 0
+      }
+    ],
+    "clasificacion": "MCAR",
+    "origen": "ONLINE"
+  }
+]

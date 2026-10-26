@@ -1,0 +1,9 @@
+{
+  "convertidos_usd": 193,
+  "usd_en_catalogo": 180,
+  "usd_dif_max_catalogo": 0.1,
+  "huerfanos": {
+    "ONLINE": 33,
+    "FISICA": 29
+  }
+}

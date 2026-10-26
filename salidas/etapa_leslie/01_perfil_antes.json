@@ -1,0 +1,215 @@
+{
+  "catalogo": {
+    "fuente": "catalogo",
+    "filas": 50,
+    "columnas": 6,
+    "tipos": {
+      "id_producto": "texto",
+      "nombre_producto": "texto",
+      "categoria": "texto",
+      "precio_base_mxn": "decimal",
+      "stock_minimo": "entero",
+      "proveedor": "texto"
+    },
+    "dtypes_pandas": {
+      "id_producto": "str",
+      "nombre_producto": "str",
+      "categoria": "str",
+      "precio_base_mxn": "float64",
+      "stock_minimo": "int64",
+      "proveedor": "str"
+    },
+    "nulos": {
+      "id_producto": 0,
+      "nombre_producto": 0,
+      "categoria": 0,
+      "precio_base_mxn": 0,
+      "stock_minimo": 0,
+      "proveedor": 0
+    },
+    "pct_nulos": {
+      "id_producto": 0.0,
+      "nombre_producto": 0.0,
+      "categoria": 0.0,
+      "precio_base_mxn": 0.0,
+      "stock_minimo": 0.0,
+      "proveedor": 0.0
+    },
+    "completitud_pct": {
+      "id_producto": 100.0,
+      "nombre_producto": 100.0,
+      "categoria": 100.0,
+      "precio_base_mxn": 100.0,
+      "stock_minimo": 100.0,
+      "proveedor": 100.0
+    },
+    "completitud_global_pct": 100.0,
+    "duplicados_exactos": 0,
+    "valores_distintos": {
+      "id_producto": 50,
+      "nombre_producto": 50,
+      "categoria": 6,
+      "precio_base_mxn": 50,
+      "stock_minimo": 29,
+      "proveedor": 4
+    }
+  },
+  "fisica": {
+    "fuente": "fisica",
+    "filas": 620,
+    "columnas": 9,
+    "tipos": {
+      "id_ticket": "texto",
+      "fecha_venta": "texto",
+      "sucursal": "texto",
+      "id_producto": "texto",
+      "cantidad": "entero",
+      "precio_unitario": "decimal",
+      "monto_total_mxn": "decimal",
+      "id_cliente": "texto",
+      "metodo_pago": "texto"
+    },
+    "dtypes_pandas": {
+      "id_ticket": "object",
+      "fecha_venta": "object",
+      "sucursal": "object",
+      "id_producto": "object",
+      "cantidad": "object",
+      "precio_unitario": "object",
+      "monto_total_mxn": "object",
+      "id_cliente": "object",
+      "metodo_pago": "object"
+    },
+    "nulos": {
+      "id_ticket": 0,
+      "fecha_venta": 0,
+      "sucursal": 0,
+      "id_producto": 0,
+      "cantidad": 0,
+      "precio_unitario": 0,
+      "monto_total_mxn": 32,
+      "id_cliente": 127,
+      "metodo_pago": 0
+    },
+    "pct_nulos": {
+      "id_ticket": 0.0,
+      "fecha_venta": 0.0,
+      "sucursal": 0.0,
+      "id_producto": 0.0,
+      "cantidad": 0.0,
+      "precio_unitario": 0.0,
+      "monto_total_mxn": 5.16,
+      "id_cliente": 20.48,
+      "metodo_pago": 0.0
+    },
+    "completitud_pct": {
+      "id_ticket": 100.0,
+      "fecha_venta": 100.0,
+      "sucursal": 100.0,
+      "id_producto": 100.0,
+      "cantidad": 100.0,
+      "precio_unitario": 100.0,
+      "monto_total_mxn": 94.84,
+      "id_cliente": 79.52,
+      "metodo_pago": 100.0
+    },
+    "completitud_global_pct": 97.15,
+    "duplicados_exactos": 20,
+    "valores_distintos": {
+      "id_ticket": 600,
+      "fecha_venta": 135,
+      "sucursal": 4,
+      "id_producto": 72,
+      "cantidad": 9,
+      "precio_unitario": 51,
+      "monto_total_mxn": 240,
+      "id_cliente": 183,
+      "metodo_pago": 6
+    }
+  },
+  "online": {
+    "fuente": "online",
+    "filas": 600,
+    "columnas": 11,
+    "tipos": {
+      "order_id": "texto",
+      "order_timestamp": "mixto(int, str)",
+      "product_id": "texto",
+      "units": "entero",
+      "currency": "texto",
+      "unit_price": "decimal",
+      "total_amount": "decimal",
+      "customer_email": "texto",
+      "shipping_address": "texto",
+      "order_status": "texto",
+      "payment_gateway": "texto"
+    },
+    "dtypes_pandas": {
+      "order_id": "object",
+      "order_timestamp": "object",
+      "product_id": "object",
+      "units": "object",
+      "currency": "object",
+      "unit_price": "object",
+      "total_amount": "object",
+      "customer_email": "object",
+      "shipping_address": "object",
+      "order_status": "object",
+      "payment_gateway": "object"
+    },
+    "nulos": {
+      "order_id": 0,
+      "order_timestamp": 0,
+      "product_id": 0,
+      "units": 0,
+      "currency": 0,
+      "unit_price": 0,
+      "total_amount": 0,
+      "customer_email": 20,
+      "shipping_address": 77,
+      "order_status": 0,
+      "payment_gateway": 0
+    },
+    "pct_nulos": {
+      "order_id": 0.0,
+      "order_timestamp": 0.0,
+      "product_id": 0.0,
+      "units": 0.0,
+      "currency": 0.0,
+      "unit_price": 0.0,
+      "total_amount": 0.0,
+      "customer_email": 3.33,
+      "shipping_address": 12.83,
+      "order_status": 0.0,
+      "payment_gateway": 0.0
+    },
+    "completitud_pct": {
+      "order_id": 100.0,
+      "order_timestamp": 100.0,
+      "product_id": 100.0,
+      "units": 100.0,
+      "currency": 100.0,
+      "unit_price": 100.0,
+      "total_amount": 100.0,
+      "customer_email": 96.67,
+      "shipping_address": 87.17,
+      "order_status": 100.0,
+      "payment_gateway": 100.0
+    },
+    "completitud_global_pct": 98.53,
+    "duplicados_exactos": 0,
+    "valores_distintos": {
+      "order_id": 600,
+      "order_timestamp": 598,
+      "product_id": 80,
+      "units": 3,
+      "currency": 2,
+      "unit_price": 102,
+      "total_amount": 237,
+      "customer_email": 546,
+      "shipping_address": 522,
+      "order_status": 6,
+      "payment_gateway": 4
+    }
+  }
+}

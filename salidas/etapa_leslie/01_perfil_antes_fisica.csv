@@ -1,0 +1,10 @@
+columna,tipo_inferido,dtype_pandas,nulos,pct_nulos,completitud_pct,valores_distintos
+id_ticket,texto,object,0,0.0,100.0,600
+fecha_venta,texto,object,0,0.0,100.0,135
+sucursal,texto,object,0,0.0,100.0,4
+id_producto,texto,object,0,0.0,100.0,72
+cantidad,entero,object,0,0.0,100.0,9
+precio_unitario,decimal,object,0,0.0,100.0,51
+monto_total_mxn,decimal,object,32,5.16,94.84,240
+id_cliente,texto,object,127,20.48,79.52,183
+metodo_pago,texto,object,0,0.0,100.0,6

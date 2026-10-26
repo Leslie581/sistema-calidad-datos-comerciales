@@ -1,0 +1,34 @@
+{
+  "filas": 1220,
+  "duplicados_exactos": 20,
+  "ids_en_conflicto": 0,
+  "imputacion_mediana": {
+    "medianas_por_canal": {
+      "FISICA": 2.0,
+      "ONLINE": 1.0
+    },
+    "imputados": 0,
+    "faltantes_no_imputables": 0,
+    "no_numericos_no_imputados": 0
+  },
+  "reconstruccion_montos": {
+    "recalculados_nulo": 32,
+    "recalculados_inconsistente": 12,
+    "factores_inconsistencia": {
+      "80.0": 12
+    },
+    "nulos_no_recalculables": 0
+  },
+  "imputacion_categoricas": {
+    "FISICA.id_cliente→ANONIMO": 127,
+    "ONLINE.email_cliente→SIN_CORREO": 20,
+    "ONLINE.direccion_envio→SIN_DIRECCION": 77
+  },
+  "conteo_correcciones": {
+    "IMPUTADO_DIRECCION_ENVIO": 77,
+    "IMPUTADO_EMAIL_CLIENTE": 20,
+    "IMPUTADO_ID_CLIENTE": 127,
+    "MONTO_RECALCULADO_INCONSISTENTE": 12,
+    "MONTO_RECALCULADO_NULO": 32
+  }
+}

@@ -1,0 +1,286 @@
+
+================================================================================
+0. Integridad de los archivos originales (SHA-256)
+================================================================================
+{'catalogo_productos.csv': True, 'ventas_tienda_fisica.csv': True, 'ventas_online.json': True}
+
+================================================================================
+1. Extracción (Yerik · mínima)
+================================================================================
+{'catalogo': (50, 6), 'fisica': (620, 11), 'online': (600, 13)}
+
+================================================================================
+2. F1 · Perfil ANTES (Leslie)
+================================================================================
+
+--- catalogo: 50 filas × 6 columnas · completitud 100.0 % · duplicados exactos 0
+        columna tipo_inferido dtype_pandas  nulos  pct_nulos  completitud_pct  valores_distintos
+    id_producto         texto          str      0        0.0            100.0                 50
+nombre_producto         texto          str      0        0.0            100.0                 50
+      categoria         texto          str      0        0.0            100.0                  6
+precio_base_mxn       decimal      float64      0        0.0            100.0                 50
+   stock_minimo        entero        int64      0        0.0            100.0                 29
+      proveedor         texto          str      0        0.0            100.0                  4
+
+--- fisica: 620 filas × 9 columnas · completitud 97.15 % · duplicados exactos 20
+        columna tipo_inferido dtype_pandas  nulos  pct_nulos  completitud_pct  valores_distintos
+      id_ticket         texto       object      0       0.00           100.00                600
+    fecha_venta         texto       object      0       0.00           100.00                135
+       sucursal         texto       object      0       0.00           100.00                  4
+    id_producto         texto       object      0       0.00           100.00                 72
+       cantidad        entero       object      0       0.00           100.00                  9
+precio_unitario       decimal       object      0       0.00           100.00                 51
+monto_total_mxn       decimal       object     32       5.16            94.84                240
+     id_cliente         texto       object    127      20.48            79.52                183
+    metodo_pago         texto       object      0       0.00           100.00                  6
+
+--- online: 600 filas × 11 columnas · completitud 98.53 % · duplicados exactos 0
+         columna   tipo_inferido dtype_pandas  nulos  pct_nulos  completitud_pct  valores_distintos
+        order_id           texto       object      0       0.00           100.00                600
+ order_timestamp mixto(int, str)       object      0       0.00           100.00                598
+      product_id           texto       object      0       0.00           100.00                 80
+           units          entero       object      0       0.00           100.00                  3
+        currency           texto       object      0       0.00           100.00                  2
+      unit_price         decimal       object      0       0.00           100.00                102
+    total_amount         decimal       object      0       0.00           100.00                237
+  customer_email           texto       object     20       3.33            96.67                546
+shipping_address           texto       object     77      12.83            87.17                522
+    order_status           texto       object      0       0.00           100.00                  6
+ payment_gateway           texto       object      0       0.00           100.00                  4
+
+================================================================================
+3. Homologación (Yerik · mínima)
+================================================================================
+{'FISICA': 620, 'ONLINE': 600} columnas: 18
+
+================================================================================
+4. F1 · Clasificación de faltantes MCAR/MAR (χ²)
+================================================================================
+origen         columna  faltantes   pct            vs   chi2  gl  p_valor  esperados<5 clasificacion
+FISICA      id_cliente        127 20.48   punto_venta 1.3625   3   0.7143            0          MCAR
+FISICA      id_cliente        127 20.48   metodo_pago 2.9197   4   0.5713            0          MCAR
+FISICA     monto_total         32  5.16   punto_venta 2.4816   3   0.4786            0          MCAR
+FISICA     monto_total         32  5.16   metodo_pago 2.9366   4   0.5685            1          MCAR
+ONLINE   email_cliente         20  3.33   metodo_pago 1.0935   3   0.7786            3          MCAR
+ONLINE   email_cliente         20  3.33        moneda 1.0125   1   0.3143            0          MCAR
+ONLINE direccion_envio         77 12.83 estado_pedido 5.0720   4   0.2800            0          MCAR
+ONLINE direccion_envio         77 12.83   metodo_pago 2.1994   3   0.5321            0          MCAR
+
+================================================================================
+5. F2 · Limpieza e imputación (Leslie)
+================================================================================
+{
+  "filas": 1220,
+  "duplicados_exactos": 20,
+  "ids_en_conflicto": 0,
+  "imputacion_mediana": {
+    "medianas_por_canal": {
+      "FISICA": 2.0,
+      "ONLINE": 1.0
+    },
+    "imputados": 0,
+    "faltantes_no_imputables": 0,
+    "no_numericos_no_imputados": 0
+  },
+  "reconstruccion_montos": {
+    "recalculados_nulo": 32,
+    "recalculados_inconsistente": 12,
+    "factores_inconsistencia": {
+      "80.0": 12
+    },
+    "nulos_no_recalculables": 0
+  },
+  "imputacion_categoricas": {
+    "FISICA.id_cliente→ANONIMO": 127,
+    "ONLINE.email_cliente→SIN_CORREO": 20,
+    "ONLINE.direccion_envio→SIN_DIRECCION": 77
+  },
+  "conteo_correcciones": {
+    "IMPUTADO_DIRECCION_ENVIO": 77,
+    "IMPUTADO_EMAIL_CLIENTE": 20,
+    "IMPUTADO_ID_CLIENTE": 127,
+    "MONTO_RECALCULADO_INCONSISTENTE": 12,
+    "MONTO_RECALCULADO_NULO": 32
+  }
+}
+
+================================================================================
+6. USD→MXN y cruce con catálogo (Yerik · mínima, necesaria para el IQR en MXN)
+================================================================================
+{'convertidos_usd': 193, 'usd_en_catalogo': 180, 'usd_dif_max_catalogo': 0.1, 'huerfanos': {'ONLINE': 33, 'FISICA': 29}}
+
+================================================================================
+7. F3 · IQR (factor 1.5) y capping (Leslie)
+================================================================================
+{
+  "base_estadistica": {
+    "total": 1129,
+    "por_canal": {
+      "ONLINE": 567,
+      "FISICA": 562
+    }
+  },
+  "cantidad": {
+    "FISICA": {
+      "n": 562,
+      "Q1": 1.0,
+      "Q3": 4.0,
+      "IQR": 3.0,
+      "LI": -3.5,
+      "LS": 8.5,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 13,
+      "min": 1.0,
+      "max": 500.0,
+      "media": 9.09608540925267,
+      "mediana": 2.0,
+      "asimetria": 9.004781589829909,
+      "factor": 1.5,
+      "tope_entero": 8,
+      "piso_entero": 1,
+      "recortados": 13
+    },
+    "ONLINE": {
+      "n": 567,
+      "Q1": 1.0,
+      "Q3": 2.0,
+      "IQR": 1.0,
+      "LI": -0.5,
+      "LS": 3.5,
+      "outliers_inferiores": 0,
+      "outliers_superiores": 0,
+      "min": 1.0,
+      "max": 3.0,
+      "media": 1.5767195767195767,
+      "mediana": 1.0,
+      "asimetria": 0.8977741356110356,
+      "factor": 1.5,
+      "tope_entero": 3,
+      "piso_entero": 1,
+      "recortados": 0
+    }
+  },
+  "monto_mxn": {
+    "n": 1129,
+    "Q1": 1563.78,
+    "Q3": 5751.34,
+    "IQR": 4187.56,
+    "LI": -4717.56,
+    "LS": 12032.68,
+    "outliers_inferiores": 0,
+    "outliers_superiores": 80,
+    "min": 332.67,
+    "max": 33744.88,
+    "media": 4424.93980513729,
+    "mediana": 3127.42,
+    "asimetria": 2.168824689140806,
+    "factor": 1.5,
+    "piso_aplicado": 0.0,
+    "techo_aplicado": 12032.68,
+    "recortados": 82
+  }
+}
+
+================================================================================
+8. Comparación ANTES / DESPUÉS
+================================================================================
+                           metrica                                                  base        antes    despues                                                             como_se_logro
+                             Filas                                                 todas    1220.0000  1220.0000                                         No se elimina ninguna fila (R1.3)
+Duplicados exactos sin identificar                                                 todas      20.0000     0.0000                           20 marcados con es_duplicado → cuarentena en F6
+                      Montos nulos                                                 todas      32.0000     0.0000                                     Recalculados cantidad × precio (R6.2)
+        Montos ≠ cantidad × precio                                          cantidad > 0      12.0000     0.0000                       Recalculados; original en monto_total_origen (R6.3)
+      id_cliente faltante (física)                                                física     127.0000     0.0000                                                   Etiqueta ANONIMO (R3.8)
+          Correo faltante (online)                                                online      20.0000     0.0000                                                Etiqueta SIN_CORREO (R3.8)
+       Dirección faltante (online)                                                online      77.0000     0.0000                                             Etiqueta SIN_DIRECCION (R3.8)
+                    Cantidades ≤ 0                                                 todas      11.0000    11.0000 Se conservan marcadas: son imposibles, no atípicas; cuarentena en F6 (R4)
+ Monedas en la columna de análisis                                                 todas       2.0000     1.0000                         monto_total_mxn y precio_unitario_mxn en MXN (R7)
+          Cantidad máxima (física)                                                física     500.0000     8.0000                                 cantidad_cap; original en cantidad (R5.3)
+          Cantidad máxima (online)                                                online       3.0000     3.0000                                                    Sin outliers en online
+               Importe MXN · media base estadística (antes: total crudo × tc, sin nulos)   12470.2386  4122.1065                                                monto_total_mxn_cap (R5.4)
+         Importe MXN · n con valor                                                  ídem    1101.0000  1129.0000                                 Los nulos recalculados ya cuentan después
+             Importe MXN · mediana                                                  ídem    3149.6400  3127.4200                                                                          
+              Importe MXN · máximo                                                  ídem 2109055.0000 12032.6800                                                                 Tope = LS
+           Importe MXN · asimetría                                                  ídem      17.0407     1.1623                                                                          
+ Importe MXN · desviación estándar                                                  ídem   89774.8313  3346.5712                                                                          
+
+================================================================================
+9. Comparación con la REFERENCIA del diagnóstico (Avance 01)
+================================================================================
+                                     metrica  referencia     obtenido  diferencia  tolerancia  coincide
+                                Filas física    620.0000   620.000000    0.000000      0.0000      True
+                 Completitud global física %     97.1500    97.150000    0.000000      0.0000      True
+                   Duplicados exactos física     20.0000    20.000000    0.000000      0.0000      True
+                           Monto nulo física     32.0000    32.000000    0.000000      0.0000      True
+                      id_cliente nulo física    127.0000   127.000000    0.000000      0.0000      True
+                       Cantidades ≤ 0 física     11.0000    11.000000    0.000000      0.0000      True
+                  Media monto física (crudo)  16586.7391 16586.740000    0.000900      0.0100      True
+                Mediana monto física (crudo)   3506.3700  3506.370000    0.000000      0.0100      True
+              Asimetría monto física (crudo)     14.0766    14.076600    0.000000      0.0010      True
+                 p χ² id_cliente vs sucursal      0.7143     0.714300    0.000000      0.0001      True
+              p χ² id_cliente vs método pago      0.5713     0.571300    0.000000      0.0001      True
+                      p χ² monto vs sucursal      0.4786     0.478600    0.000000      0.0001      True
+                   p χ² monto vs método pago      0.5685     0.568500    0.000000      0.0001      True
+                 Completitud global online %     98.5300    98.530000    0.000000      0.0000      True
+                      Correo faltante online     20.0000    20.000000    0.000000      0.0000      True
+                       Dirección nula online     77.0000    77.000000    0.000000      0.0000      True
+               Totales inconsistentes online     12.0000    12.000000    0.000000      0.0000      True
+                    p χ² dirección vs estado      0.2800     0.280000    0.000000      0.0001      True
+                  p χ² dirección vs pasarela      0.5321     0.532100    0.000000      0.0001      True
+                     p χ² correo vs pasarela      0.7786     0.778600    0.000000      0.0001      True
+                       p χ² correo vs moneda      0.3143     0.314300    0.000000      0.0001      True
+                            Huérfanos física     29.0000    29.000000    0.000000      0.0000      True
+                            Huérfanos online     33.0000    33.000000    0.000000      0.0000      True
+       Diferencia máx. USD×19.50 vs catálogo      0.0950     0.100000    0.005000      0.0010     False
+                    Base estadística (filas)   1129.0000  1129.000000    0.000000      0.0000      True
+                     Base estadística física    562.0000   562.000000    0.000000      0.0000      True
+                     Base estadística online    567.0000   567.000000    0.000000      0.0000      True
+                          Q1 cantidad física      1.0000     1.000000    0.000000      0.0000      True
+                          Q3 cantidad física      4.0000     4.000000    0.000000      0.0000      True
+                          LS cantidad física      8.5000     8.500000    0.000000      0.0000      True
+                 Tope entero cantidad física      8.0000     8.000000    0.000000      0.0000      True
+                Cantidades recortadas física     13.0000    13.000000    0.000000      0.0000      True
+                                Q1 monto MXN   1563.7800  1563.780000    0.000000      0.0050      True
+                                Q3 monto MXN   5751.3400  5751.340000    0.000000      0.0050      True
+                               IQR monto MXN   4187.5600  4187.560000    0.000000      0.0050      True
+                                LS monto MXN  12032.6800 12032.680000    0.000000      0.0050      True
+                    Mediana monto MXN (base)   3127.4200  3127.420000    0.000000      0.0050      True
+Asimetría monto MXN antes del capping (base)      2.1688     2.168825    0.000025      0.0010      True
+                Outliers de monto en la base     80.0000    80.000000    0.000000      0.0000      True
+                           Montos recortados     80.0000    82.000000    2.000000      0.0000     False
+                    Máximo monto con capping  12032.6800 12032.680000    0.000000      0.0050      True
+
+Coinciden: 39 / 41
+
+· Diferencia máx. USD×19.50 vs catálogo: referencia 0.095 vs obtenido 0.1
+  El diagnóstico comparó el precio SIN redondear (46.45 × 19.5 = 905.775); el pipeline redondea primero con ROUND_HALF_UP (R6.4) → 905.78, y frente a 905.68 del catálogo la diferencia queda en 0.10. Sigue dentro de la tolerancia de ±0.50 (R7.3).
+
+· Montos recortados: referencia 80.0 vs obtenido 82.0
+  El diagnóstico contó solo la base estadística (80). El pipeline aplica el recorte a TODA fila con cantidad > 0, y 2 duplicados exactos (filas 608 y 609 del CSV, copias de POS-2026-0257 y POS-2026-0457) superan el LS. Como irán a cuarentena por DUPLICADO_EXACTO, no afectan la tabla limpia. En la base, los recortes son 80, igual que la referencia.
+
+================================================================================
+10. Ejemplos de trazabilidad y entrega para Yerik
+================================================================================
+id_transaccion origen  id_fila_origen  es_duplicado  cantidad_origen  cantidad  cantidad_cap moneda_original  precio_unitario  precio_unitario_mxn  monto_total_origen  monto_total  monto_total_mxn  monto_cantidad_cap_mxn  monto_total_mxn_cap  es_outlier_cantidad  es_outlier_monto  en_catalogo id_cliente          email_cliente           direccion_envio                                          correcciones
+ POS-2026-0001 FISICA               1         False              1.0       1.0           1.0             MXN          1227.12              1227.12             1227.12      1227.12          1227.12                 1227.12              1227.12                False             False         True    CTE-291                   None                      None                                                    []
+ POS-2026-0001 FISICA             613          True              1.0       1.0           1.0             MXN          1227.12              1227.12             1227.12      1227.12          1227.12                 1227.12              1227.12                False             False         True    CTE-291                   None                      None                                                    []
+ POS-2026-0005 FISICA               5         False              3.0       3.0           3.0             MXN           934.83               934.83             2804.49      2804.49          2804.49                 2804.49              2804.49                False             False         True    ANONIMO                   None                      None                                 [IMPUTADO_ID_CLIENTE]
+ POS-2026-0021 FISICA              21         False             99.0      99.0           8.0             MXN          2107.06              2107.06           208598.94    208598.94        208598.94                16856.48             12032.68                 True              True         True    CTE-255                   None                      None             [CAPPING_IQR_CANTIDAD, CAPPING_IQR_MONTO]
+ POS-2026-0031 FISICA              31         False            500.0     500.0           8.0             MXN          1025.98              1025.98           512990.00    512990.00        512990.00                 8207.84              8207.84                 True             False         True    CTE-176                   None                      None                                [CAPPING_IQR_CANTIDAD]
+ POS-2026-0075 FISICA              75         False              1.0       1.0           1.0             MXN          1437.14              1437.14                 NaN      1437.14          1437.14                 1437.14              1437.14                False             False         True    CTE-210                   None                      None                              [MONTO_RECALCULADO_NULO]
+ POS-2026-0075 FISICA             605          True              1.0       1.0           1.0             MXN          1437.14              1437.14                 NaN      1437.14          1437.14                 1437.14              1437.14                False             False         True    CTE-210                   None                      None                              [MONTO_RECALCULADO_NULO]
+ POS-2026-0216 FISICA             216         False             -1.0      -1.0          -1.0             MXN           934.83               934.83             -934.83      -934.83          -934.83                 -934.83              -934.83                False             False         True    CTE-281                   None                      None                                                    []
+     WEB-00002 ONLINE               2         False              1.0       1.0           1.0             USD           169.59              3307.01              169.59       169.59          3307.01                 3307.01              3307.01                False             False         True       None usuario_5750@gmail.com  Calle 99 No. 776, Colima                                  [CONVERTIDO_USD_MXN]
+     WEB-00003 ONLINE               3         False              1.0       1.0           1.0             MXN          1228.72              1228.72             1228.72      1228.72          1228.72                 1228.72              1228.72                False             False         True       None usuario_4104@gmail.com             SIN_DIRECCION                            [IMPUTADO_DIRECCION_ENVIO]
+     WEB-00040 ONLINE              40         False              1.0       1.0           1.0             USD           214.55              4183.73              214.55       214.55          4183.73                 4183.73              4183.73                False             False         True       None             SIN_CORREO Calle 125 No. 521, Colima          [IMPUTADO_EMAIL_CLIENTE, CONVERTIDO_USD_MXN]
+     WEB-00237 ONLINE             237         False              1.0       1.0           1.0             USD           216.31              4218.05            17304.80       216.31          4218.05                 4218.05              4218.05                False             False         True       None usuario_6269@gmail.com  Calle 26 No. 541, Colima [MONTO_RECALCULADO_INCONSISTENTE, CONVERTIDO_USD_MXN]
+     WEB-00508 ONLINE             508         False              3.0       3.0           3.0             MXN          3443.17              3443.17           826360.80     10329.51         10329.51                10329.51             10329.51                False             False         True       None usuario_1867@gmail.com  Calle 19 No. 728, Colima                     [MONTO_RECALCULADO_INCONSISTENTE]
+
+Salida completa: 1220 filas × 37 columnas → 09_salida_etapa_leslie.csv
+
+================================================================================
+11. Gráficas
+================================================================================
+/home/claude/sistema-calidad-datos-comerciales/salidas/etapa_leslie/graficas/boxplot_cantidad_fisica.png
+/home/claude/sistema-calidad-datos-comerciales/salidas/etapa_leslie/graficas/boxplot_importe_mxn.png
+
+Evidencias en: /home/claude/sistema-calidad-datos-comerciales/salidas/etapa_leslie

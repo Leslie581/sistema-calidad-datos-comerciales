@@ -1,0 +1,79 @@
+{
+  "fuente": "despues_etapa_leslie",
+  "filas": 1220,
+  "columnas": 10,
+  "tipos": {
+    "id_transaccion": "texto",
+    "origen": "texto",
+    "cantidad": "entero",
+    "cantidad_cap": "entero",
+    "precio_unitario_mxn": "decimal",
+    "monto_total_mxn": "decimal",
+    "monto_total_mxn_cap": "decimal",
+    "id_cliente": "texto",
+    "email_cliente": "texto",
+    "direccion_envio": "texto"
+  },
+  "dtypes_pandas": {
+    "id_transaccion": "object",
+    "origen": "object",
+    "cantidad": "float64",
+    "cantidad_cap": "float64",
+    "precio_unitario_mxn": "float64",
+    "monto_total_mxn": "float64",
+    "monto_total_mxn_cap": "float64",
+    "id_cliente": "object",
+    "email_cliente": "object",
+    "direccion_envio": "object"
+  },
+  "nulos": {
+    "id_transaccion": 0,
+    "origen": 0,
+    "cantidad": 0,
+    "cantidad_cap": 0,
+    "precio_unitario_mxn": 0,
+    "monto_total_mxn": 0,
+    "monto_total_mxn_cap": 0,
+    "id_cliente": 600,
+    "email_cliente": 620,
+    "direccion_envio": 620
+  },
+  "pct_nulos": {
+    "id_transaccion": 0.0,
+    "origen": 0.0,
+    "cantidad": 0.0,
+    "cantidad_cap": 0.0,
+    "precio_unitario_mxn": 0.0,
+    "monto_total_mxn": 0.0,
+    "monto_total_mxn_cap": 0.0,
+    "id_cliente": 49.18,
+    "email_cliente": 50.82,
+    "direccion_envio": 50.82
+  },
+  "completitud_pct": {
+    "id_transaccion": 100.0,
+    "origen": 100.0,
+    "cantidad": 100.0,
+    "cantidad_cap": 100.0,
+    "precio_unitario_mxn": 100.0,
+    "monto_total_mxn": 100.0,
+    "monto_total_mxn_cap": 100.0,
+    "id_cliente": 50.82,
+    "email_cliente": 49.18,
+    "direccion_envio": 49.18
+  },
+  "completitud_global_pct": 84.92,
+  "duplicados_exactos": 20,
+  "valores_distintos": {
+    "id_transaccion": 1200,
+    "origen": 2,
+    "cantidad": 9,
+    "cantidad_cap": 8,
+    "precio_unitario_mxn": 97,
+    "monto_total_mxn": 346,
+    "monto_total_mxn_cap": 307,
+    "id_cliente": 184,
+    "email_cliente": 547,
+    "direccion_envio": 523
+  }
+}
