@@ -1,0 +1,10 @@
+{
+  "registros_por_canal": {
+    "ONLINE": 33,
+    "FISICA": 29
+  },
+  "ids_distintos_por_canal": {
+    "FISICA": 22,
+    "ONLINE": 30
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "filas_por_origen": {
+    "FISICA": 620,
+    "ONLINE": 600
+  },
+  "columnas": [
+    "id_transaccion",
+    "origen",
+    "id_fila_origen",
+    "fecha_cruda",
+    "punto_venta",
+    "id_producto",
+    "cantidad",
+    "precio_unitario",
+    "monto_total",
+    "moneda",
+    "id_cliente",
+    "email_cliente",
+    "direccion_envio",
+    "metodo_pago",
+    "estado_pedido",
+    "registro_original",
+    "alertas",
+    "correcciones"
+  ],
+  "categorias_antes": {
+    "metodo_pago (física)": 6,
+    "estado_pedido (online)": 6
+  },
+  "categorias_despues": {
+    "metodo_pago (física)": 5,
+    "estado_pedido (online)": 5
+  }
+}

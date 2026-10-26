@@ -48,6 +48,10 @@ COLUMNAS_AGREGA_LIMPIEZA = ["es_duplicado", "es_id_conflicto", "cantidad_origen"
 COLUMNAS_AGREGA_IMPORTES_MXN = ["moneda_original", "tipo_cambio_aplicado", "precio_unitario_mxn", "monto_total_mxn"]
 COLUMNAS_AGREGA_CATALOGO = ["nombre_producto", "categoria", "precio_catalogo_mxn", "en_catalogo",
                             "dif_precio_catalogo"]
+COLUMNAS_AGREGA_FECHAS = ["fecha_venta"]                                              # F4 · Yerik (fechas.py)
+# F5 · Yerik (transformacion.py). `monto_minmax` y `segmento_importe` son lo que valida Nono;
+# `minmax_recortado` es informativa (el monto quedó fuera de [min, max] de la base y se acotó a [0, 1]).
+COLUMNAS_AGREGA_TRANSFORMACION = ["monto_minmax", "segmento_importe", "minmax_recortado"]
 # F3 · Leslie (tratar_outliers)
 COLUMNAS_AGREGA_OUTLIERS = ["es_base_estadistica", "cantidad_cap", "es_outlier_cantidad",
                             "monto_cantidad_cap_mxn", "monto_total_mxn_cap", "es_outlier_monto"]
@@ -56,6 +60,9 @@ COLUMNAS_AGREGA_OUTLIERS = ["es_base_estadistica", "cantidad_cap", "es_outlier_c
 REQUERIDAS_LIMPIEZA = COLUMNAS_HOMOLOGADAS
 REQUERIDAS_OUTLIERS = (COLUMNAS_HOMOLOGADAS + COLUMNAS_AGREGA_LIMPIEZA
                        + COLUMNAS_AGREGA_IMPORTES_MXN + ["en_catalogo"])
+REQUERIDAS_INTEGRACION = COLUMNAS_HOMOLOGADAS + COLUMNAS_AGREGA_LIMPIEZA
+REQUERIDAS_TRANSFORMACION = (REQUERIDAS_OUTLIERS + COLUMNAS_AGREGA_OUTLIERS + COLUMNAS_AGREGA_FECHAS
+                             + ["es_base_estadistica"])
 
 # ----------------------------------------------------------------------------- códigos
 # Alertas: problemas de tipo detectados antes de validar (Nono las convierte en rechazo)
@@ -63,6 +70,8 @@ ALERTA_CANTIDAD_NO_NUMERICA = "CANTIDAD_NO_NUMERICA"
 ALERTA_PRECIO_INVALIDO = "PRECIO_INVALIDO"
 ALERTA_MONTO_NO_NUMERICO = "MONTO_NO_NUMERICO"
 ALERTA_MONEDA_NO_SOPORTADA = "MONEDA_NO_SOPORTADA"
+ALERTA_FECHA_NO_INTERPRETABLE = "FECHA_NO_INTERPRETABLE"
+ALERTA_PRECIO_DIFIERE_CATALOGO = "PRECIO_DIFIERE_CATALOGO"   # informativa: no rechaza (guía Yerik §5)
 
 # Correcciones: bitácora por fila de lo que se cambió (trazabilidad)
 CORR_MONTO_NULO = "MONTO_RECALCULADO_NULO"
@@ -75,6 +84,11 @@ CORR_CAPPING_MONTO = "CAPPING_IQR_MONTO"
 
 def corr_imputado(columna: str) -> str:
     return f"IMPUTADO_{columna.upper()}"
+
+
+def corr_fecha(formato: str) -> str:
+    """Formato de origen de la fecha, p. ej. FECHA_DESDE_DD/MM/YYYY o FECHA_DESDE_EPOCH."""
+    return f"FECHA_DESDE_{formato}"
 
 
 class ErrorContrato(Exception):

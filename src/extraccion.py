@@ -45,7 +45,7 @@ def leer_csv_ventas(ruta: Path, columnas_esperadas: list[str]) -> pd.DataFrame:
     if not Path(ruta).exists():
         raise ErrorExtraccion(f"No existe el archivo {ruta}")
     try:
-        df = pd.read_csv(ruta, dtype=str, keep_default_na=False, encoding="utf-8")
+        df = pd.read_csv(ruta, dtype=str, keep_default_na=False, encoding="utf-8-sig")  # -sig tolera BOM
     except Exception as e:  # CSV ilegible
         raise ErrorExtraccion(f"No se pudo leer {Path(ruta).name}: {e}") from e
     faltan = [c for c in columnas_esperadas if c not in df.columns]
@@ -60,8 +60,8 @@ def leer_json_ventas(ruta: Path, columnas_esperadas: list[str]) -> pd.DataFrame:
     if not Path(ruta).exists():
         raise ErrorExtraccion(f"No existe el archivo {ruta}")
     try:
-        registros = json.loads(Path(ruta).read_text(encoding="utf-8"))
-    except json.JSONDecodeError as e:
+        registros = json.loads(Path(ruta).read_text(encoding="utf-8-sig"))
+    except (json.JSONDecodeError, UnicodeDecodeError) as e:
         raise ErrorExtraccion(f"{Path(ruta).name} no es un JSON válido: {e}") from e
     if not isinstance(registros, list) or not all(isinstance(r, dict) for r in registros):
         raise ErrorExtraccion(f"{Path(ruta).name}: se esperaba una lista de objetos")
@@ -74,10 +74,15 @@ def leer_json_ventas(ruta: Path, columnas_esperadas: list[str]) -> pd.DataFrame:
 def leer_catalogo(ruta: Path) -> pd.DataFrame:
     if not Path(ruta).exists():
         raise ErrorExtraccion(f"No existe el archivo {ruta}")
-    df = pd.read_csv(ruta, encoding="utf-8", dtype={"id_producto": str})
+    try:
+        df = pd.read_csv(ruta, encoding="utf-8-sig", dtype={"id_producto": str})
+    except Exception as e:  # CSV ilegible o vacío
+        raise ErrorExtraccion(f"No se pudo leer {Path(ruta).name}: {e}") from e
     faltan = [c for c in COLUMNAS_CATALOGO if c not in df.columns]
     if faltan:
         raise ErrorExtraccion(f"{Path(ruta).name}: faltan columnas {faltan}")
+    # mismo criterio que la homologación de ventas (strip + mayúsculas) para que el cruce no falle por formato
+    df["id_producto"] = df["id_producto"].astype(str).str.strip().str.upper()
     if df["id_producto"].duplicated().any():
         raise ErrorExtraccion("El catálogo maestro tiene id_producto repetidos")
     return df

@@ -1,0 +1,21 @@
+{
+  "minmax": {
+    "columna": "monto_total_mxn_cap",
+    "n_base": 1129,
+    "min": 332.67,
+    "max": 12032.68,
+    "constante": false,
+    "fuera_de_base_recortados": 11
+  },
+  "segmentos": {
+    "columna": "monto_total_mxn_cap",
+    "n_base": 1129,
+    "corte_bajo_medio": 2069.07,
+    "corte_medio_alto": 4183.67,
+    "conteo_base": {
+      "Bajo": 380,
+      "Medio": 374,
+      "Alto": 375
+    }
+  }
+}

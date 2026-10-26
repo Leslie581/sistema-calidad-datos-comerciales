@@ -1,0 +1,14 @@
+{
+  "rango_explicito": [
+    "2026-09-01",
+    "2026-10-15"
+  ],
+  "rango_dateutil_dayfirst_incorrecto": [
+    "2026-01-09",
+    "2026-12-10"
+  ],
+  "fechas_mal_interpretadas_dateutil_dayfirst": 104,
+  "pandas": "3.1.0",
+  "fechas_mal_interpretadas_pd_to_datetime_mixed_en_este_entorno": 104,
+  "nota": "El resultado de pd.to_datetime(format='mixed', dayfirst=True) depende de la versión de pandas; el parseo explícito por patrón no depende de ella."
+}
