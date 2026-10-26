@@ -1,0 +1,29 @@
+metrica,referencia,obtenido,coincide
+Filas totales,1220,1220,True
+Filas física,620,620,True
+Filas online,600,600,True
+Fechas no interpretables,0,0,True
+Rango fechas física (min),2026-09-01,2026-09-01,True
+Rango fechas física (max),2026-10-15,2026-10-15,True
+Fechas mal leídas por lectura genérica dayfirst,104,104,True
+Rango erróneo dayfirst (min),2026-01-09,2026-01-09,True
+Rango erróneo dayfirst (max),2026-12-10,2026-12-10,True
+Epoch: fechas distintas UTC vs México,49,49,True
+Pedidos USD,193,193,True
+USD con producto en catálogo,180,180,True
+Huérfanos física,29,29,True
+Huérfanos online,33,33,True
+Base estadística,1129,1129,True
+Min-Max: mínimo de la base,332.67,332.67,True
+Min-Max: máximo de la base,12032.68,12032.68,True
+Tercil 1 (corte Bajo/Medio),2069.07,2069.07,True
+Tercil 2 (corte Medio/Alto),4183.67,4183.67,True
+Segmento Bajo (base),380,380,True
+Segmento Medio (base),374,374,True
+Segmento Alto (base),375,375,True
+monto_minmax mínimo en la base,0.0,0.0,True
+monto_minmax máximo en la base,1.0,1.0,True
+"monto_minmax fuera de [0,1]",0,0,True
+Duplicados marcados (física),20,20,True
+Cantidad <= 0 conservada (física),11,11,True
+"USD: dif. máx. vs catálogo (centavos, ±0.01)",0.095,0.1,True

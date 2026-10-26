@@ -1,0 +1,165 @@
+
+================================================================================
+0. Integridad de los archivos originales (SHA-256)
+================================================================================
+{'catalogo_productos.csv': True, 'ventas_tienda_fisica.csv': True, 'ventas_online.json': True}
+
+================================================================================
+1. Extracción y homologación (Yerik)
+================================================================================
+{'catalogo': (50, 6), 'fisica': (620, 11), 'online': (600, 13)}
+{'FISICA': 620, 'ONLINE': 600} columnas: 18
+id_transaccion origen  id_fila_origen fecha_cruda       punto_venta id_producto  cantidad  precio_unitario  monto_total moneda id_cliente email_cliente direccion_envio     metodo_pago estado_pedido
+ POS-2026-0001 FISICA               1  13-09-2026     Colima Centro    PROD-010       1.0          1227.12      1227.12    MXN    CTE-291          None            None TARJETA CRÉDITO          None
+ POS-2026-0002 FISICA               2  2026-10-03     Colima Centro    PROD-031       1.0          1168.79      1168.79    MXN    CTE-117          None            None   TRANSFERENCIA          None
+ POS-2026-0003 FISICA               3  26/09/2026 Manzanillo Puerto    PROD-016       3.0          2878.80      8636.40    MXN    CTE-207          None            None        EFECTIVO          None
+ POS-2026-0004 FISICA               4  2026-10-13 Manzanillo Puerto    PROD-014       2.0          1064.15      2128.30    MXN    CTE-176          None            None           VALES          None
+ POS-2026-0005 FISICA               5  01-09-2026 Manzanillo Puerto    PROD-005       3.0           934.83      2804.49    MXN       None          None            None  TARJETA DÉBITO          None
+categorías antes: {'metodo_pago (física)': 6, 'estado_pedido (online)': 6} · después: {'metodo_pago (física)': 5, 'estado_pedido (online)': 5}
+
+================================================================================
+2. Fechas: formatos detectados y rango (parseo explícito)
+================================================================================
+origen      formato  registros  fecha_min  fecha_max
+FISICA   DD-MM-YYYY        205 2026-09-01 2026-10-15
+FISICA   DD/MM/YYYY        208 2026-09-01 2026-10-15
+FISICA   YYYY-MM-DD        207 2026-09-01 2026-10-15
+ONLINE        EPOCH        208 2026-09-01 2026-10-16
+ONLINE ISO_DATETIME        392 2026-09-01 2026-10-16
+id_transaccion origen         fecha_cruda fecha_venta
+ POS-2026-0001 FISICA          13-09-2026  2026-09-13
+ POS-2026-0001 FISICA          13-09-2026  2026-09-13
+ POS-2026-0002 FISICA          2026-10-03  2026-10-03
+ POS-2026-0003 FISICA          26/09/2026  2026-09-26
+     WEB-00002 ONLINE 2026-10-12T02:23:00  2026-10-12
+     WEB-00005 ONLINE          1789105020  2026-09-10
+
+Zona del epoch: America/Mexico_City · fechas que cambian respecto a UTC: 49
+
+================================================================================
+3. Comparación: lectura con día primero genérica (INCORRECTA, solo demostración) vs parseo explícito
+================================================================================
+{
+  "rango_explicito": [
+    "2026-09-01",
+    "2026-10-15"
+  ],
+  "rango_dateutil_dayfirst_incorrecto": [
+    "2026-01-09",
+    "2026-12-10"
+  ],
+  "fechas_mal_interpretadas_dateutil_dayfirst": 104,
+  "pandas": "3.1.0",
+  "fechas_mal_interpretadas_pd_to_datetime_mixed_en_este_entorno": 104,
+  "nota": "El resultado de pd.to_datetime(format='mixed', dayfirst=True) depende de la versión de pandas; el parseo explícito por patrón no depende de ella."
+}
+
+================================================================================
+4. USD → MXN a 19.50 verificado contra el catálogo
+================================================================================
+{'pedidos_usd': 193, 'usd_en_catalogo': 180, 'dif_max_catalogo': 0.1, 'mxn_en_catalogo': 978, 'dif_max_mxn': 0.0}
+id_transaccion id_producto  precio_unitario  precio_unitario_mxn  precio_catalogo_mxn  dif_precio_catalogo  cantidad  monto_total_mxn
+     WEB-00002    PROD-041           169.59              3307.01              3306.99                 0.02       1.0          3307.01
+     WEB-00237    PROD-018           216.31              4218.05              4218.11                 0.06       1.0          4218.05
+
+================================================================================
+5. Productos huérfanos (LEFT JOIN, en_catalogo = False)
+================================================================================
+{'ONLINE': 33, 'FISICA': 29} {'FISICA': 22, 'ONLINE': 30}
+origen moneda_original    min    max  count
+FISICA             MXN 500.00 500.00     29
+ONLINE             MXN 600.00 600.00     20
+ONLINE             USD  30.77  30.77     13
+
+================================================================================
+6. F3 (Leslie) y F5 (Yerik): Min-Max y terciles
+================================================================================
+{
+  "minmax": {
+    "columna": "monto_total_mxn_cap",
+    "n_base": 1129,
+    "min": 332.67,
+    "max": 12032.68,
+    "constante": false,
+    "fuera_de_base_recortados": 11
+  },
+  "segmentos": {
+    "columna": "monto_total_mxn_cap",
+    "n_base": 1129,
+    "corte_bajo_medio": 2069.07,
+    "corte_medio_alto": 4183.67,
+    "conteo_base": {
+      "Bajo": 380,
+      "Medio": 374,
+      "Alto": 375
+    }
+  }
+}
+id_transaccion  monto_total_origen  monto_total_mxn  monto_cantidad_cap_mxn  monto_total_mxn_cap monto_minmax segmento_importe  minmax_recortado
+ POS-2026-0001             1227.12          1227.12                 1227.12              1227.12     0.076449             Bajo             False
+ POS-2026-0001             1227.12          1227.12                 1227.12              1227.12     0.076449             Bajo             False
+ POS-2026-0003             8636.40          8636.40                 8636.40              8636.40      0.70972             Alto             False
+ POS-2026-0021           208598.94        208598.94                16856.48             12032.68          1.0             Alto             False
+ POS-2026-0031           512990.00        512990.00                 8207.84              8207.84     0.673091             Alto             False
+     WEB-00002              169.59          3307.01                 3307.01              3307.01     0.254217            Medio             False
+     WEB-00003             1228.72          1228.72                 1228.72              1228.72     0.076585             Bajo             False
+     WEB-00005              210.83          4111.19                 4111.19              4111.19      0.32295            Medio             False
+     WEB-00237            17304.80          4218.05                 4218.05              4218.05     0.332083             Alto             False
+     WEB-00508           826360.80         10329.51                10329.51             10329.51      0.85443             Alto             False
+
+Registros con cantidad <= 0: 11 · acotados a [0,1]: 11
+                  fuera_de_base  base
+segmento_importe                     
+Bajo                         76   380
+Medio                         9   374
+Alto                          6   375
+
+================================================================================
+7. Conservación de registros y comparación con el diagnóstico (Avance 01)
+================================================================================
+                                        metrica referencia   obtenido  coincide
+                                  Filas totales       1220       1220      True
+                                   Filas física        620        620      True
+                                   Filas online        600        600      True
+                       Fechas no interpretables          0          0      True
+                      Rango fechas física (min) 2026-09-01 2026-09-01      True
+                      Rango fechas física (max) 2026-10-15 2026-10-15      True
+Fechas mal leídas por lectura genérica dayfirst        104        104      True
+                   Rango erróneo dayfirst (min) 2026-01-09 2026-01-09      True
+                   Rango erróneo dayfirst (max) 2026-12-10 2026-12-10      True
+          Epoch: fechas distintas UTC vs México         49         49      True
+                                    Pedidos USD        193        193      True
+                   USD con producto en catálogo        180        180      True
+                               Huérfanos física         29         29      True
+                               Huérfanos online         33         33      True
+                               Base estadística       1129       1129      True
+                     Min-Max: mínimo de la base     332.67     332.67      True
+                     Min-Max: máximo de la base   12032.68   12032.68      True
+                    Tercil 1 (corte Bajo/Medio)    2069.07    2069.07      True
+                    Tercil 2 (corte Medio/Alto)    4183.67    4183.67      True
+                           Segmento Bajo (base)        380        380      True
+                          Segmento Medio (base)        374        374      True
+                           Segmento Alto (base)        375        375      True
+                 monto_minmax mínimo en la base        0.0        0.0      True
+                 monto_minmax máximo en la base        1.0        1.0      True
+                    monto_minmax fuera de [0,1]          0          0      True
+                   Duplicados marcados (física)         20         20      True
+              Cantidad <= 0 conservada (física)         11         11      True
+   USD: dif. máx. vs catálogo (centavos, ±0.01)      0.095        0.1      True
+
+Coinciden: 28 / 28
+
+================================================================================
+8. Entrega para Nono
+================================================================================
+Columnas del contrato ausentes: ninguna · filas: 1220 · columnas: 41
+
+================================================================================
+9. Gráficas
+================================================================================
+C:\Users\Leslie Valadez\Documents\Proyectos\sistema-calidad-datos-comerciales\salidas\etapa_yerik\graficas\hist_monto_minmax.png
+C:\Users\Leslie Valadez\Documents\Proyectos\sistema-calidad-datos-comerciales\salidas\etapa_yerik\graficas\fechas_mixed_vs_explicito.png
+C:\Users\Leslie Valadez\Documents\Proyectos\sistema-calidad-datos-comerciales\salidas\etapa_yerik\graficas\usd_vs_catalogo.png
+C:\Users\Leslie Valadez\Documents\Proyectos\sistema-calidad-datos-comerciales\salidas\etapa_yerik\graficas\segmentos_importe.png
+
+Evidencias en: C:\Users\Leslie Valadez\Documents\Proyectos\sistema-calidad-datos-comerciales\salidas\etapa_yerik
