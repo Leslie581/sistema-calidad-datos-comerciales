@@ -29,8 +29,8 @@ export default function Historial() {
     <div className="space-y-6">
       <section className="entra relative isolate overflow-hidden rounded-[1.75rem] border border-borde bg-blanco px-6 py-8 sm:px-10">
         <FondoEditorial className="-z-10" />
-        <Encabezado etiqueta="Proceso · historial y reportes" titulo="Todo lo que ha ejecutado KOVA">
-          Cada ejecución del pipeline queda registrada, también las que fallaron. Los reportes son los archivos reales que generó Python; puedes verlos o descargarlos.
+        <Encabezado etiqueta="Proceso" titulo="Historial de ejecuciones">
+          Cada ejecución queda registrada, también las fallidas. Reportes reales de Python para ver o descargar.
         </Encabezado>
       </section>
 

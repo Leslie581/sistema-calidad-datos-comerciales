@@ -141,9 +141,9 @@ export default function CentroETL() {
         <MarcaDeAgua className="-right-16 -top-24" opacidad={0.06} />
         <div className="flex flex-wrap items-end justify-between gap-5">
           <div className="min-w-0">
-            <p className="etiqueta !text-menta/80">Centro ETL</p>
-            <h1 className="titular mt-2 text-[clamp(1.9rem,3.6vw,3rem)] text-blanco">El recorrido completo de tus datos</h1>
-            <p className="lectura mt-2 text-menta/90">Siete fases oficiales, un solo flujo. Los estados y tiempos que ves son los medidos en la última ejecución real; KOVA no simula progreso.</p>
+            <p className="etiqueta !text-menta/80">Proceso</p>
+            <h1 className="titular mt-2 text-[clamp(1.9rem,3.6vw,3rem)] text-blanco">Centro ETL</h1>
+            <p className="lectura mt-2 text-menta/90">Siete fases oficiales. Estados y tiempos medidos en la última ejecución; KOVA no simula progreso.</p>
           </div>
           <div className="flex flex-col items-start gap-2 sm:items-end">
             <Boton onClick={() => setConfirmar(true)} disabled={ejecutando || enviando} className="!bg-ambar !text-bosque hover:!brightness-105">

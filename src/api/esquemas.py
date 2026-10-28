@@ -105,6 +105,7 @@ class EtapaTraza(Base):
 
 
 class DetalleTransaccion(Base):
+    moneda: dict[str, Any]
     transaccion: dict[str, Any]
     registro_original: dict[str, Any]
     trazabilidad: list[EtapaTraza]
@@ -196,6 +197,99 @@ class EstadoPipeline(Base):
     nota_progreso: str
     ruta_bd_existe: bool
     fuentes: dict[str, Any]
+
+
+class PeriodoComercial(Base):
+    inicio: str
+    fin: str
+    dias: int
+    dias_cubiertos: int
+    cobertura: float
+    parcial: bool
+    etiqueta: str
+    dias_calendario_mes: Optional[int] = None
+
+
+class IndicadoresVenta(Base):
+    transacciones: int
+    importe: float
+    unidades: int
+    ticket_promedio: Optional[float] = None
+    promedio_diario: Optional[float] = None
+    dias_con_ventas: int
+    primera_venta: Optional[str] = None
+    ultima_venta: Optional[str] = None
+
+
+class Mensaje(Base):
+    id: str
+    tipo: Literal["tendencia", "canal", "aviso", "info", "nota"]
+    texto: str
+    evidencia: dict[str, Any]
+
+
+class Diagnostico(Base):
+    estado: Literal["crecimiento", "estable", "disminucion", "sin_comparacion", "no_concluyente", "sin_datos"]
+    titular: str
+    mensajes: list[Mensaje]
+
+
+class ResumenComercial(Base):
+    filtros: dict[str, Any]
+    modo: Literal["mes", "personalizado"]
+    periodo: PeriodoComercial
+    anterior: Optional[PeriodoComercial] = None
+    homogeneo: bool
+    avisos: list[str]
+    cobertura_datos: dict[str, str]
+    actual: IndicadoresVenta
+    anterior_kpis: Optional[IndicadoresVenta] = None
+    variaciones: dict[str, Optional[float]]
+    canales: list[dict[str, Any]]
+    atipicas: dict[str, Any]
+    no_efectivas: dict[str, Any]
+    diagnostico: Diagnostico
+    criterios: dict[str, float]
+    definicion_importe: dict[str, str]
+
+
+class TendenciaComercial(Base):
+    periodo: PeriodoComercial
+    anterior: Optional[PeriodoComercial] = None
+    homogeneo: bool
+    dias: list[dict[str, Any]]
+    meses: list[dict[str, Any]]
+    avisos: list[str]
+
+
+class CanalesComerciales(Base):
+    periodo: PeriodoComercial
+    anterior: Optional[PeriodoComercial] = None
+    homogeneo: bool
+    canales: list[dict[str, Any]]
+    avisos: list[str]
+    nota: str
+
+
+class ProductosComerciales(Base):
+    periodo: PeriodoComercial
+    orden: str
+    importe_total: float
+    productos_distintos: int
+    productos: list[dict[str, Any]]
+    categorias: list[dict[str, Any]]
+    avisos: list[str]
+    nota: str
+
+
+class OpcionesComerciales(Base):
+    hay_datos: bool
+    cobertura: dict[str, Optional[str]]
+    meses: list[dict[str, Any]]
+    mes_por_defecto: Optional[str] = None
+    canales: list[str]
+    comparaciones: list[str]
+    estados: list[str]
 
 
 class SolicitudEjecucion(BaseModel):

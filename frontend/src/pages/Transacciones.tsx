@@ -1,6 +1,6 @@
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { FilterX, Route as IconoRuta } from "lucide-react";
-import { AvisoSoloLectura, LadoALado, LineaTrazabilidad } from "../components/trace/Trazabilidad";
+import { AvisoSoloLectura, LadoALado, LineaTrazabilidad, PanelMoneda } from "../components/trace/Trazabilidad";
 import { Encabezado, Insignia } from "../components/ui/Basicos";
 import { Buscador, CampoFecha, Paginacion, Seleccion, ThOrden } from "../components/ui/Controles";
 import { Drawer } from "../components/ui/Drawer";
@@ -41,8 +41,8 @@ export default function Transacciones() {
 
   return (
     <div className="space-y-6">
-      <Encabezado etiqueta="Datos · transacciones limpias" titulo="Transacciones comerciales">
-        Solo registros que pasaron la validación. Selecciona uno para ver su recorrido: del dato original al resultado final.
+      <Encabezado etiqueta="Datos" titulo="Transacciones">
+        Registros conformes. Selecciona uno para ver su recorrido y su moneda original.
       </Encabezado>
 
       <section className="panel entra p-4 sm:p-5" aria-label="Filtros">
@@ -116,6 +116,7 @@ export default function Transacciones() {
               <p className="panel-aviso p-3 text-sm">Este ID también aparece <b>{detalle.datos.cuarentena_relacionada.length}</b> vez/veces en cuarentena (repeticiones posteriores del mismo registro). Se conservó la primera aparición.
                 {detalle.datos.cuarentena_relacionada.map((c) => <button key={c.id_error} type="button" className="ml-2 font-bold text-petroleo underline" onClick={() => navegar(`/cuarentena/${c.id_error}`)}>ver #{c.id_error}</button>)}</p>
             )}
+            <div><h3 className="etiqueta mb-2">Moneda y conversión</h3><PanelMoneda m={detalle.datos.moneda} /></div>
             <div><h3 className="etiqueta mb-2">Lado a lado</h3><LadoALado t={detalle.datos.transaccion} /></div>
             <div><h3 className="etiqueta mb-3">Recorrido</h3><LineaTrazabilidad etapas={detalle.datos.trazabilidad} glosario={detalle.datos.glosario} /></div>
             <AvisoSoloLectura />

@@ -1,0 +1,53 @@
+{
+ "hay_datos": true,
+ "cobertura": {
+  "inicio": "2026-09-01",
+  "fin": "2026-10-16"
+ },
+ "meses": [
+  {
+   "mes": "2026-09",
+   "etiqueta": "Septiembre 2026",
+   "inicio_datos": "2026-09-01",
+   "fin_datos": "2026-09-30",
+   "dias_mes": 30,
+   "dias_cubiertos": 30,
+   "parcial": false,
+   "transacciones": 718,
+   "importe": 5616254.34,
+   "dias_con_ventas": 30,
+   "primera_venta": "2026-09-01",
+   "ultima_venta": "2026-09-30",
+   "promedio_diario": 187208.48
+  },
+  {
+   "mes": "2026-10",
+   "etiqueta": "Octubre 2026",
+   "inicio_datos": "2026-10-01",
+   "fin_datos": "2026-10-16",
+   "dias_mes": 31,
+   "dias_cubiertos": 16,
+   "parcial": true,
+   "transacciones": 386,
+   "importe": 5967744.09,
+   "dias_con_ventas": 16,
+   "primera_venta": "2026-10-01",
+   "ultima_venta": "2026-10-16",
+   "promedio_diario": 372984.01
+  }
+ ],
+ "mes_por_defecto": "2026-10",
+ "canales": [
+  "FISICA",
+  "ONLINE"
+ ],
+ "comparaciones": [
+  "equivalente",
+  "mes_anterior_completo",
+  "ninguna"
+ ],
+ "estados": [
+  "todas",
+  "efectivas"
+ ]
+}

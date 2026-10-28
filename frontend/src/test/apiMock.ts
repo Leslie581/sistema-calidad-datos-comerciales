@@ -11,10 +11,15 @@ import facetas from "./fixtures/facetas.json";
 import reportes from "./fixtures/reportes.json";
 import salud from "./fixtures/salud.json";
 import transaccionDetalle from "./fixtures/transaccion_detalle.json";
+import transaccionUsd from "./fixtures/transaccion_usd_detalle.json";
+import comercialOpciones from "./fixtures/comercial_opciones.json";
+import comercialProductos from "./fixtures/comercial_productos.json";
+import comercialResumen from "./fixtures/comercial_resumen.json";
+import comercialTendencia from "./fixtures/comercial_tendencia.json";
 import transacciones from "./fixtures/transacciones.json";
 
 /** Respuestas REALES de la API (generadas por scripts/generar_fixtures_frontend.py), no datos inventados a mano. */
-export const FIX = { calidad, catalogo, cuarentena, cuarentenaDetalle, dashboard, ejecucionDetalle, ejecuciones, estadoPipeline, facetas, reportes, salud, transaccionDetalle, transacciones };
+export const FIX = { comercialOpciones, comercialProductos, comercialResumen, comercialTendencia, transaccionUsd, calidad, catalogo, cuarentena, cuarentenaDetalle, dashboard, ejecucionDetalle, ejecuciones, estadoPipeline, facetas, reportes, salud, transaccionDetalle, transacciones };
 
 export interface Llamada { url: string; ruta: string; params: URLSearchParams; metodo: string; cuerpo?: string }
 export type Manejador = (llamada: Llamada) => unknown | Response | undefined;
@@ -35,6 +40,10 @@ export function instalarApi(sobrescribir: Record<string, Manejador> = {}) {
     "/api/ejecuciones": () => FIX.ejecuciones,
     "/api/reportes": () => FIX.reportes,
     "/api/pipeline/estado": () => FIX.estadoPipeline,
+    "/api/comercial/opciones": () => FIX.comercialOpciones,
+    "/api/comercial/resumen": () => FIX.comercialResumen,
+    "/api/comercial/tendencia": () => FIX.comercialTendencia,
+    "/api/comercial/productos": () => FIX.comercialProductos,
     ...sobrescribir,
   };
   const mock = vi.fn(async (entrada: RequestInfo | URL, init?: RequestInit) => {

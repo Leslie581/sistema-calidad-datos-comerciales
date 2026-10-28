@@ -50,10 +50,10 @@ export function Segmentado<T extends string>({ etiqueta, valor, alCambiar, opcio
   etiqueta: string; valor: T; alCambiar: (v: T) => void; opciones: { valor: T; texto: ReactNode; aria?: string }[];
 }) {
   return (
-    <div role="radiogroup" aria-label={etiqueta} className="inline-flex rounded-full border border-borde-fuerte bg-blanco p-1">
+    <div role="radiogroup" aria-label={etiqueta} className="inline-flex max-w-full flex-wrap rounded-[1.4rem] border border-borde-fuerte bg-blanco p-1">
       {opciones.map((o) => (
         <button key={o.valor} type="button" role="radio" aria-checked={valor === o.valor} aria-label={o.aria} onClick={() => alCambiar(o.valor)}
-          className={`min-h-9 rounded-full px-4 text-sm font-bold transition-colors ${valor === o.valor ? "bg-bosque text-blanco" : "text-suave hover:text-bosque"}`}>
+          className={`min-h-9 rounded-full px-3 text-sm font-bold transition-colors sm:px-4 ${valor === o.valor ? "bg-bosque text-blanco" : "text-suave hover:text-bosque"}`}>
           {o.texto}
         </button>
       ))}

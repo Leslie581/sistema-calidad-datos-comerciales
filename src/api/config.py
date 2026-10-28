@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from ..config import RAIZ, RUTA_BD, RUTA_SALIDAS, RUTA_SALIDAS_NONO
+from .comercial import Criterios
 
 # Orígenes del servidor de desarrollo de Vite (CORS restringido al entorno local, nunca "*").
 ORIGENES_LOCALES = ("http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:4173", "http://127.0.0.1:4173",
@@ -23,6 +24,7 @@ class Ajustes:
     rutas_fuentes: dict | None = None             # None = datasets oficiales (con verificación SHA-256)
     dist_frontend: Path = RAIZ / "frontend" / "dist"
     origenes: tuple[str, ...] = field(default_factory=lambda: ORIGENES_LOCALES)
+    criterios_comerciales: Criterios = field(default_factory=Criterios.desde_entorno)   # umbrales propios de KOVA (configurables)
 
     @classmethod
     def desde_entorno(cls) -> "Ajustes":

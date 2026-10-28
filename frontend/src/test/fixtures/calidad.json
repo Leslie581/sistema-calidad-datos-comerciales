@@ -1,5 +1,5 @@
 {
- "lote_id": "L20261026-011336-586b",
+ "lote_id": "L20261027-105330-2d81",
  "nota_mcar": "«MCAR» significa que los faltantes no dependen de las otras variables observadas. Con las pruebas χ² de independencia realizadas (α = 0.05) no se encontró evidencia de dependencia (p > 0.05), por lo que los faltantes son COMPATIBLES con MCAR. Eso no demuestra MCAR de forma absoluta: un p-valor alto no prueba la hipótesis nula, y la prueba solo evalúa las variables comparadas. Algunas tablas tienen frecuencias esperadas menores que 5, donde la aproximación χ² pierde precisión.",
  "graficas": [
   {
@@ -23,7 +23,7 @@
   "tratados": "Valores atípicos recortados con IQR en columnas aparte (cantidad_cap, monto_total_mxn_cap)."
  },
  "fuentes": {
-  "bitacora": "bitacora_L20261026-011336-586b.json",
+  "bitacora": "bitacora_L20261027-105330-2d81.json",
   "reportes_leslie_disponibles": true,
   "nota": "El perfil inicial, el MCAR/MAR y la tabla antes/después provienen de los reportes de la etapa de Leslie (salidas/etapa_leslie); los conteos de limpieza e IQR, de la bitácora de la última ejecución."
  },

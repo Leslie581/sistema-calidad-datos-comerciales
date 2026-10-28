@@ -4,6 +4,7 @@ import { ArrowUpRight, ChevronDown, Info } from "lucide-react";
 import { BarrasMotivos, ComparacionCanales, SaludAnillo, SegmentosCanal, SerieDiaria } from "../components/charts/Graficos";
 import { FondoCanales } from "../components/brand/Fondos";
 import { MarcaDeAgua } from "../components/brand/Marca";
+import { TarjetaPulso } from "../components/pulso/TarjetaPulso";
 import { Encabezado, Insignia, NumeroAnimado } from "../components/ui/Basicos";
 import { Segmentado } from "../components/ui/Controles";
 import { EstadoError, EstadoVacio, PantallaCarga } from "../components/ui/Estados";
@@ -28,9 +29,9 @@ export default function Panel() {
 
   return (
     <div className="space-y-6">
-      <Encabezado etiqueta="Panel ejecutivo" titulo="Cómo están tus datos comerciales"
+      <Encabezado etiqueta="Resumen · calidad de datos" titulo="Panel ejecutivo"
         acciones={<Insignia tono="info">Última carga · {fFechaHora(u?.fin)}</Insignia>}>
-        Visión de la última ejecución completada: qué entró, qué quedó listo para analizar y qué se apartó, con sus razones.
+        Qué entró en la última carga, qué quedó listo y qué se apartó.
       </Encabezado>
 
       {/* Bloque protagonista */}
@@ -69,6 +70,8 @@ export default function Panel() {
           </div>
         </div>
       </section>
+
+      <TarjetaPulso />
 
       {/* Composición editorial */}
       <div className="grid gap-5 lg:grid-cols-12">

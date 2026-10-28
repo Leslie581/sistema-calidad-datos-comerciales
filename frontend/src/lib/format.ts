@@ -30,3 +30,18 @@ export const fBytes = (b: number) => (b < 1024 ? `${b} B` : b < 1048576 ? `${(b 
 export const nombreCanal = (c: string | null | undefined) => (c === "FISICA" ? "Tienda física" : c === "ONLINE" ? "Tienda online" : "—");
 export const valorTexto = (v: unknown): string =>
   v === null || v === undefined ? "∅" : typeof v === "object" ? JSON.stringify(v) : String(v);
+
+/** Variación porcentual con signo tipográfico: «+74.3 %», «−8.8 %», «—» si no existe comparación válida. */
+export function fVariacion(v: number | null | undefined, d = 1): string {
+  if (v == null) return "—";
+  const n = Math.abs(v).toLocaleString("es-MX", { minimumFractionDigits: d, maximumFractionDigits: d });
+  return `${v > 0 ? "+" : v < 0 ? "−" : ""}${n} %`;
+}
+/** Importes grandes en forma compacta para ejes y etiquetas: $3.4 M, $850 k. */
+export function fMXNCompacto(v: number | null | undefined): string {
+  if (v == null) return "—";
+  const a = Math.abs(v);
+  if (a >= 1e6) return `$${(v / 1e6).toLocaleString("es-MX", { maximumFractionDigits: 2 })} M`;
+  if (a >= 1e4) return `$${Math.round(v / 1e3).toLocaleString("es-MX")} k`;
+  return `$${Math.round(v).toLocaleString("es-MX")}`;
+}

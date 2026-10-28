@@ -32,13 +32,11 @@ export default function Catalogo() {
 
   return (
     <div className="space-y-6">
-      <section className="panel entra relative isolate overflow-hidden px-6 py-8 sm:px-10">
-        <FondoCatalogo className="-z-10" />
-        <Encabezado etiqueta="Datos · catálogo maestro" titulo="Catálogo de productos">
-          Los 50 productos oficiales son la «verdad» contra la que se valida cada venta. Las ilustraciones son representaciones por categoría; el dataset no incluye fotografías de producto.
-        </Encabezado>
+      <section className="panel entra relative isolate overflow-hidden px-5 py-5 sm:px-8">
+        <FondoCatalogo className="-z-10 opacity-60" />
+        <Encabezado etiqueta="Datos" titulo="Catálogo de productos" />
         {cat.datos && (
-          <ul className="mt-6 flex flex-wrap gap-3" aria-label="Productos por categoría">
+          <ul className="mt-4 flex flex-wrap gap-2.5" aria-label="Productos por categoría">
             {cat.datos.por_categoria.map((c) => (
               <li key={c.categoria}>
                 <button type="button" aria-pressed={f.valor("categoria") === c.categoria} onClick={() => f.cambiar({ categoria: f.valor("categoria") === c.categoria ? "" : c.categoria })}
@@ -118,6 +116,7 @@ export default function Catalogo() {
             </div>
           )}
           <div className="panel mt-4 overflow-hidden"><Paginacion pagina={cat.datos.pagina} paginas={cat.datos.paginas} total={cat.datos.total} tam={tam} alCambiar={(p) => f.cambiar({ pagina: String(p) }, true)} /></div>
+          <p className="mt-3 text-xs text-suave">Ilustraciones por categoría: el dataset no incluye fotografías de producto.</p>
           {cat.datos.huerfanos > 0 && (
             <p className="panel-aviso mt-4 flex flex-wrap items-center gap-3 p-4 text-sm">
               <TriangleAlert size={18} className="text-ambar-texto" aria-hidden="true" />

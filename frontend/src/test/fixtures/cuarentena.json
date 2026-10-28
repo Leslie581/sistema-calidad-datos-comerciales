@@ -17,8 +17,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-976' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 2,
@@ -34,8 +34,8 @@
    ],
    "num_motivos": 2,
    "motivo": "CANTIDAD_INVALIDA: cantidad=0.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=0.0; debe ser mayor que 0",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 3,
@@ -50,8 +50,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-918' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 4,
@@ -66,8 +66,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-950' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 5,
@@ -82,8 +82,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-925' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 6,
@@ -98,8 +98,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-982' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 7,
@@ -114,8 +114,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-991' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 8,
@@ -130,8 +130,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-970' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 9,
@@ -147,8 +147,8 @@
    ],
    "num_motivos": 2,
    "motivo": "CANTIDAD_INVALIDA: cantidad=-1.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=-934.83; debe ser mayor que 0",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 10,
@@ -163,8 +163,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-970' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 11,
@@ -179,8 +179,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-952' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 12,
@@ -195,8 +195,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-980' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 13,
@@ -211,8 +211,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-946' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 14,
@@ -227,8 +227,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-929' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 15,
@@ -243,8 +243,8 @@
    ],
    "num_motivos": 1,
    "motivo": "PRODUCTO_HUERFANO: 'PROD-959' no existe en el catálogo maestro (R9)",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 16,
@@ -260,8 +260,8 @@
    ],
    "num_motivos": 2,
    "motivo": "CANTIDAD_INVALIDA: cantidad=-1.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=-3632.45; debe ser mayor que 0",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 17,
@@ -277,8 +277,8 @@
    ],
    "num_motivos": 2,
    "motivo": "CANTIDAD_INVALIDA: cantidad=0.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=0.0; debe ser mayor que 0",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 18,
@@ -294,8 +294,8 @@
    ],
    "num_motivos": 2,
    "motivo": "CANTIDAD_INVALIDA: cantidad=0.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=0.0; debe ser mayor que 0",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 19,
@@ -311,8 +311,8 @@
    ],
    "num_motivos": 2,
    "motivo": "CANTIDAD_INVALIDA: cantidad=0.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=0.0; debe ser mayor que 0",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   },
   {
    "id_error": 20,
@@ -328,8 +328,8 @@
    ],
    "num_motivos": 2,
    "motivo": "CANTIDAD_INVALIDA: cantidad=-1.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=-934.83; debe ser mayor que 0",
-   "fecha_cuarentena": "2026-10-26T01:13:36",
-   "lote_id": "L20261026-011336-586b"
+   "fecha_cuarentena": "2026-10-27T10:53:30",
+   "lote_id": "L20261027-105330-2d81"
   }
  ]
 }

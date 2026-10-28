@@ -1,0 +1,213 @@
+{
+ "filtros": {
+  "mes": "2026-10",
+  "desde": null,
+  "hasta": null,
+  "canal": null,
+  "comparacion": "equivalente",
+  "estados": "todas"
+ },
+ "modo": "mes",
+ "periodo": {
+  "inicio": "2026-10-01",
+  "fin": "2026-10-16",
+  "dias": 16,
+  "dias_cubiertos": 16,
+  "cobertura": 1.0,
+  "parcial": true,
+  "etiqueta": "1–16 oct 2026",
+  "dias_calendario_mes": 31
+ },
+ "anterior": {
+  "inicio": "2026-09-01",
+  "fin": "2026-09-16",
+  "dias": 16,
+  "dias_cubiertos": 16,
+  "cobertura": 1.0,
+  "parcial": true,
+  "etiqueta": "1–16 sep 2026",
+  "dias_calendario_mes": 30
+ },
+ "homogeneo": true,
+ "avisos": [
+  "periodo_parcial"
+ ],
+ "cobertura_datos": {
+  "inicio": "2026-09-01",
+  "fin": "2026-10-16"
+ },
+ "actual": {
+  "transacciones": 386,
+  "importe": 5967744.09,
+  "unidades": 2706,
+  "ticket_promedio": 15460.48,
+  "promedio_diario": 372984.01,
+  "dias_con_ventas": 16,
+  "primera_venta": "2026-10-01",
+  "ultima_venta": "2026-10-16"
+ },
+ "anterior_kpis": {
+  "transacciones": 392,
+  "importe": 3423636.01,
+  "unidades": 1917,
+  "ticket_promedio": 8733.77,
+  "promedio_diario": 213977.25,
+  "dias_con_ventas": 16,
+  "primera_venta": "2026-09-01",
+  "ultima_venta": "2026-09-16"
+ },
+ "variaciones": {
+  "importe_pct": 74.31,
+  "transacciones_pct": -1.53,
+  "ticket_promedio_pct": 77.02,
+  "promedio_diario_pct": 74.31
+ },
+ "canales": [
+  {
+   "canal": "FISICA",
+   "transacciones": 202,
+   "importe": 5367619.58,
+   "unidades": 2395,
+   "ticket_promedio": 26572.37,
+   "promedio_diario": 335476.22,
+   "dias_con_ventas": 15,
+   "primera_venta": "2026-10-01",
+   "ultima_venta": "2026-10-15",
+   "participacion_pct": 89.94,
+   "importe_anterior": 2812282.77,
+   "transacciones_anterior": 199,
+   "variacion_importe_pct": 90.86
+  },
+  {
+   "canal": "ONLINE",
+   "transacciones": 184,
+   "importe": 600124.51,
+   "unidades": 311,
+   "ticket_promedio": 3261.55,
+   "promedio_diario": 37507.78,
+   "dias_con_ventas": 16,
+   "primera_venta": "2026-10-01",
+   "ultima_venta": "2026-10-16",
+   "participacion_pct": 10.06,
+   "importe_anterior": 611353.24,
+   "transacciones_anterior": 193,
+   "variacion_importe_pct": -1.84
+  }
+ ],
+ "atipicas": {
+  "transacciones": 32,
+  "importe": 4721244.8,
+  "participacion_pct": 79.11,
+  "sin_atipicas": {
+   "actual": 1246499.29,
+   "anterior": 1366185.6,
+   "variacion_pct": -8.76
+  }
+ },
+ "no_efectivas": {
+  "transacciones": 72,
+  "importe": 191898.48
+ },
+ "diagnostico": {
+  "estado": "crecimiento",
+  "titular": "Tus ventas aumentaron 74.3 % respecto al período anterior comparable.",
+  "mensajes": [
+   {
+    "id": "periodo_parcial",
+    "tipo": "aviso",
+    "texto": "El período es parcial: solo hay datos del 2026-10-01 al 2026-10-16 (16 de los 31 días del mes).",
+    "evidencia": {
+     "dias": 16,
+     "dias_cubiertos": 16,
+     "dias_calendario_mes": 31
+    }
+   },
+   {
+    "id": "tendencia",
+    "tipo": "tendencia",
+    "texto": "Tus ventas aumentaron 74.3 %: $5,967,744 en 1–16 oct 2026 frente a $3,423,636 en 1–16 sep 2026 (mismos 16 días).",
+    "evidencia": {
+     "actual": 5967744.09,
+     "anterior": 3423636.01,
+     "variacion_pct": 74.31,
+     "umbral_crecimiento_pct": 5.0,
+     "umbral_disminucion_pct": -5.0
+    }
+   },
+   {
+    "id": "composicion",
+    "tipo": "info",
+    "texto": "El número de transacciones cambió −1.5 % (392 → 386) y el ticket promedio +77.0 % ($8,734 → $15,460).",
+    "evidencia": {
+     "transacciones_variacion_pct": -1.53,
+     "ticket_variacion_pct": 77.02
+    }
+   },
+   {
+    "id": "canal_participacion",
+    "tipo": "canal",
+    "texto": "El canal físico concentró 89.9 % de las ventas ($5,367,620 de $5,967,744).",
+    "evidencia": {
+     "canal": "FISICA",
+     "participacion_pct": 89.94,
+     "umbral": 60.0
+    }
+   },
+   {
+    "id": "canal_desempeno",
+    "tipo": "canal",
+    "texto": "El canal físico presentó un mejor desempeño: +90.9 % frente a −1.8 % del canal online.",
+    "evidencia": {
+     "mejor": "FISICA",
+     "variacion_fisica_pct": 90.86,
+     "variacion_online_pct": -1.84,
+     "brecha_minima_pp": 5.0
+    }
+   },
+   {
+    "id": "atipicas",
+    "tipo": "aviso",
+    "texto": "32 transacciones marcadas como atípicas por el ETL (cantidades o importes fuera del IQR) suman $4,721,245, 79.1 % del importe: el total puede estar dominado por ellas. Sin esas transacciones, la variación frente al período anterior sería −8.8 %.",
+    "evidencia": {
+     "transacciones": 32,
+     "importe": 4721244.8,
+     "participacion_pct": 79.11,
+     "umbral": 20.0,
+     "sin_atipicas": {
+      "actual": 1246499.29,
+      "anterior": 1366185.6,
+      "variacion_pct": -8.76
+     }
+    }
+   },
+   {
+    "id": "no_efectivas",
+    "tipo": "info",
+    "texto": "El importe incluye 72 pedidos cancelados o devueltos ($191,898). Puedes excluirlos con «Solo ventas efectivas».",
+    "evidencia": {
+     "transacciones": 72,
+     "importe": 191898.48
+    }
+   },
+   {
+    "id": "alcance",
+    "tipo": "nota",
+    "texto": "Estas cifras describen ventas registradas de transacciones conformes. No hay costos, márgenes ni gastos en los datos: no permiten afirmar rentabilidad ni salud financiera.",
+    "evidencia": {}
+   }
+  ]
+ },
+ "criterios": {
+  "umbral_crecimiento_pct": 5.0,
+  "umbral_disminucion_pct": -5.0,
+  "min_transacciones_periodo": 10.0,
+  "participacion_dominante_pct": 60.0,
+  "brecha_canales_pp": 5.0,
+  "atipicas_relevantes_pct": 20.0
+ },
+ "definicion_importe": {
+  "campo": "transacciones_limpias.monto_total_mxn",
+  "texto": "Importes de transacciones conformes, normalizados a MXN, sin recorte estadístico.",
+  "no_es": "No es ingreso contable auditado, utilidad ni margen. No incluye transacciones en cuarentena."
+ }
+}
