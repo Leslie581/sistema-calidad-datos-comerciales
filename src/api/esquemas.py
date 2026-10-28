@@ -88,6 +88,8 @@ class TransaccionResumen(Base):
     segmento_importe: Segmento
     estado_pedido: Optional[str] = None
     moneda_original: Literal["MXN", "USD"]
+    precio_unitario_original: Optional[float] = None      # en la moneda original (USD o MXN), tal como se persistió
+    tipo_cambio_aplicado: Optional[float] = None          # 19.5 para USD; 1.0 para MXN
 
 
 class PaginaTransacciones(Pagina):

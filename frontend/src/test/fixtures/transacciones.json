@@ -18,7 +18,9 @@
    "monto_total_mxn_cap": 2309.19,
    "segmento_importe": "Medio",
    "estado_pedido": "CANCELADO",
-   "moneda_original": "USD"
+   "moneda_original": "USD",
+   "precio_unitario_original": 118.42,
+   "tipo_cambio_aplicado": 19.5
   },
   {
    "id_transaccion": "WEB-00121",
@@ -34,7 +36,9 @@
    "monto_total_mxn_cap": 605.48,
    "segmento_importe": "Bajo",
    "estado_pedido": "PENDIENTE",
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 605.48,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "WEB-00153",
@@ -50,7 +54,9 @@
    "monto_total_mxn_cap": 2337.58,
    "segmento_importe": "Medio",
    "estado_pedido": "COMPLETADO",
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 1168.79,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "WEB-00296",
@@ -66,7 +72,9 @@
    "monto_total_mxn_cap": 12032.68,
    "segmento_importe": "Alto",
    "estado_pedido": "CANCELADO",
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 4183.67,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "WEB-00351",
@@ -82,7 +90,9 @@
    "monto_total_mxn_cap": 1025.98,
    "segmento_importe": "Bajo",
    "estado_pedido": "DEVUELTO",
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 1025.98,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "WEB-00400",
@@ -98,7 +108,9 @@
    "monto_total_mxn_cap": 3686.16,
    "segmento_importe": "Medio",
    "estado_pedido": "DEVUELTO",
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 1228.72,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "WEB-00405",
@@ -114,7 +126,9 @@
    "monto_total_mxn_cap": 9921.03,
    "segmento_importe": "Alto",
    "estado_pedido": "DEVUELTO",
-   "moneda_original": "USD"
+   "moneda_original": "USD",
+   "precio_unitario_original": 169.59,
+   "tipo_cambio_aplicado": 19.5
   },
   {
    "id_transaccion": "WEB-00505",
@@ -130,7 +144,9 @@
    "monto_total_mxn_cap": 4691.13,
    "segmento_importe": "Alto",
    "estado_pedido": "PENDIENTE",
-   "moneda_original": "USD"
+   "moneda_original": "USD",
+   "precio_unitario_original": 80.19,
+   "tipo_cambio_aplicado": 19.5
   },
   {
    "id_transaccion": "WEB-00561",
@@ -146,7 +162,9 @@
    "monto_total_mxn_cap": 4218.11,
    "segmento_importe": "Alto",
    "estado_pedido": "PENDIENTE",
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 4218.11,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "WEB-00584",
@@ -162,7 +180,9 @@
    "monto_total_mxn_cap": 4183.67,
    "segmento_importe": "Medio",
    "estado_pedido": "PAGADO",
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 4183.67,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "POS-2026-0030",
@@ -178,7 +198,9 @@
    "monto_total_mxn_cap": 4914.88,
    "segmento_importe": "Alto",
    "estado_pedido": null,
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 1228.72,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "POS-2026-0058",
@@ -194,7 +216,9 @@
    "monto_total_mxn_cap": 4214.12,
    "segmento_importe": "Alto",
    "estado_pedido": null,
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 2107.06,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "POS-2026-0104",
@@ -210,7 +234,9 @@
    "monto_total_mxn_cap": 2398.15,
    "segmento_importe": "Medio",
    "estado_pedido": null,
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 2398.15,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "POS-2026-0235",
@@ -226,7 +252,9 @@
    "monto_total_mxn_cap": 7920.62,
    "segmento_importe": "Alto",
    "estado_pedido": null,
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 3960.31,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "POS-2026-0240",
@@ -242,7 +270,9 @@
    "monto_total_mxn_cap": 8900.1,
    "segmento_importe": "Alto",
    "estado_pedido": null,
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 2966.7,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "POS-2026-0243",
@@ -258,7 +288,9 @@
    "monto_total_mxn_cap": 1492.49,
    "segmento_importe": "Bajo",
    "estado_pedido": null,
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 1492.49,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "POS-2026-0263",
@@ -274,7 +306,9 @@
    "monto_total_mxn_cap": 8436.22,
    "segmento_importe": "Alto",
    "estado_pedido": null,
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 4218.11,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "POS-2026-0268",
@@ -290,7 +324,9 @@
    "monto_total_mxn_cap": 4214.12,
    "segmento_importe": "Alto",
    "estado_pedido": null,
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 2107.06,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "POS-2026-0295",
@@ -306,7 +342,9 @@
    "monto_total_mxn_cap": 5302.82,
    "segmento_importe": "Alto",
    "estado_pedido": null,
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 2651.41,
+   "tipo_cambio_aplicado": 1.0
   },
   {
    "id_transaccion": "POS-2026-0334",
@@ -322,7 +360,9 @@
    "monto_total_mxn_cap": 3632.45,
    "segmento_importe": "Medio",
    "estado_pedido": null,
-   "moneda_original": "MXN"
+   "moneda_original": "MXN",
+   "precio_unitario_original": 3632.45,
+   "tipo_cambio_aplicado": 1.0
   }
  ],
  "resumen_filtro": {

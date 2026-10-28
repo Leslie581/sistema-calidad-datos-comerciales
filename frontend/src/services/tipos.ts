@@ -96,6 +96,8 @@ export interface TransaccionResumen {
   segmento_importe: Segmento;
   estado_pedido: string | null;
   moneda_original: "MXN" | "USD";
+  precio_unitario_original: number | null;
+  tipo_cambio_aplicado: number | null;
 }
 
 export type PaginaTransacciones = Pagina<TransaccionResumen> & { resumen_filtro: { n: number; importe_mxn: number | null } };

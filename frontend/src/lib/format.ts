@@ -31,6 +31,11 @@ export const nombreCanal = (c: string | null | undefined) => (c === "FISICA" ? "
 export const valorTexto = (v: unknown): string =>
   v === null || v === undefined ? "∅" : typeof v === "object" ? JSON.stringify(v) : String(v);
 
+/** Precios de la tabla de transacciones con prefijo de moneda explícito: «US$169.59» / «MX$3,307.01». */
+const monedaDos = new Intl.NumberFormat("es-MX", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+export const fUSDp = (v: number | null | undefined) => (v == null ? "—" : `US$${monedaDos.format(v)}`);
+export const fMXNp = (v: number | null | undefined) => (v == null ? "—" : `MX$${monedaDos.format(v)}`);
+
 /** Variación porcentual con signo tipográfico: «+74.3 %», «−8.8 %», «—» si no existe comparación válida. */
 export function fVariacion(v: number | null | undefined, d = 1): string {
   if (v == null) return "—";

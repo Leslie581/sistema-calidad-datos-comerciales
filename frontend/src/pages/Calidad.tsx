@@ -11,6 +11,12 @@ import { api } from "../services/api";
 import type { Json } from "../services/tipos";
 
 /** Recta numérica del IQR: caja Q1–Q3, mediana (si existe) y límites; marca los extremos observados fuera de límites. */
+const DISTINCION_CORTA: Record<string, string> = {
+  originales: "Tal como llegaron.",
+  corregidos: "Faltantes e importes arreglados.",
+  tratados: "Atípicos recortados con IQR.",
+};
+
 function CajaIQR({ q1, q3, li, ls, minimo, maximo, etiqueta, unidad = "" }: { q1: number; q3: number; li: number; ls: number; minimo?: number; maximo?: number; etiqueta: string; unidad?: string }) {
   const lo = Math.min(li, minimo ?? li), hi = Math.max(ls, Math.min(maximo ?? ls, ls * 1.35));
   const x = (v: number) => 20 + ((v - lo) / (hi - lo || 1)) * 560;
@@ -63,17 +69,17 @@ export default function Calidad() {
           Qué se corrigió y qué se trató estadísticamente, con resultados reales del pipeline.
         </Encabezado>
         <div className="mt-6 grid gap-3 md:grid-cols-3">
-          {Object.entries(datos.distincion).map(([k, v], i) => (
+          {Object.entries(DISTINCION_CORTA).map(([k, v], i) => (
             <div key={k} className="rounded-2xl border border-borde bg-blanco/90 p-4">
-              <p className="mb-1 flex items-center gap-2 font-display font-bold text-bosque"><i className={`size-3 rounded-full ${["bg-salvia", "bg-ambar", "bg-petroleo"][i]}`} aria-hidden="true" />{k[0].toUpperCase() + k.slice(1)}</p>
-              <p className="text-sm text-suave">{v}</p>
+              <p className="flex items-center gap-2 font-display font-bold text-bosque"><i className={`size-3 rounded-full ${["bg-salvia", "bg-ambar", "bg-petroleo"][i]}`} aria-hidden="true" />{k[0].toUpperCase() + k.slice(1)}</p>
+              <p className="mt-0.5 text-sm text-suave">{v}</p>
             </div>
           ))}
         </div>
       </section>
 
       {per && (
-        <Seccion n="1 · Diagnóstico inicial" titulo="Completitud, tipos y duplicados del archivo crudo" fuente="reporte de la etapa de Leslie (01_perfil_antes.json)">
+        <Seccion n="1 · Diagnóstico inicial" titulo="Completitud, tipos y duplicados del archivo crudo">
           <div className="mb-4"><Segmentado etiqueta="Fuente de datos" valor={fuente} alCambiar={setFuente} opciones={[{ valor: "fisica", texto: "Tienda física" }, { valor: "online", texto: "Tienda online" }, { valor: "catalogo", texto: "Catálogo" }]} /></div>
           <dl className="num mb-5 grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div><dt className="etiqueta">Filas × columnas</dt><dd className="font-display text-2xl font-bold text-bosque">{fEntero(per.filas)} × {per.columnas}</dd></div>
@@ -111,7 +117,7 @@ export default function Calidad() {
       )}
 
       {Array.isArray(faltantes) && (
-        <Seccion n="3 · MCAR / MAR" titulo="¿Por qué faltan los datos?" fuente="reporte de la etapa de Leslie (02_faltantes_mcar_mar.json)">
+        <Seccion n="3 · MCAR / MAR" titulo="¿Por qué faltan los datos?">
           <p className="mb-4 flex items-start gap-3 rounded-2xl bg-[#e6eef0] p-4 text-sm leading-relaxed text-petroleo"><Info size={18} className="mt-0.5 shrink-0" aria-hidden="true" /><span>{datos.nota_mcar}</span></p>
           <div className="scroll-fino overflow-x-auto rounded-2xl border border-borde">
             <table className="tabla min-w-[760px]">
@@ -146,7 +152,7 @@ export default function Calidad() {
       )}
 
       {datos.antes_despues && (
-        <Seccion n="5 · Comparación" titulo="Antes y después" fuente="reporte de la etapa de Leslie (06_antes_despues.csv)">
+        <Seccion n="5 · Comparación" titulo="Antes y después">
           <div className="scroll-fino overflow-x-auto rounded-2xl border border-borde">
             <table className="tabla min-w-[760px]"><caption className="sr-only">Comparación de calidad antes y después</caption>
               <thead><tr><th scope="col">Métrica</th><th scope="col">Base</th><th scope="col" className="der">Antes</th><th scope="col" className="der">Después</th><th scope="col">Cómo se logró</th></tr></thead>
@@ -171,7 +177,7 @@ export default function Calidad() {
       )}
 
       {datos.graficas.length > 0 && (
-        <Seccion n="7 · Gráficas del análisis" titulo="Capping, visto en los datos" fuente="imágenes generadas por Python (etapa de Leslie)">
+        <Seccion n="7 · Gráficas del análisis" titulo="Capping, visto en los datos">
           <div className="grid gap-5 lg:grid-cols-2">
             {datos.graficas.map((g) => (
               <figure key={g.id} className="m-0 rounded-2xl border border-borde bg-blanco p-3">
