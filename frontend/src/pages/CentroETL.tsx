@@ -246,7 +246,7 @@ export default function CentroETL() {
 
       <DialogoConfirmar abierto={confirmar} titulo="¿Ejecutar el pipeline completo?" textoConfirmar={enviando ? "Iniciando…" : "Sí, ejecutar"} alConfirmar={lanzar} alCancelar={() => setConfirmar(false)}>
         <p>KOVA volverá a procesar los tres archivos oficiales (verificando su huella SHA-256) y <b>reemplazará</b> el contenido de la base SQLite con el resultado. El historial de ejecuciones se conserva.</p>
-        <p>Además se reescribirán los reportes de <span className="font-mono text-xs">salidas/etapa_nono</span>. La operación dura unos segundos y no se puede ejecutar dos veces a la vez.</p>
+        <p>Además se reescribirán los reportes de salida. La operación dura unos segundos y no se puede ejecutar dos veces a la vez.</p>
       </DialogoConfirmar>
     </div>
   );

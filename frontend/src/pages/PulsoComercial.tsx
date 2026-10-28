@@ -1,6 +1,6 @@
 import { useId, useState } from "react";
 import { Link } from "react-router-dom";
-import { CalendarRange, ChevronDown, FilterX, Info } from "lucide-react";
+import { ChevronDown, FilterX, Info } from "lucide-react";
 import { FondoPulso } from "../components/brand/Fondos";
 import { IconoCategoria } from "../components/brand/Ilustraciones";
 import { MarcaDeAgua } from "../components/brand/Marca";
@@ -73,12 +73,12 @@ export default function PulsoComercial() {
         <h1 className="titular mt-2 text-[clamp(2rem,4vw,3.2rem)] text-blanco">Pulso comercial</h1>
         <p className="lectura mt-2 text-menta/90">Cómo se comportan las ventas de las transacciones conformes: importe, ritmo, canales y productos.</p>
         {r && (
-          <div className="mt-5 flex flex-wrap items-center gap-2" aria-label="Fechas efectivas">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-menta/15 px-3 py-1.5 text-sm font-bold text-menta ring-1 ring-menta/25"><CalendarRange size={15} aria-hidden="true" />{r.periodo.etiqueta}</span>
-            <span className="num rounded-full px-3 py-1.5 text-sm text-menta/85 ring-1 ring-menta/20">{r.periodo.dias} días · ventas del {fFecha(r.actual.primera_venta)} al {fFecha(r.actual.ultima_venta)}</span>
-            {r.periodo.parcial && <span className="rounded-full bg-ambar px-3 py-1.5 text-sm font-bold text-bosque">Período parcial{r.periodo.dias_calendario_mes ? ` · ${r.periodo.dias} de ${r.periodo.dias_calendario_mes} días del mes` : ""}</span>}
-            {r.anterior && <span className="num rounded-full px-3 py-1.5 text-sm text-menta/85 ring-1 ring-menta/20">frente a {r.anterior.etiqueta}{r.homogeneo ? " · comparación homogénea" : " · NO homogénea"}</span>}
-          </div>
+          <p className="mt-4 text-sm leading-relaxed text-menta/80" aria-label="Fechas efectivas">
+            <strong className="font-bold text-blanco">{r.periodo.etiqueta}</strong>
+            <span className="num"> · {r.periodo.dias} días, del {fFecha(r.actual.primera_venta)} al {fFecha(r.actual.ultima_venta)}</span>
+            {r.periodo.parcial && <span className="font-bold text-ambar"> · Período parcial{r.periodo.dias_calendario_mes ? ` (${r.periodo.dias} de ${r.periodo.dias_calendario_mes} días del mes)` : ""}</span>}
+            {r.anterior && <span className="block">frente a {r.anterior.etiqueta}{r.homogeneo ? " · comparación homogénea" : " · NO homogénea"}</span>}
+          </p>
         )}
       </section>
 

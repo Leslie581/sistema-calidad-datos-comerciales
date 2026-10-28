@@ -9,7 +9,7 @@ import { useApi } from "../hooks/useApi";
 import { useDebounce } from "../hooks/useDebounce";
 import { useFiltros } from "../hooks/useFiltros";
 import { useSistema } from "../hooks/sistema";
-import { fEntero, fFecha, fMXN, fMXNCorto, nombreCanal } from "../lib/format";
+import { fEntero, fFecha, fMXN, fMXNCorto, fMXNp, fUSDp, nombreCanal } from "../lib/format";
 import { api } from "../services/api";
 import { useEffect, useState } from "react";
 
@@ -74,7 +74,7 @@ export default function Transacciones() {
                   <ThOrden clave="fecha" orden={d} direccion={dir} alOrdenar={ordenar}>Fecha</ThOrden>
                   <ThOrden clave="producto" orden={d} direccion={dir} alOrdenar={ordenar}>Producto</ThOrden>
                   <ThOrden clave="cantidad" orden={d} direccion={dir} alOrdenar={ordenar} der>Cant.</ThOrden>
-                  <ThOrden clave="precio" orden={d} direccion={dir} alOrdenar={ordenar} der>Precio MXN</ThOrden>
+                  <ThOrden clave="precio" orden={d} direccion={dir} alOrdenar={ordenar} der>Precio unitario</ThOrden>
                   <ThOrden clave="importe" orden={d} direccion={dir} alOrdenar={ordenar} der>Importe MXN</ThOrden>
                   <ThOrden clave="segmento" orden={d} direccion={dir} alOrdenar={ordenar}>Segmento</ThOrden>
                   <th scope="col">Estado</th>
@@ -89,8 +89,15 @@ export default function Transacciones() {
                       <td className="num whitespace-nowrap">{fFecha(t.fecha_venta)}</td>
                       <td><span className="block max-w-[260px] truncate font-medium" title={t.nombre_producto}>{t.nombre_producto}</span><span className="text-xs text-suave">{t.id_producto} · {t.categoria}</span></td>
                       <td className="num der">{fEntero(t.cantidad)}</td>
-                      <td className="num der">{fMXN(t.precio_unitario_mxn)}{t.moneda_original === "USD" && <span className="block text-[0.7rem] font-bold text-ambar-texto">convertido de USD</span>}</td>
-                      <td className="num der font-bold text-bosque">{fMXN(t.monto_total_mxn)}</td>
+                      <td className="num der whitespace-nowrap" data-moneda-origen={t.moneda_original}>
+                        {t.moneda_original === "USD" ? (
+                          <>
+                            <span className="block font-bold text-ambar-texto" title="Precio unitario original en dólares">{t.precio_unitario_original == null ? "US$ sin dato" : fUSDp(t.precio_unitario_original)}</span>
+                            <span className="block text-xs text-suave" title={`Convertido a pesos con el tipo de cambio oficial de ${t.tipo_cambio_aplicado ?? ""}`}>{fMXNp(t.precio_unitario_mxn)}</span>
+                          </>
+                        ) : <span className="block">{fMXNp(t.precio_unitario_mxn)}</span>}
+                      </td>
+                      <td className="num der font-bold text-bosque" title="Importe normalizado a MXN (corregido, sin recorte estadístico). El importe original está en el detalle.">{fMXN(t.monto_total_mxn)}</td>
                       <td><Insignia tono={COLOR_SEG[t.segmento_importe]}>{t.segmento_importe}</Insignia></td>
                       <td>{t.estado_pedido ? <Insignia tono={t.estado_pedido === "CANCELADO" || t.estado_pedido === "DEVUELTO" ? "aviso" : "neutro"}>{t.estado_pedido}</Insignia> : <span className="text-xs text-suave">no aplica</span>}</td>
                     </tr>

@@ -83,7 +83,7 @@ ORDEN_CATALOGO = {"id": "p.id_producto", "nombre": "p.nombre_producto", "categor
                   "precio": "p.precio_base_mxn", "stock": "p.stock_minimo", "ventas": "ventas", "importe": "importe"}
 COLUMNAS_RESUMEN = ("id_transaccion, origen, id_fila_origen, fecha_venta, id_producto, nombre_producto, categoria, cantidad, "
                     "precio_unitario_mxn, monto_total_mxn, monto_total_mxn_cap, segmento_importe, estado_pedido, "
-                    "moneda_original")
+                    "moneda_original, precio_unitario_original, tipo_cambio_aplicado")
 
 
 # ----------------------------------------------------------------------------- utilidades

@@ -37,3 +37,14 @@ describe("formato", () => {
     expect(valorTexto({ a: 1 })).toBe('{"a":1}');
   });
 });
+
+import { fMXNp, fUSDp } from "./format";
+describe("precios con prefijo de moneda", () => {
+  it("distingue US$ y MX$ y no inventa valores", () => {
+    expect(fUSDp(169.59)).toBe("US$169.59");
+    expect(fMXNp(3307.01)).toBe("MX$3,307.01");
+    expect(fUSDp(1234.5)).toBe("US$1,234.50");
+    expect(fUSDp(null)).toBe("—");
+    expect(fMXNp(undefined)).toBe("—");
+  });
+});

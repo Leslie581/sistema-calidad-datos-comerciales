@@ -431,3 +431,25 @@ def test_sirve_el_frontend_compilado_y_no_confunde_rutas_de_api(tmp_path):
     assert cli.get("/etl").text == "<html>KOVA</html>" and cli.get("/assets/app.js").text == "console.log(1)"
     assert cli.get("/api/no_existe").json()["codigo"] == "RUTA_NO_ENCONTRADA"
     assert cli.get("/../../README.md").text == "<html>KOVA</html>"
+
+
+# ----------------------------------------------------------------------------- precio original en la lista de transacciones
+def test_listado_incluye_precio_original_persistido_para_usd_y_mxn(c, bd_directa):
+    filas = [f for pag in range(1, 13) for f in c.get("/api/transacciones", params={"tam": 100, "pagina": pag, "orden": "id", "direccion": "asc"}).json()["items"]]
+    assert len(filas) == 1104
+    esperados = {r[0]: r[1:] for r in bd_directa.execute(
+        "SELECT id_transaccion, moneda_original, precio_unitario_original, precio_unitario_mxn, tipo_cambio_aplicado FROM transacciones_limpias")}
+    usd = [f for f in filas if f["moneda_original"] == "USD"]
+    mxn = [f for f in filas if f["moneda_original"] == "MXN"]
+    assert usd and mxn
+    for f in filas:                                         # valores EXACTOS de SQLite, no recalculados
+        assert (f["moneda_original"], f["precio_unitario_original"], f["precio_unitario_mxn"], f["tipo_cambio_aplicado"]) == esperados[f["id_transaccion"]]
+    assert all(f["tipo_cambio_aplicado"] == 19.5 and f["precio_unitario_original"] != f["precio_unitario_mxn"] for f in usd)
+    assert all(f["tipo_cambio_aplicado"] == 1.0 and f["precio_unitario_original"] == f["precio_unitario_mxn"] for f in mxn)
+
+
+def test_listado_usd_conocido_y_orden_por_precio_sigue_siendo_en_mxn(c):
+    f = c.get("/api/transacciones", params={"q": "WEB-00002"}).json()["items"][0]
+    assert (f["moneda_original"], f["precio_unitario_original"], f["precio_unitario_mxn"], f["tipo_cambio_aplicado"]) == ("USD", 169.59, 3307.01, 19.5)
+    precios = [x["precio_unitario_mxn"] for x in c.get("/api/transacciones", params={"orden": "precio", "direccion": "asc", "tam": 50}).json()["items"]]
+    assert precios == sorted(precios)
