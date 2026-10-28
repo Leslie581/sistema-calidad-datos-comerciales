@@ -46,8 +46,8 @@ export default function Cuarentena() {
       <section className="panel-aviso entra relative isolate overflow-hidden px-6 py-8 sm:px-10">
         <FondoAislamiento className="-z-10" />
         <MarcaDeAgua className="-right-24 -top-24" opacidad={0.05} />
-        <Encabezado etiqueta="Datos · zona de cuarentena" titulo="Registros apartados, con su explicación">
-          Aquí no hay datos «perdidos»: cada transacción rechazada conserva su registro original, todos sus motivos y la fase que la detectó. Es una zona de consulta.
+        <Encabezado etiqueta="Datos" titulo="Cuarentena">
+          Registros apartados con todos sus motivos y su registro original. Solo consulta: nada se pierde ni se edita.
         </Encabezado>
         {m && totalRechazados != null && (
           <div className="mt-6 grid gap-6 lg:grid-cols-[auto_1fr]">

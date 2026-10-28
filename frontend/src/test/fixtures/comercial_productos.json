@@ -1,0 +1,137 @@
+{
+ "periodo": {
+  "inicio": "2026-10-01",
+  "fin": "2026-10-16",
+  "dias": 16,
+  "dias_cubiertos": 16,
+  "cobertura": 1.0,
+  "parcial": true,
+  "etiqueta": "1–16 oct 2026",
+  "dias_calendario_mes": 31
+ },
+ "orden": "importe",
+ "importe_total": 5967744.09,
+ "productos_distintos": 50,
+ "productos": [
+  {
+   "id_producto": "PROD-018",
+   "nombre_producto": "Artículo Juguetería Ref-018",
+   "categoria": "Juguetería",
+   "transacciones": 5,
+   "unidades": 509,
+   "importe": 2147017.99,
+   "participacion_pct": 35.98
+  },
+  {
+   "id_producto": "PROD-017",
+   "nombre_producto": "Artículo Ropa Ref-017",
+   "categoria": "Ropa",
+   "transacciones": 8,
+   "unidades": 515,
+   "importe": 839939.28,
+   "participacion_pct": 14.07
+  },
+  {
+   "id_producto": "PROD-005",
+   "nombre_producto": "Artículo Alimentos Ref-005",
+   "categoria": "Alimentos",
+   "transacciones": 10,
+   "unidades": 527,
+   "importe": 492655.41,
+   "participacion_pct": 8.26
+  },
+  {
+   "id_producto": "PROD-015",
+   "nombre_producto": "Artículo Hogar Ref-015",
+   "categoria": "Hogar",
+   "transacciones": 7,
+   "unidades": 113,
+   "importe": 441361.05,
+   "participacion_pct": 7.4
+  },
+  {
+   "id_producto": "PROD-036",
+   "nombre_producto": "Artículo Juguetería Ref-036",
+   "categoria": "Juguetería",
+   "transacciones": 14,
+   "unidades": 133,
+   "importe": 307110.39,
+   "participacion_pct": 5.15
+  },
+  {
+   "id_producto": "PROD-016",
+   "nombre_producto": "Artículo Deportes Ref-016",
+   "categoria": "Deportes",
+   "transacciones": 4,
+   "unidades": 105,
+   "importe": 302273.99,
+   "participacion_pct": 5.07
+  },
+  {
+   "id_producto": "PROD-044",
+   "nombre_producto": "Artículo Hogar Ref-044",
+   "categoria": "Hogar",
+   "transacciones": 9,
+   "unidades": 29,
+   "importe": 121326.43,
+   "participacion_pct": 2.03
+  },
+  {
+   "id_producto": "PROD-041",
+   "nombre_producto": "Artículo Electrónica Ref-041",
+   "categoria": "Electrónica",
+   "transacciones": 11,
+   "unidades": 31,
+   "importe": 102516.89,
+   "participacion_pct": 1.72
+  }
+ ],
+ "categorias": [
+  {
+   "categoria": "Juguetería",
+   "transacciones": 80,
+   "unidades": 762,
+   "importe": 2647542.99,
+   "participacion_pct": 44.36
+  },
+  {
+   "categoria": "Ropa",
+   "transacciones": 37,
+   "unidades": 575,
+   "importe": 1028646.52,
+   "participacion_pct": 17.24
+  },
+  {
+   "categoria": "Hogar",
+   "transacciones": 113,
+   "unidades": 340,
+   "importe": 877447.48,
+   "participacion_pct": 14.7
+  },
+  {
+   "categoria": "Alimentos",
+   "transacciones": 81,
+   "unidades": 673,
+   "importe": 720533.11,
+   "participacion_pct": 12.07
+  },
+  {
+   "categoria": "Deportes",
+   "transacciones": 15,
+   "unidades": 129,
+   "importe": 399552.71,
+   "participacion_pct": 6.7
+  },
+  {
+   "categoria": "Electrónica",
+   "transacciones": 60,
+   "unidades": 227,
+   "importe": 294021.28,
+   "participacion_pct": 4.93
+  }
+ ],
+ "avisos": [
+  "periodo_parcial"
+ ],
+ "nota": "Unidades = cantidad real de la transacción (sin capping). Participación sobre el importe comercial del período."
+}

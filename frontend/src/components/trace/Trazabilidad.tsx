@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, Check, CircleAlert, Layers, ShieldAlert, Sparkles, Wrench } from "lucide-react";
 import { Insignia } from "../ui/Basicos";
 import { fMXN, valorTexto } from "../../lib/format";
-import type { DetalleTransaccion, EtapaTraza } from "../../services/tipos";
+import type { DetalleTransaccion, EtapaTraza, MonedaTransaccion } from "../../services/tipos";
 
 const ESTILO: Record<EtapaTraza["estado"], { nodo: string; icono: ReactNode; texto: string; tono: "ok" | "aviso" | "alerta" | "neutro" | "info" }> = {
   ok: { nodo: "bg-petroleo text-blanco", icono: <Check size={15} />, texto: "Aplicada", tono: "info" },
@@ -99,6 +99,44 @@ export function LadoALado({ t }: { t: DetalleTransaccion["transaccion"] }) {
           ))}
         </tbody>
       </table>
+    </div>
+  );
+}
+
+const usd = { format: (n: number) => n.toLocaleString("es-MX", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) };
+
+/** Conceptos monetarios separados: original en la moneda de origen → tipo de cambio → normalizado a MXN → con capping. */
+export function PanelMoneda({ m }: { m: MonedaTransaccion }) {
+  if (!m.es_usd) {
+    return (
+      <p className="rounded-2xl border border-borde bg-blanco p-4 text-sm text-suave" data-moneda="MXN">
+        <b className="text-bosque">Registrada originalmente en MXN.</b> No hay conversión de moneda: el precio original ({fMXN(m.precio_original)}) ya está en pesos.
+        {m.capping_aplicado && <> El importe con capping ({fMXN(m.importe_mxn_capping)}) difiere del importe normalizado ({fMXN(m.importe_mxn)}).</>}
+      </p>
+    );
+  }
+  const filas: { concepto: string; valor: string; nota?: string; destacado?: boolean }[] = [
+    { concepto: "Precio original", valor: `$${usd.format(m.precio_original ?? 0)} USD` },
+    { concepto: "Importe original reportado", valor: `$${usd.format(m.importe_original ?? 0)} USD`,
+      nota: m.importe_original_corregido ? `No coincidía con cantidad × precio ($${usd.format(m.importe_original_coherente ?? 0)} USD); el ETL lo recalculó y conservó el original.` : undefined },
+    { concepto: "Tipo de cambio oficial", valor: `1 USD = ${fMXN(m.tipo_cambio)}`, nota: "Paridad fijada por el profesor." },
+    { concepto: "Precio convertido", valor: fMXN(m.precio_mxn), nota: "precio USD × tipo de cambio, redondeado a centavos" },
+    { concepto: "Importe normalizado a MXN", valor: fMXN(m.importe_mxn), nota: "cantidad × precio convertido (importe comercial)", destacado: true },
+    { concepto: "Importe con capping", valor: m.capping_aplicado ? fMXN(m.importe_mxn_capping) : "Sin recorte", nota: m.capping_aplicado ? "Recorte estadístico IQR; no es el importe comercial." : "El importe no superó el límite del IQR." },
+  ];
+  return (
+    <div className="rounded-2xl border border-borde bg-blanco p-4" data-moneda="USD">
+      <p className="mb-3 text-sm text-suave"><b className="text-bosque">Registrada originalmente en dólares (USD).</b> Se convirtió a MXN con la paridad oficial; el valor original se conserva.</p>
+      <dl className="grid gap-2.5 sm:grid-cols-2">
+        {filas.map((f) => (
+          <div key={f.concepto} className={`rounded-xl p-3 ${f.destacado ? "bg-[#e3f3ea] ring-1 ring-[#bfe3cf]" : "bg-superficie-2"}`}>
+            <dt className="etiqueta">{f.concepto}</dt>
+            <dd className="num font-display text-xl font-bold text-bosque">{f.valor}</dd>
+            {f.nota && <dd className="mt-0.5 text-xs text-suave">{f.nota}</dd>}
+          </div>
+        ))}
+      </dl>
+      {m.formula && <p className="mt-3 text-xs text-suave">{m.formula}.</p>}
     </div>
   );
 }

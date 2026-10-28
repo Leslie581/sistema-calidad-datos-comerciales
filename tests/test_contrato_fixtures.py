@@ -9,7 +9,8 @@ from scripts.generar_fixtures_frontend import DESTINO, respuestas_reales
 
 LIBRES = {"glosario", "conteo_correcciones", "entorno", "huellas_entrada", "duracion_etapas_s", "distincion", "metricas", "faltantes",
           "perfil_antes", "limpieza", "iqr", "transformacion", "antes_despues", "registro_original", "transaccion", "ultimo_resultado",
-          "filas_fuentes", "indicadores", "integridad_originales"}
+          "filas_fuentes", "indicadores", "integridad_originales", "filtros", "criterios", "evidencia",
+          "sin_atipicas"}
 
 
 def forma(x, nivel=0):

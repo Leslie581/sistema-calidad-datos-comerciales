@@ -6,6 +6,7 @@ import Inicio from "./pages/Inicio";
 import NoEncontrada from "./pages/NoEncontrada";
 
 const Panel = lazy(() => import("./pages/Panel"));
+const PulsoComercial = lazy(() => import("./pages/PulsoComercial"));
 const CentroETL = lazy(() => import("./pages/CentroETL"));
 const Calidad = lazy(() => import("./pages/Calidad"));
 const Transacciones = lazy(() => import("./pages/Transacciones"));
@@ -20,6 +21,7 @@ export default function App() {
           <Route element={<AppLayout />}>
             <Route index element={<Inicio />} />
             <Route path="panel" element={<Panel />} />
+            <Route path="pulso-comercial" element={<PulsoComercial />} />
             <Route path="etl" element={<CentroETL />} />
             <Route path="calidad" element={<Calidad />} />
             <Route path="transacciones/:id?" element={<Transacciones />} />

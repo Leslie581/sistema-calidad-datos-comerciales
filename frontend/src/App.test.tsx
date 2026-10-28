@@ -31,7 +31,7 @@ describe("navegación y estructura", () => {
     renderApp("/");
     expect(screen.getByRole("link", { name: /Saltar al contenido/ })).toHaveAttribute("href", "#contenido");
     const nav = screen.getByRole("navigation", { name: "Principal" });
-    for (const t of ["Inicio", "Panel ejecutivo", "Centro ETL", "Calidad de datos", "Historial y reportes", "Transacciones", "Cuarentena", "Catálogo"]) {
+    for (const t of ["Inicio", "Panel ejecutivo", "Pulso comercial", "Centro ETL", "Calidad de datos", "Historial y reportes", "Transacciones", "Cuarentena", "Catálogo"]) {
       expect(within(nav).getByRole("link", { name: t })).toBeInTheDocument();
     }
     expect(screen.getByRole("main")).toBeInTheDocument();
@@ -43,7 +43,7 @@ describe("navegación y estructura", () => {
     const u = userEvent.setup();
     renderApp("/");
     await u.click(within(screen.getByRole("navigation", { name: "Principal" })).getByRole("link", { name: "Cuarentena" }));
-    expect(await screen.findByRole("heading", { level: 1, name: /Registros apartados/ })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Cuarentena" })).toBeInTheDocument();
     expect(ubicacion()).toBe("/cuarentena");
     expect(within(screen.getByRole("navigation", { name: "Principal" })).getByRole("link", { name: "Cuarentena" })).toHaveAttribute("aria-current", "page");
   });
@@ -67,7 +67,7 @@ describe("panel ejecutivo", () => {
   it("presenta las métricas oficiales y el indicador compuesto explicado", async () => {
     instalarApi();
     renderApp("/panel");
-    expect(await screen.findByRole("heading", { level: 1, name: /Cómo están tus datos comerciales/ })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Panel ejecutivo" })).toBeInTheDocument();
     const salud = FIX.dashboard.salud!;
     expect(await screen.findByText(/¿Cómo se calcula la salud de origen\?/)).toBeInTheDocument();
     expect(screen.getByText(salud.formula, { exact: false })).toBeInTheDocument();
@@ -230,7 +230,7 @@ describe("centro ETL", () => {
   it("representa las siete fases con su estado y duración medidos", async () => {
     instalarApi();
     renderApp("/etl");
-    expect(await screen.findByRole("heading", { level: 1, name: /recorrido completo de tus datos/ })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 1, name: "Centro ETL" })).toBeInTheDocument();
     const diagrama = screen.getByRole("group", { name: /Flujo del pipeline/ });
     expect(within(diagrama).getAllByRole("button")).toHaveLength(7);
     for (const f of FIX.estadoPipeline.fases) expect(within(diagrama).getByRole("button", { name: new RegExp(`Fase ${f.numero},.*completada`, "i") })).toBeInTheDocument();

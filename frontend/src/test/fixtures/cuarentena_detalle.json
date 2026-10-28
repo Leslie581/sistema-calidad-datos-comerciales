@@ -15,8 +15,8 @@
   ],
   "num_motivos": 3,
   "motivo": "PRODUCTO_HUERFANO: 'PROD-928' no existe en el catálogo maestro (R9) | CANTIDAD_INVALIDA: cantidad=-1.0; debe ser un entero mayor que 0 (R4) | MONTO_INVALIDO: monto_total_mxn=-500.0; debe ser mayor que 0",
-  "fecha_cuarentena": "2026-10-26T01:13:36",
-  "lote_id": "L20261026-011336-586b"
+  "fecha_cuarentena": "2026-10-27T10:53:30",
+  "lote_id": "L20261027-105330-2d81"
  },
  "detalle": [
   {
@@ -166,7 +166,7 @@
    "clave": "resultado",
    "titulo": "Resultado",
    "estado": "rechazado",
-   "descripcion": "Aislado en cuarentena_errores (lote L20261026-011336-586b). Esta sección es de solo consulta.",
+   "descripcion": "Aislado en cuarentena_errores (lote L20261027-105330-2d81). Esta sección es de solo consulta.",
    "campos": [],
    "codigos": []
   }

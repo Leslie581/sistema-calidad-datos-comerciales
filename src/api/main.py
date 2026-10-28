@@ -19,11 +19,13 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 
+from . import comercial as co
 from . import servicios as sv
 from .config import Ajustes
 from .db import ErrorApi, conectar
 from .ejecucion import EjecutorPipeline
-from .esquemas import (Calidad, Dashboard, DetalleCuarentena, DetalleEjecucion, DetalleTransaccion, EstadoPipeline,
+from .esquemas import (CanalesComerciales, OpcionesComerciales, ProductosComerciales, ResumenComercial, TendenciaComercial,
+                       Calidad, Dashboard, DetalleCuarentena, DetalleEjecucion, DetalleTransaccion, EstadoPipeline,
                        Facetas, ListaEjecuciones, ListaReportes, PaginaCatalogo, PaginaCuarentena, PaginaTransacciones,
                        RespuestaEjecucion, Salud, SolicitudEjecucion)
 
@@ -33,6 +35,11 @@ Pag = Annotated[int, Query(ge=1, le=100000, description="Página (desde 1)")]
 Tam = Annotated[int, Query(ge=1, le=100, description="Registros por página (máx. 100)")]
 Texto = Annotated[Optional[str], Query(max_length=80)]
 Dir = Literal["asc", "desc"]
+Mes = Annotated[Optional[str], Query(max_length=7, description="YYYY-MM; por omisión, el último mes con datos")]
+Fecha = Annotated[Optional[str], Query(max_length=10, description="YYYY-MM-DD")]
+ParamCanal = Annotated[Optional[Literal["FISICA", "ONLINE"]], Query(description="vacío = ambos canales")]
+ParamComp = Annotated[Literal["equivalente", "mes_anterior_completo", "ninguna"], Query(description="forma de elegir el período anterior")]
+ParamEstados = Annotated[Literal["todas", "efectivas"], Query(description="«efectivas» excluye pedidos CANCELADO y DEVUELTO")]
 
 
 def _fecha(valor: Optional[str], nombre: str) -> Optional[str]:
@@ -159,6 +166,48 @@ def crear_app(ajustes: Ajustes | None = None, ejecutor: EjecutorPipeline | None 
         archivo, tipo = sv.resolver_reporte(aj, carpeta, ruta)
         return FileResponse(archivo, media_type=tipo, filename=archivo.name if descargar else None,
                             content_disposition_type="attachment" if descargar else "inline")
+
+    # ------------------------------------------------------------------ pulso comercial (solo lectura)
+
+    def _fechas(desde, hasta):
+        for nombre, v in (("desde", desde), ("hasta", hasta)):
+            if v and not RE_FECHA.match(v):
+                raise ErrorApi("PARAMETRO_INVALIDO", f"«{nombre}» debe ser una fecha YYYY-MM-DD válida.", 422)
+
+    @app.get("/api/comercial/opciones", response_model=OpcionesComerciales, tags=["comercial"])
+    def comercial_opciones():
+        with conectar(aj.ruta_bd) as c:
+            return co.opciones(c)
+
+    @app.get("/api/comercial/resumen", response_model=ResumenComercial, tags=["comercial"])
+    def comercial_resumen(mes: Mes = None, desde: Fecha = None, hasta: Fecha = None, canal: ParamCanal = None,
+                          comparacion: ParamComp = "equivalente", estados: ParamEstados = "todas"):
+        _fechas(desde, hasta)
+        with conectar(aj.ruta_bd) as c:
+            return co.resumen(c, mes, desde, hasta, canal, comparacion, estados, aj.criterios_comerciales)
+
+    @app.get("/api/comercial/tendencia", response_model=TendenciaComercial, tags=["comercial"])
+    def comercial_tendencia(mes: Mes = None, desde: Fecha = None, hasta: Fecha = None, canal: ParamCanal = None,
+                            comparacion: ParamComp = "equivalente", estados: ParamEstados = "todas"):
+        _fechas(desde, hasta)
+        with conectar(aj.ruta_bd) as c:
+            return co.tendencia(c, mes, desde, hasta, canal, comparacion, estados)
+
+    @app.get("/api/comercial/canales", response_model=CanalesComerciales, tags=["comercial"])
+    def comercial_canales(mes: Mes = None, desde: Fecha = None, hasta: Fecha = None, comparacion: ParamComp = "equivalente",
+                          estados: ParamEstados = "todas"):
+        _fechas(desde, hasta)
+        with conectar(aj.ruta_bd) as c:
+            return co.canales(c, mes, desde, hasta, comparacion, estados)
+
+    @app.get("/api/comercial/productos", response_model=ProductosComerciales, tags=["comercial"])
+    def comercial_productos(mes: Mes = None, desde: Fecha = None, hasta: Fecha = None, canal: ParamCanal = None,
+                            comparacion: ParamComp = "equivalente", estados: ParamEstados = "todas",
+                            orden: Literal["importe", "unidades", "transacciones"] = "importe",
+                            limite: Annotated[int, Query(ge=1, le=50)] = 10):
+        _fechas(desde, hasta)
+        with conectar(aj.ruta_bd) as c:
+            return co.productos(c, mes, desde, hasta, canal, comparacion, estados, orden, limite)
 
     # ------------------------------------------------------------------ pipeline
     @app.get("/api/pipeline/estado", response_model=EstadoPipeline, tags=["pipeline"])

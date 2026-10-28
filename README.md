@@ -31,7 +31,7 @@ python -m venv .venv
 pip install -r requirements.txt
 
 python -m src.pipeline                 # ETL completo → salidas\etapa_nono\calidad_comercial.db (SQLite) y evidencias
-python -m pytest                       # 442 pruebas (etapas 1-3: 357 · API y frontend: 85)
+python -m pytest                       # 516 pruebas (etapas 1-3: 357 · API y comercial: 159)
 python datos\estres\generar_estres.py  # 48 escenarios con datos corruptos → salidas\etapa_nono\estres\
 python scripts\ejecutar_etapa_leslie.py   # regenera salidas\etapa_leslie\
 python scripts\ejecutar_etapa_yerik.py    # regenera salidas\etapa_yerik\
@@ -50,6 +50,8 @@ python -m uvicorn src.api.main:app --host 127.0.0.1 --port 8000
 cd frontend
 npm run dev                            # abre http://127.0.0.1:5173
 ```
+
+**Pulso comercial** (nuevo): `http://127.0.0.1:5173/pulso-comercial` (ventas, comparación entre períodos, canales y productos; API en `/api/comercial/*`). Si 5173 u 8000 ya están ocupados, usa otros puertos: `$env:KOVA_API_URL="http://127.0.0.1:8001"; $env:KOVA_WEB_PORT="5174"; npm run dev` y `python -m uvicorn src.api.main:app --port 8001`. Detalle en `docs/MEJORAS_KOVA_PULSO_COMERCIAL.md`.
 
 Con una sola terminal: `cd frontend; npm run build` y abrir http://127.0.0.1:8000 (FastAPI sirve `frontend\dist`). Desde el **Centro ETL** se puede ejecutar el pipeline real (con confirmación y sin ejecuciones simultáneas). Pruebas del frontend: `cd frontend; npm run lint; npm test; npm run build`. Detalle completo: `docs/RESUMEN_AVANCE_FRONTEND.md`; capturas: `evidencias/GUIA_CAPTURAS_FRONTEND.md`.
 

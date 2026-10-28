@@ -1,6 +1,7 @@
 import type {
   Calidad, CuarentenaResumen, Dashboard, DetalleCuarentena, DetalleEjecucion, DetalleTransaccion, Ejecucion,
-  EstadoPipeline, Facetas, ListaReportes, Pagina, PaginaCatalogo, PaginaTransacciones, Salud,
+  EstadoPipeline, Facetas, ListaReportes, OpcionesComerciales, Pagina, PaginaCatalogo, PaginaTransacciones, ProductosComerciales,
+  ResumenComercial, Salud, TendenciaComercial,
 } from "./tipos";
 
 /** Error con forma estable {codigo, mensaje}: viene de la API o describe un fallo de conexión. */
@@ -56,6 +57,10 @@ async function pedir<T>(ruta: string, init?: RequestInit, senal?: AbortSignal): 
 const get = <T,>(ruta: string, params?: Params, senal?: AbortSignal) => pedir<T>(`/api${ruta}${querystring(params)}`, undefined, senal);
 
 export const api = {
+  comercialOpciones: (s?: AbortSignal) => get<OpcionesComerciales>("/comercial/opciones", undefined, s),
+  comercialResumen: (p: Params, s?: AbortSignal) => get<ResumenComercial>("/comercial/resumen", p, s),
+  comercialTendencia: (p: Params, s?: AbortSignal) => get<TendenciaComercial>("/comercial/tendencia", p, s),
+  comercialProductos: (p: Params, s?: AbortSignal) => get<ProductosComerciales>("/comercial/productos", p, s),
   salud: (s?: AbortSignal) => get<Salud>("/salud", undefined, s),
   dashboard: (s?: AbortSignal) => get<Dashboard>("/dashboard", undefined, s),
   facetas: (s?: AbortSignal) => get<Facetas>("/facetas", undefined, s),

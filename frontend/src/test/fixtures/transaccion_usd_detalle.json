@@ -1,0 +1,311 @@
+{
+ "moneda": {
+  "moneda_original": "USD",
+  "es_usd": true,
+  "tipo_cambio": 19.5,
+  "precio_original": 216.31,
+  "importe_original": 17304.8,
+  "precio_mxn": 4218.05,
+  "importe_mxn": 4218.05,
+  "importe_mxn_capping": 4218.05,
+  "capping_aplicado": false,
+  "importe_original_coherente": 216.31,
+  "importe_original_corregido": true,
+  "formula": "precio MXN = redondear(precio USD × 19.5); importe MXN = redondear(cantidad × precio MXN)"
+ },
+ "transaccion": {
+  "id_transaccion": "WEB-00237",
+  "origen": "ONLINE",
+  "id_fila_origen": 237,
+  "fecha_cruda": "1790223960",
+  "fecha_venta": "2026-09-23",
+  "punto_venta": "TIENDA_ONLINE",
+  "id_producto": "PROD-018",
+  "nombre_producto": "Artículo Juguetería Ref-018",
+  "categoria": "Juguetería",
+  "cantidad_origen": 1.0,
+  "cantidad": 1,
+  "cantidad_cap": 1,
+  "moneda_original": "USD",
+  "moneda": "MXN",
+  "tipo_cambio_aplicado": 19.5,
+  "precio_unitario_original": 216.31,
+  "precio_unitario_mxn": 4218.05,
+  "monto_total_origen": 17304.8,
+  "monto_total_mxn": 4218.05,
+  "monto_cantidad_cap_mxn": 4218.05,
+  "monto_total_mxn_cap": 4218.05,
+  "monto_minmax": 0.332083,
+  "segmento_importe": "Alto",
+  "id_cliente": null,
+  "email_cliente": "usuario_6269@gmail.com",
+  "direccion_envio": "Calle 26 No. 541, Colima",
+  "metodo_pago": "PAYPAL",
+  "estado_pedido": "CANCELADO",
+  "es_outlier_cantidad": 0,
+  "es_outlier_monto": 0,
+  "alertas": [],
+  "correcciones": [
+   "MONTO_RECALCULADO_INCONSISTENTE",
+   "FECHA_DESDE_EPOCH",
+   "CONVERTIDO_USD_MXN"
+  ],
+  "lote_id": "L20261027-105330-2d81",
+  "fecha_carga": "2026-10-27T10:53:30"
+ },
+ "registro_original": {
+  "order_id": "WEB-00237",
+  "order_timestamp": 1790223960,
+  "product_id": "PROD-018",
+  "units": 1,
+  "currency": "USD",
+  "unit_price": 216.31,
+  "total_amount": 17304.8,
+  "customer_email": "usuario_6269@gmail.com",
+  "shipping_address": "Calle 26 No. 541, Colima",
+  "order_status": "CANCELADO",
+  "payment_gateway": "PayPal"
+ },
+ "trazabilidad": [
+  {
+   "clave": "original",
+   "titulo": "Dato original",
+   "estado": "ok",
+   "descripcion": "Registro tal como llegó en el JSON online (fila 237).",
+   "campos": [
+    {
+     "campo": "order_id",
+     "antes": "WEB-00237",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "order_timestamp",
+     "antes": 1790223960,
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "product_id",
+     "antes": "PROD-018",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "units",
+     "antes": 1,
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "currency",
+     "antes": "USD",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "unit_price",
+     "antes": 216.31,
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "total_amount",
+     "antes": 17304.8,
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "customer_email",
+     "antes": "usuario_6269@gmail.com",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "shipping_address",
+     "antes": "Calle 26 No. 541, Colima",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "order_status",
+     "antes": "CANCELADO",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "payment_gateway",
+     "antes": "PayPal",
+     "despues": null,
+     "cambio": false,
+     "nota": null
+    }
+   ],
+   "codigos": []
+  },
+  {
+   "clave": "homologacion",
+   "titulo": "Homologación y normalización",
+   "estado": "ok",
+   "descripcion": "Esquema unificado, fechas ISO, texto normalizado y conversión de moneda.",
+   "campos": [
+    {
+     "campo": "fecha",
+     "antes": 1790223960,
+     "despues": "2026-09-23",
+     "cambio": true,
+     "nota": "formato detectado: EPOCH → ISO 8601 (YYYY-MM-DD)"
+    },
+    {
+     "campo": "producto",
+     "antes": "PROD-018",
+     "despues": "PROD-018",
+     "cambio": false,
+     "nota": "columna de origen: product_id"
+    },
+    {
+     "campo": "moneda",
+     "antes": "USD",
+     "despues": "USD",
+     "cambio": false,
+     "nota": "columna de origen: currency"
+    },
+    {
+     "campo": "correo",
+     "antes": "usuario_6269@gmail.com",
+     "despues": "usuario_6269@gmail.com",
+     "cambio": false,
+     "nota": "columna de origen: customer_email"
+    },
+    {
+     "campo": "dirección",
+     "antes": "Calle 26 No. 541, Colima",
+     "despues": "Calle 26 No. 541, Colima",
+     "cambio": false,
+     "nota": "columna de origen: shipping_address"
+    },
+    {
+     "campo": "método de pago",
+     "antes": "PayPal",
+     "despues": "PAYPAL",
+     "cambio": true,
+     "nota": "columna de origen: payment_gateway"
+    },
+    {
+     "campo": "estado del pedido",
+     "antes": "CANCELADO",
+     "despues": "CANCELADO",
+     "cambio": false,
+     "nota": "columna de origen: order_status"
+    },
+    {
+     "campo": "precio unitario",
+     "antes": 216.31,
+     "despues": 4218.05,
+     "cambio": true,
+     "nota": "USD × 19.5 → MXN"
+    }
+   ],
+   "codigos": [
+    "FECHA_DESDE_EPOCH",
+    "CONVERTIDO_USD_MXN"
+   ]
+  },
+  {
+   "clave": "correcciones",
+   "titulo": "Correcciones",
+   "estado": "corregido",
+   "descripcion": "Faltantes imputados e importes recalculados. El valor original se conserva en la base.",
+   "campos": [
+    {
+     "campo": "monto total (origen → MXN)",
+     "antes": 17304.8,
+     "despues": 4218.05,
+     "cambio": true,
+     "nota": "recalculado como cantidad × precio"
+    }
+   ],
+   "codigos": [
+    "MONTO_RECALCULADO_INCONSISTENTE"
+   ]
+  },
+  {
+   "clave": "capping",
+   "titulo": "Tratamiento estadístico (IQR)",
+   "estado": "sin_cambios",
+   "descripcion": "Ningún valor de este registro superó los límites del IQR.",
+   "campos": [
+    {
+     "campo": "cantidad → cantidad con capping",
+     "antes": 1,
+     "despues": 1,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "importe MXN → importe con capping",
+     "antes": 4218.05,
+     "despues": 4218.05,
+     "cambio": false,
+     "nota": null
+    }
+   ],
+   "codigos": []
+  },
+  {
+   "clave": "transformacion",
+   "titulo": "Transformación",
+   "estado": "ok",
+   "descripcion": "Escalamiento Min-Max a [0, 1] y segmento por terciles, calculados sobre la base estadística.",
+   "campos": [
+    {
+     "campo": "monto_minmax",
+     "antes": null,
+     "despues": 0.332083,
+     "cambio": false,
+     "nota": null
+    },
+    {
+     "campo": "segmento_importe",
+     "antes": null,
+     "despues": "Alto",
+     "cambio": false,
+     "nota": null
+    }
+   ],
+   "codigos": []
+  },
+  {
+   "clave": "validacion",
+   "titulo": "Validación Pydantic",
+   "estado": "aceptado",
+   "descripcion": "Cumplió todas las reglas del modelo: se prepara para la tabla final.",
+   "campos": [],
+   "codigos": []
+  },
+  {
+   "clave": "resultado",
+   "titulo": "Resultado",
+   "estado": "aceptado",
+   "descripcion": "Cargada en transacciones_limpias (lote L20261027-105330-2d81).",
+   "campos": [],
+   "codigos": []
+  }
+ ],
+ "glosario": {
+  "MONTO_RECALCULADO_INCONSISTENTE": "Monto distinto de cantidad × precio → recalculado; el original se conserva (R6.3).",
+  "FECHA_DESDE_EPOCH": "Formato de fecha de origen.",
+  "CONVERTIDO_USD_MXN": "Importes en USD convertidos a MXN con la paridad oficial de 19.50 (R7)."
+ },
+ "cuarentena_relacionada": []
+}

@@ -1,7 +1,7 @@
 import { Suspense, useState, type FormEvent } from "react";
 import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
-  ChevronRight, History, LayoutDashboard, Menu, Package, ReceiptText, ScanSearch, Search, ShieldAlert, Sprout, Workflow, X,
+  ChevronRight, History, LayoutDashboard, Menu, Package, ReceiptText, ScanSearch, Search, ShieldAlert, Sprout, TrendingUp, Workflow, X,
 } from "lucide-react";
 import { Isotipo, Logotipo } from "../components/brand/Marca";
 import { Insignia } from "../components/ui/Basicos";
@@ -13,6 +13,7 @@ const GRUPOS = [
   { titulo: "Resumen", items: [
     { a: "/", texto: "Inicio", icono: Sprout, fin: true },
     { a: "/panel", texto: "Panel ejecutivo", icono: LayoutDashboard },
+    { a: "/pulso-comercial", texto: "Pulso comercial", icono: TrendingUp },
   ] },
   { titulo: "Proceso", items: [
     { a: "/etl", texto: "Centro ETL", icono: Workflow },

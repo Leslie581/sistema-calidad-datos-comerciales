@@ -1,4 +1,18 @@
 {
+ "moneda": {
+  "moneda_original": "MXN",
+  "es_usd": false,
+  "tipo_cambio": null,
+  "precio_original": 3443.17,
+  "importe_original": 826360.8,
+  "precio_mxn": 3443.17,
+  "importe_mxn": 10329.51,
+  "importe_mxn_capping": 10329.51,
+  "capping_aplicado": false,
+  "importe_original_coherente": null,
+  "importe_original_corregido": false,
+  "formula": null
+ },
  "transaccion": {
   "id_transaccion": "WEB-00508",
   "origen": "ONLINE",
@@ -35,8 +49,8 @@
    "MONTO_RECALCULADO_INCONSISTENTE",
    "FECHA_DESDE_ISO_DATETIME"
   ],
-  "lote_id": "L20261026-011336-586b",
-  "fecha_carga": "2026-10-26T01:13:36"
+  "lote_id": "L20261027-105330-2d81",
+  "fecha_carga": "2026-10-27T10:53:30"
  },
  "registro_original": {
   "order_id": "WEB-00508",
@@ -281,7 +295,7 @@
    "clave": "resultado",
    "titulo": "Resultado",
    "estado": "aceptado",
-   "descripcion": "Cargada en transacciones_limpias (lote L20261026-011336-586b).",
+   "descripcion": "Cargada en transacciones_limpias (lote L20261027-105330-2d81).",
    "campos": [],
    "codigos": []
   }

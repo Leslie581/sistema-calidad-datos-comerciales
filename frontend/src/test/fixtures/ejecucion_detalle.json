@@ -1,14 +1,14 @@
 {
  "ejecucion": {
-  "lote_id": "L20261026-011336-586b",
+  "lote_id": "L20261027-105330-2d81",
   "estado": "COMPLETADO",
-  "inicio": "2026-10-26T01:13:36",
-  "fin": "2026-10-26T01:13:36",
+  "inicio": "2026-10-27T10:53:30",
+  "fin": "2026-10-27T10:53:30",
   "filas_entrada": 1220,
   "filas_limpias": 1104,
   "filas_cuarentena": 116,
   "tasa_aceptacion": 0.9049,
-  "duracion_s": 0.391,
+  "duracion_s": 0.376,
   "etapa_fallida": null,
   "error": null,
   "tiene_bitacora": true,
@@ -21,7 +21,7 @@
    "nombre": "Diagnóstico inicial",
    "responsable": "Leslie",
    "estado": "COMPLETADA",
-   "duracion_s": 0.068,
+   "duracion_s": 0.069,
    "metricas": {
     "filas_fuentes": {
      "catalogo": 50,
@@ -46,7 +46,7 @@
    "nombre": "Manejo de faltantes",
    "responsable": "Leslie",
    "estado": "COMPLETADA",
-   "duracion_s": 0.028,
+   "duracion_s": 0.032,
    "metricas": {
     "duplicados_marcados": 20,
     "montos_recalculados": 44,
@@ -68,7 +68,7 @@
    "nombre": "Outliers (IQR y capping)",
    "responsable": "Leslie",
    "estado": "COMPLETADA",
-   "duracion_s": 0.016,
+   "duracion_s": 0.058,
    "metricas": {
     "base_estadistica": 1129,
     "limite_superior_monto": 12032.68,
@@ -86,7 +86,7 @@
    "nombre": "Integración",
    "responsable": "Yerik",
    "estado": "COMPLETADA",
-   "duracion_s": 0.022,
+   "duracion_s": 0.023,
    "metricas": {
     "filas": 1220
    },
@@ -101,7 +101,7 @@
    "nombre": "Transformación",
    "responsable": "Yerik",
    "estado": "COMPLETADA",
-   "duracion_s": 0.005,
+   "duracion_s": 0.004,
    "metricas": {
     "min": 332.67,
     "max": 12032.68,
@@ -138,7 +138,7 @@
    "nombre": "Carga transaccional",
    "responsable": "Nono",
    "estado": "COMPLETADA",
-   "duracion_s": 0.119,
+   "duracion_s": 0.056,
    "metricas": {
     "estado": "COMMIT",
     "limpias": 1104,
@@ -163,27 +163,27 @@
   "ventas_online.json": "a2f150d331aba7bee98df30df501be1966d831488942b5f2c5eb1134c5dbdd7b"
  },
  "duracion_etapas_s": {
-  "1. Extracción": 0.024,
-  "2. Perfilado inicial y MCAR/MAR (informativo)": 0.044,
+  "1. Extracción": 0.031,
+  "2. Perfilado inicial y MCAR/MAR (informativo)": 0.038,
   "3. Homologación": 0.012,
-  "4. Limpieza e imputación": 0.016,
-  "5. Integración (fechas, USD→MXN, catálogo)": 0.022,
-  "6. IQR y capping": 0.016,
-  "7. Min-Max y discretización": 0.005,
+  "4. Limpieza e imputación": 0.02,
+  "5. Integración (fechas, USD→MXN, catálogo)": 0.023,
+  "6. IQR y capping": 0.058,
+  "7. Min-Max y discretización": 0.004,
   "8. Validación Pydantic y cuarentena": 0.058,
-  "9. Carga transaccional SQLite": 0.119
+  "9. Carga transaccional SQLite": 0.056
  },
  "log": [
-  "2026-10-26 01:13:36,109 INFO    src.pipeline: ▶ 1. Extracción",
-  "2026-10-26 01:13:36,134 INFO    src.pipeline: ▶ 2. Perfilado inicial y MCAR/MAR (informativo)",
-  "2026-10-26 01:13:36,178 INFO    src.pipeline: ▶ 3. Homologación",
-  "2026-10-26 01:13:36,220 INFO    src.pipeline: ▶ 4. Limpieza e imputación",
-  "2026-10-26 01:13:36,235 INFO    src.pipeline: ▶ 5. Integración (fechas, USD→MXN, catálogo)",
-  "2026-10-26 01:13:36,257 INFO    src.pipeline: ▶ 6. IQR y capping"
+  "2026-10-27 10:53:30,273 INFO    src.pipeline: ▶ 1. Extracción",
+  "2026-10-27 10:53:30,304 INFO    src.pipeline: ▶ 2. Perfilado inicial y MCAR/MAR (informativo)",
+  "2026-10-27 10:53:30,342 INFO    src.pipeline: ▶ 3. Homologación",
+  "2026-10-27 10:53:30,389 INFO    src.pipeline: ▶ 4. Limpieza e imputación",
+  "2026-10-27 10:53:30,409 INFO    src.pipeline: ▶ 5. Integración (fechas, USD→MXN, catálogo)",
+  "2026-10-27 10:53:30,432 INFO    src.pipeline: ▶ 6. IQR y capping"
  ],
  "bitacora_disponible": true,
  "reportes_ejecucion": {
   "carpeta": "etapa_nono",
-  "bitacora": "bitacoras/bitacora_L20261026-011336-586b.json"
+  "bitacora": "bitacoras/bitacora_L20261027-105330-2d81.json"
  }
 }

@@ -130,6 +130,7 @@ export interface CuarentenaResumen {
 }
 
 export interface DetalleTransaccion {
+  moneda: MonedaTransaccion;
   transaccion: Record<string, unknown> & TransaccionResumen & { correcciones: string[]; lote_id: string };
   registro_original: Record<string, unknown>;
   trazabilidad: EtapaTraza[];
@@ -237,4 +238,138 @@ export interface Calidad {
   faltantes: Json;
   antes_despues: Record<string, string>[] | null;
   conteo_correcciones: Record<string, number> | null;
+}
+
+// ---------------------------------------------------------------- Pulso comercial
+export type EstadoDiagnostico = "crecimiento" | "estable" | "disminucion" | "sin_comparacion" | "no_concluyente" | "sin_datos";
+export type ModoComparacion = "equivalente" | "mes_anterior_completo" | "ninguna";
+export type EstadosVenta = "todas" | "efectivas";
+
+export interface PeriodoComercial {
+  inicio: string;
+  fin: string;
+  dias: number;
+  dias_cubiertos: number;
+  cobertura: number;
+  parcial: boolean;
+  etiqueta: string;
+  dias_calendario_mes: number | null;
+}
+export interface IndicadoresVenta {
+  transacciones: number;
+  importe: number;
+  unidades: number;
+  ticket_promedio: number | null;
+  promedio_diario: number | null;
+  dias_con_ventas: number;
+  primera_venta: string | null;
+  ultima_venta: string | null;
+}
+export interface MensajeComercial {
+  id: string;
+  tipo: "tendencia" | "canal" | "aviso" | "info" | "nota";
+  texto: string;
+  evidencia: Record<string, unknown>;
+}
+export interface CanalComercial extends IndicadoresVenta {
+  canal: Canal;
+  participacion_pct: number | null;
+  importe_anterior: number | null;
+  transacciones_anterior: number | null;
+  variacion_importe_pct: number | null;
+}
+export interface ResumenComercial {
+  filtros: { mes: string | null; desde: string | null; hasta: string | null; canal: Canal | null; comparacion: ModoComparacion; estados: EstadosVenta };
+  modo: "mes" | "personalizado";
+  periodo: PeriodoComercial;
+  anterior: PeriodoComercial | null;
+  homogeneo: boolean;
+  avisos: string[];
+  cobertura_datos: { inicio: string; fin: string };
+  actual: IndicadoresVenta;
+  anterior_kpis: IndicadoresVenta | null;
+  variaciones: { importe_pct: number | null; transacciones_pct: number | null; ticket_promedio_pct: number | null; promedio_diario_pct: number | null };
+  canales: CanalComercial[];
+  atipicas: { transacciones: number; importe: number; participacion_pct: number | null; sin_atipicas: { actual: number; anterior: number | null; variacion_pct: number | null } | null };
+  no_efectivas: { transacciones: number; importe: number };
+  diagnostico: { estado: EstadoDiagnostico; titular: string; mensajes: MensajeComercial[] };
+  criterios: Record<string, number>;
+  definicion_importe: { campo: string; texto: string; no_es: string };
+}
+export interface DiaTendencia {
+  indice: number;
+  fecha: string;
+  importe: number | null;
+  transacciones: number | null;
+  ticket_promedio: number | null;
+  fisica: number | null;
+  online: number | null;
+  acumulado: number | null;
+  fecha_anterior: string | null;
+  importe_anterior: number | null;
+  transacciones_anterior: number | null;
+  ticket_anterior: number | null;
+  acumulado_anterior: number | null;
+}
+export interface MesComercial {
+  mes: string;
+  etiqueta: string;
+  inicio_datos: string;
+  fin_datos: string;
+  dias_mes: number;
+  dias_cubiertos: number;
+  parcial: boolean;
+  transacciones: number;
+  importe: number;
+  promedio_diario: number | null;
+}
+export interface TendenciaComercial {
+  periodo: PeriodoComercial;
+  anterior: PeriodoComercial | null;
+  homogeneo: boolean;
+  dias: DiaTendencia[];
+  meses: MesComercial[];
+  avisos: string[];
+}
+export interface ProductoComercial {
+  id_producto: string;
+  nombre_producto: string;
+  categoria: string;
+  transacciones: number;
+  unidades: number;
+  importe: number;
+  participacion_pct: number | null;
+}
+export interface ProductosComerciales {
+  periodo: PeriodoComercial;
+  orden: string;
+  importe_total: number;
+  productos_distintos: number;
+  productos: ProductoComercial[];
+  categorias: { categoria: string; transacciones: number; unidades: number; importe: number; participacion_pct: number | null }[];
+  avisos: string[];
+  nota: string;
+}
+export interface OpcionesComerciales {
+  hay_datos: boolean;
+  cobertura: { inicio: string | null; fin: string | null };
+  meses: MesComercial[];
+  mes_por_defecto: string | null;
+  canales: Canal[];
+  comparaciones: ModoComparacion[];
+  estados: EstadosVenta[];
+}
+export interface MonedaTransaccion {
+  moneda_original: "MXN" | "USD";
+  es_usd: boolean;
+  tipo_cambio: number | null;
+  precio_original: number | null;
+  importe_original: number | null;
+  precio_mxn: number;
+  importe_mxn: number;
+  importe_mxn_capping: number;
+  capping_aplicado: boolean;
+  importe_original_coherente: number | null;
+  importe_original_corregido: boolean;
+  formula: string | null;
 }

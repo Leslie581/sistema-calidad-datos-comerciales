@@ -111,3 +111,21 @@ export function FondoCatalogo({ className = "" }: P) {
     </svg>
   );
 }
+
+/** Pulso comercial: curvas ascendentes y descendentes (ritmo de ventas), con retícula de referencia y un punto ámbar de «hoy». */
+export function FondoPulso({ className = "", oscuro = true }: P) {
+  const c = oscuro ? "#B8E8CE" : "#215548";
+  const curva = (k: number) => {
+    const y = 250 - k * 26;
+    return `M-20 ${y + 60} C 120 ${y + 20 - k * 4}, 200 ${y + 90}, 330 ${y + 30} S 520 ${y - 40 + k * 6}, 650 ${y - 10} S 900 ${y + 70}, 1030 ${y - 30 - k * 5} S 1160 ${y - 70}, 1240 ${y - 40}`;
+  };
+  return (
+    <svg className={`${base} ${className}`} viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      {Array.from({ length: 6 }, (_, i) => <line key={i} x1="0" x2="1200" y1={60 + i * 62} y2={60 + i * 62} stroke={c} strokeOpacity="0.07" />)}
+      {Array.from({ length: 12 }, (_, i) => <line key={i} y1="0" y2="400" x1={50 + i * 100} x2={50 + i * 100} stroke={c} strokeOpacity="0.05" strokeDasharray="2 8" />)}
+      {Array.from({ length: 6 }, (_, k) => <path key={k} d={curva(k)} fill="none" stroke={k === 2 ? "#D99B45" : c} strokeOpacity={k === 2 ? 0.55 : 0.1 + k * 0.02} strokeWidth={k === 2 ? 2 : 1.2} />)}
+      <circle cx="1030" cy={250 - 2 * 26 - 30 - 10} r="5" fill="#D99B45" />
+      <circle cx="1030" cy={250 - 2 * 26 - 30 - 10} r="14" fill="none" stroke="#D99B45" strokeOpacity="0.4" />
+    </svg>
+  );
+}

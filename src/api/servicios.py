@@ -337,6 +337,25 @@ def _etapas_limpia(r: dict, crudo: dict) -> list[dict]:
     ]
 
 
+def _moneda(r: dict) -> dict:
+    """Conceptos monetarios de una transacción, SOLO con campos persistidos. Para MXN no hay conversión que mostrar."""
+    usd = r["moneda_original"] == "USD"
+    capping = abs((r["monto_total_mxn_cap"] or 0) - (r["monto_total_mxn"] or 0)) > 0.005
+    out = {"moneda_original": r["moneda_original"], "es_usd": usd, "tipo_cambio": r["tipo_cambio_aplicado"] if usd else None,
+           "precio_original": r["precio_unitario_original"], "importe_original": r["monto_total_origen"],
+           "precio_mxn": r["precio_unitario_mxn"], "importe_mxn": r["monto_total_mxn"], "importe_mxn_capping": r["monto_total_mxn_cap"],
+           "capping_aplicado": capping,
+           "importe_original_coherente": None, "importe_original_corregido": False,
+           "formula": None}
+    if usd:
+        out["importe_original_coherente"] = round((r["cantidad"] or 0) * (r["precio_unitario_original"] or 0), 2)
+        corr = _json(r["correcciones"], []) if isinstance(r["correcciones"], str) else r["correcciones"]
+        out["importe_original_corregido"] = any(c.startswith("MONTO_RECALCULADO_") for c in corr)
+        out["formula"] = (f"precio MXN = redondear(precio USD × {r['tipo_cambio_aplicado']:g}); "
+                          "importe MXN = redondear(cantidad × precio MXN)")
+    return out
+
+
 def detalle_transaccion(conn, id_transaccion: str) -> dict:
     r = fila(conn, "SELECT * FROM transacciones_limpias WHERE id_transaccion = ?", (id_transaccion,))
     if r is None:
@@ -348,7 +367,7 @@ def detalle_transaccion(conn, id_transaccion: str) -> dict:
     r["alertas"], r["correcciones"] = _json(r["alertas"], []), _json(r["correcciones"], [])
     fila_pub = {k: v for k, v in r.items() if k != "registro_original"}
     etapas = _etapas_limpia({**r, "alertas": json.dumps(r["alertas"]), "correcciones": json.dumps(r["correcciones"])}, crudo)
-    return {"transaccion": fila_pub, "registro_original": crudo, "trazabilidad": etapas,
+    return {"transaccion": fila_pub, "registro_original": crudo, "trazabilidad": etapas, "moneda": _moneda(r),
             "glosario": {c: GLOSARIO_CORRECCIONES.get(c) or ("Formato de fecha de origen." if c.startswith("FECHA_DESDE_") else None)
                          for c in r["correcciones"]},
             "cuarentena_relacionada": [_cuarentena_publica(x) for x in relacionadas]}

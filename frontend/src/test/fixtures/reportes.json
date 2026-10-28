@@ -366,12 +366,12 @@
    "carpeta": "etapa_nono",
    "archivos": [
     {
-     "ruta": "bitacoras/bitacora_L20261026-011336-586b.json",
-     "nombre": "bitacora_L20261026-011336-586b.json",
+     "ruta": "bitacoras/bitacora_L20261027-105330-2d81.json",
+     "nombre": "bitacora_L20261027-105330-2d81.json",
      "tipo": "json",
-     "bytes": 14725,
-     "modificado": 1792998816.4556026,
-     "url": "/api/reportes/etapa_nono/bitacoras/bitacora_L20261026-011336-586b.json"
+     "bytes": 14724,
+     "modificado": 1793120010.609293,
+     "url": "/api/reportes/etapa_nono/bitacoras/bitacora_L20261027-105330-2d81.json"
     }
    ]
   }

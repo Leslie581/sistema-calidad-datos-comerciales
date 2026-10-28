@@ -59,8 +59,8 @@ export default function Calidad() {
     <div className="space-y-6">
       <section className="panel entra relative isolate overflow-hidden px-6 py-8 sm:px-10">
         <FondoOrden className="-z-10" />
-        <Encabezado etiqueta="Proceso · calidad de datos" titulo="Qué tan limpio llegó el dato, y qué se hizo con él">
-          Resultados estadísticos reales del pipeline: perfil inicial, faltantes, imputaciones, outliers y su tratamiento. Cada número indica su fuente.
+        <Encabezado etiqueta="Proceso" titulo="Calidad de datos">
+          Qué se corrigió y qué se trató estadísticamente, con resultados reales del pipeline.
         </Encabezado>
         <div className="mt-6 grid gap-3 md:grid-cols-3">
           {Object.entries(datos.distincion).map(([k, v], i) => (
